@@ -4,7 +4,12 @@
   "description": "ClubView Main Repo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "quiet-lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix --quiet",
+    "lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
+    "format": "npx prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
+    "format:check": "npx prettier --check \"**/*.{ts,js,tsx,jsx,css}\"",
+    "type-check": "cd frontend && npm run type-check && cd ../server && npm run type-check"
   },
   "repository": {
     "type": "git",
