@@ -5,6 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start:frontend": "cd frontend && npm run start",
+    "start:server": "cd server && npm run start",
+    "build:frontend": "cd frontend && npm run build",
+    "build:server": "cd server && npm run tsc",
+    "install:frontend": "cd frontend && npm install",
+    "install:server": "cd server && npm install",
+    "postinstall": "npm run install:frontend && npm run install:server",
     "quiet-lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix --quiet",
     "lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
     "format": "npx prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
