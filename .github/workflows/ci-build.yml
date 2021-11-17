@@ -15,4 +15,4 @@ jobs:
       - name: Build Frontend
         run: CI='' npm run build:frontend
       - name: Build Server
-        run: CI='' npm run build:server
+        run: CI='' npm run build:backend
