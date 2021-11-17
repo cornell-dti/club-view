@@ -11,12 +11,12 @@
     "build:server": "cd backend && npm run tsc",
     "install:frontend": "cd frontend && npm install",
     "install:server": "cd backend && npm install",
-    "postinstall": "npm run install:frontend && npm run install:server",
+    "postinstall": "npm run install:frontend && npm run install:backend",
     "quiet-lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix --quiet",
     "lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
     "format": "npx prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
     "format:check": "npx prettier --check \"**/*.{ts,js,tsx,jsx,css}\"",
-    "type-check": "cd frontend && npm run type-check && cd ../server && npm run type-check"
+    "type-check": "cd frontend && npm run type-check && cd ../backend && npm run type-check"
   },
   "repository": {
     "type": "git",
