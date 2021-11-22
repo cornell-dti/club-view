@@ -19,7 +19,10 @@
     "lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
     "format": "npx prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
     "format:check": "npx prettier --check \"**/*.{ts,js,tsx,jsx,css}\"",
-    "type-check": "cd frontend && npm run type-check && cd ../backend && npm run type-check"
+    "type-check:frontend" : "npm run type-check --workspace=frontend",
+    "type-check:backend" : "npm run type-check --workspace=backend",
+    "type-check": "concurrently \"npm run type-check:frontend\" \"npm run type-check:backend\""
+
   },
   "repository": {
     "type": "git",
