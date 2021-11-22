@@ -1,11 +1,11 @@
 import express from 'express';
 import admin from 'firebase-admin';
 import cors from 'cors';
-import "firebase/auth";
-import * as dotenv from "dotenv";
+import 'firebase/auth';
+import * as dotenv from 'dotenv';
 
-import clubRoutes from "./router/club";
-import studentRoutes from "./router/student"
+import clubRoutes from './router/club';
+import studentRoutes from './router/student';
 
 dotenv.config();
 
@@ -19,16 +19,16 @@ admin.initializeApp({
   // messagingSenderId: "SENDER_ID",
   // appId: "APP_ID",
   // measurementId: "G-MEASUREMENT_ID",
-})
+});
 const db = admin.firestore();
 const app = express();
 
 app.use(cors({ origin: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use("/club", clubRoutes);
-app.use("/student", studentRoutes);
+app.use('/club', clubRoutes);
+app.use('/student', studentRoutes);
 
-app.listen(3000, function(){
-    console.log("Server listening on Port 3000");
-})
+app.listen(3000, function () {
+  console.log('Server listening on Port 3000');
+});
