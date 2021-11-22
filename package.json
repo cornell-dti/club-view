@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "ClubView Main Repo",
   "main": "index.js",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start --workspaces",
     "start:frontend": "cd frontend && npm run start",
     "start:backend": "cd backend && npm run start",
     "build:frontend": "cd frontend && npm run build",
@@ -12,7 +17,7 @@
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "postinstall": "npm run install:frontend && npm run install:backend",
-    "quiet-lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix --quiet",
+    "quiet-lint": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix --quiet",
     "lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
     "format": "npx prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
     "format:check": "npx prettier --check \"**/*.{ts,js,tsx,jsx,css}\"",
