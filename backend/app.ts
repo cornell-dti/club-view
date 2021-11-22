@@ -28,3 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/club", clubRoutes);
 app.use("/student", studentRoutes);
+
+app.listen(3000, function(){
+    console.log("Server listening on Port 3000");
+})
