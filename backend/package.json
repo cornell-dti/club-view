@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon --exec \"ts-node\" app.ts",
@@ -27,5 +26,14 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.12"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cornell-dti/club-view.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cornell-dti/club-view/issues"
+  },
+  "homepage": "https://github.com/cornell-dti/club-view#readme",
+  "description": ""
 }
