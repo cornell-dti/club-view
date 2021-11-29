@@ -17,9 +17,9 @@
     "install:backend": "cd backend && npm install",
     "postinstall": "npm run install:frontend && npm run install:backend",
     "quiet-lint": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix --quiet",
-    "lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
-    "format": "npx prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
-    "format:check": "npx prettier --check \"**/*.{ts,js,tsx,jsx,css}\"",
+    "lint": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
+    "format": "prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,js,tsx,jsx,css}\"",
     "type-check:frontend": "npm run type-check --workspace=frontend",
     "type-check:backend": "npm run type-check --workspace=backend",
     "type-check": "concurrently \"npm run type-check:frontend\" \"npm run type-check:backend\""
