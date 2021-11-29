@@ -4,7 +4,8 @@
   "description": "ClubView Main Repo",
   "main": "index.js",
   "workspaces": [
-    "frontend", "backend"
+    "frontend",
+    "backend"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,17 +13,16 @@
     "start:backend": "npm run start --workspace=backend",
     "build:frontend": "npm run build --workspace=frontend",
     "build:backend": "npm run tsc --workspace=backend",
-    "install:frontend": "npm install --workspace=frontend",
-    "install:backend": "npm install --workspace=backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
     "postinstall": "npm run install:frontend && npm run install:backend",
     "quiet-lint": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix --quiet",
     "lint": "npx eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
     "format": "npx prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
     "format:check": "npx prettier --check \"**/*.{ts,js,tsx,jsx,css}\"",
-    "type-check:frontend" : "npm run type-check --workspace=frontend",
-    "type-check:backend" : "npm run type-check --workspace=backend",
+    "type-check:frontend": "npm run type-check --workspace=frontend",
+    "type-check:backend": "npm run type-check --workspace=backend",
     "type-check": "concurrently \"npm run type-check:frontend\" \"npm run type-check:backend\""
-
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/cornell-dti/club-view#readme",
   "dependencies": {
+    "concurrently": "^6.4.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-promise": "^5.1.1",
     "npm": "^8.1.4",
