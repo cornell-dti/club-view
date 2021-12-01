@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
+/*eslint-disable */
 import clubRoutes from './router/club';
 import studentRoutes from './router/student';
+/* eslint-enable */
 
 config();
 
