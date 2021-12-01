@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import {config} from 'dotenv';
+import { config } from 'dotenv';
 import clubRoutes from './router/club';
 import studentRoutes from './router/student';
 
