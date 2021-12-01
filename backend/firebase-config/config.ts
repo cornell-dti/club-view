@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 
 config();
 
+/* eslint @typescript-eslint/no-var-requires: "off" */
 const serviceAccount = require('../service-account.json');
 
 admin.initializeApp({
