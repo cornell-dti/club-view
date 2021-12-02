@@ -4,7 +4,8 @@
     "target": "es6",
     "outDir": "build",
     "allowJs": true,
-    "module": "commonjs"
+    "module": "commonjs",
+    "noImplicitAny": false
   },
   "include": ["*"],
   "exclude": ["node_modules"]
