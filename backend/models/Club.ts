@@ -1,9 +1,9 @@
-import express from 'express';
-
-const router = express.Router();
-
-router.get('/', (req, res) => {
-  res.send('Getting Clubs...');
-});
-
-export default router;
+export type ClubType = {
+  id: string;
+  name: string;
+  managingStudent: string;
+  category: string;
+  status: string;
+  openDate: string;
+  closeDate: string;
+};

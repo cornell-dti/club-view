@@ -1,9 +1,9 @@
-import express from 'express';
-
-const router = express.Router();
-
-router.get('/', (req, res) => {
-  res.send('Getting Students...');
-});
-
-export default router;
+export type StudentType = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  year: string;
+  favorites: string[];
+  managed: string[];
+};
