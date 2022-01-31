@@ -5,7 +5,7 @@ const router = express.Router();
 
 type Club = {
   name: string;
-}
+};
 
 //Gets all club infrormation
 router.get('/', async (req, res) => {
