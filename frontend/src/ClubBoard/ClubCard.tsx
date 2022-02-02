@@ -2,11 +2,11 @@ import React from 'react';
 import './ClubCard.css';
 
 type Prop = {
-    clubName: string; 
-    clubCategory: string; 
-}
+  clubName: string;
+  clubCategory: string;
+};
 
-const ClubCard = (props : Prop) => {
+const ClubCard = (props: Prop) => {
   return (
     <div className="cardContainer">
       <div className="clubIcon" />
