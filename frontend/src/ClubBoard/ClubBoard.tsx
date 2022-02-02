@@ -1,6 +1,6 @@
 import React from 'react';
 import ClubCard from './ClubCard';
-import { ClubType } from '../../../backend/models/Club';
+import { ClubType } from '../../../backend/types/types';
 import './ClubBoard.css';
 
 const ClubBoard = () => {
