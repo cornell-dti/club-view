@@ -1,14 +1,10 @@
 import React from 'react';
 import ClubCard from './ClubCard';
+import { ClubType } from '../../../backend/models/Club';
 import './ClubBoard.css';
 
-type Club = {
-  name: string;
-  category: string;
-};
-
 const ClubBoard = () => {
-  let clubArray: Club[] = new Array(100).fill({
+  let clubArray: ClubType[] = new Array(100).fill({
     name: 'Club Name',
     category: 'Category',
   });
