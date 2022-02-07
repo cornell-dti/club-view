@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import ClubCard from './ClubBoard/ClubCard';
-import ClubBoard from './ClubBoard/ClubBoard';
+import ClubBoard from './components/ClubBoard/ClubBoard';
 
 function App() {
   return (
