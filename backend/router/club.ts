@@ -1,5 +1,5 @@
 import express from 'express';
-import {ClubType} from '../types/types'
+import { ClubType } from '../types/types';
 import db from '../firebase-config/config';
 
 const router = express.Router();
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
   res.send(clubs);
 });
 
-router.get('/:id', async (req, res)=>{
+router.get('/:id', async (req, res) => {
   const clubId = req.params.id;
   const clubsCollection = db.collection('clubs');
   const ref = clubsCollection.doc(clubId);
@@ -27,6 +27,6 @@ router.get('/:id', async (req, res)=>{
   }
   const data = doc.data() as ClubType;
   res.send(data);
-})
+});
 
 export default router;
