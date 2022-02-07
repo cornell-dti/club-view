@@ -1,5 +1,5 @@
 import React from 'react';
-import ClubCard from '../ClubCard/ClubCard'
+import ClubCard from '../ClubCard/ClubCard';
 import { ClubType } from '../../../../backend/types/types';
 import './ClubBoard.css';
 
