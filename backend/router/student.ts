@@ -45,7 +45,7 @@ router.get('/:id/favorites', async (req, res) => {
       res.status(200).send(favoritesArray);
     });
   }
-
+  // Update a Student's favorites list with club {cid} added
   router.put('/:sid/favorites/:cid', async (req, res) => {
     const sid = req.params.sid;
     const cid = req.params.cid;
