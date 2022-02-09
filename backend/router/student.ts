@@ -58,9 +58,10 @@ router.get('/:id/favorites', async (req, res) => {
     } else if (!club.exists) {
       res.status(404).send({ err: 'Club not found' });
     } else {
-      await studentDoc.collection('favorites').add(clubDoc);
-      const data: ClubType = club.data() as ClubType;
-      res.status(200).send(data);
+      const favorites = await student.get('favorites');
+      const updatedFavorites = [...favorites, club.get('name')];
+      await studentDoc.update({ favorites: updatedFavorites });
+      res.status(200).send(club.get('name'));
     }
   });
 });
