@@ -4,6 +4,7 @@ import db from '../firebase-config/config';
 
 const router = express.Router();
 const students = db.collection('students');
+const clubs = db.collection('clubs');
 
 // Get All Students
 router.get('/', async (req, res) => {
@@ -36,12 +37,12 @@ router.get('/:id/favorites', async (req, res) => {
   if (!student.exists) {
     res.status(404).send({ err: 'Student not found' });
   } else {
-    const favorites = await studentDoc.collection('favorites').get();
+    const favorites = await student.get('favorites');
     const favoritesArray: ClubType[] = [];
     favorites.forEach((fav) => {
-      const favorite = fav.data() as ClubType;
-      favoritesArray.push(favorite);
-      res.status(200).send(favoritesArray);
+      console.log(fav);
+      favoritesArray.push(fav);
+      res.status(200).send(fav);
     });
   }
 });
