@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 /*eslint-disable */
+import { authMiddleware } from './router/auth';
 import clubRoutes from './router/club';
 import studentRoutes from './router/student';
 /* eslint-enable */

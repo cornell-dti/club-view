@@ -1,6 +1,6 @@
 import express from 'express';
 import { ClubType } from '../types/types';
-import db from '../firebase-config/config';
+import { db } from '../firebase-config/config';
 
 const router = express.Router();
 
