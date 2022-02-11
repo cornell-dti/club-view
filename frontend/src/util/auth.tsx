@@ -41,12 +41,10 @@ function SignIn() {
       const token = credential?.accessToken;
       const user = result.user;
       // console.log(user);
-      user.getIdToken()
-      .then((id_token) => {
+      user.getIdToken().then((id_token) => {
         //save id token to context, then use to make authorized requests.
         console.log(id_token);
       });
-      
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -55,7 +53,7 @@ function SignIn() {
       console.log(errorCode, errorMessage, email);
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
-};
+}
 
 const signOutUser = () => {
   signOut(auth)
