@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import './Dropdown.css';
-import { CategoryType } from '../../../../../backend/types/types'; // ISSUE: This throws an error, but ClubBoard.tsx's import does not. Why?
-// import { CategoryType } from './categories'; // This is a suboptimal work-around to the above import problem.
+// import { CategoryType } from '../../../../../backend/types/types'; //TODO FOR DANIEL: TO FIX
+import { CategoryType } from './categories';
 
 const Dropdown = ({ callback }: { callback: any }) => {
-  // Helper function to convert the strings in types.ts to human-readable Title Case so
-  // no hard-coding is necessary
+  // Helper function to convert the strings in the imported enum to human-readable Title Case so no hard-coding is necessary
   function toTitleCase(str: string) {
     return str.replace(/\w\S*/g, function (txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
 
+  // When a Category selection is made, we call the callback that was passed in to notify the parent component
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setValue(event.target.value);
     callback(event.target.value);

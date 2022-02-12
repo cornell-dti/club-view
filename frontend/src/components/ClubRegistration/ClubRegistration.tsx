@@ -4,7 +4,6 @@ import Dropdown from './Dropdown/Dropdown';
 
 const ClubRegistration = () => {
   // Controlled values for all the form elements
-  // As per outlined in types.ts, should all be stored as Strings
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
   const [email, setEmail] = useState('');
@@ -16,9 +15,9 @@ const ClubRegistration = () => {
   // Function to submit the data to the backend
   function handleSubmit(event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
-    alert('submitted!');
+    alert('Submit Action Triggered!');
 
-    //TODO: SUBMIT DATA STORED IN REACT HOOKS TO BACKEND
+    //NOT IMPLEMENTED: SUBMIT DATA STORED IN REACT HOOKS TO BACKEND
   }
 
   return (
