@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Dropdown.css';
-// import { CategoryType } from '../../../../../backend/types/types'; //TODO FOR DANIEL: TO FIX
 import { CategoryType } from './categories';
 
 const Dropdown = ({ callback }: { callback: any }) => {
