@@ -1,53 +1,52 @@
-.header{
+.header {
   display: flex;
   align-items: center;
 }
-   
+
 .mid {
-	width: 57%;
-	margin: auto;
+  width: 57%;
+  margin: auto;
 }
 
-.searchBar{
+.searchBar {
   padding: 10px 10px;
   size: 100px;
   width: 300px;
   height: 20px;
 }
 
-.searchContainer{
+.searchContainer {
   margin-left: 20px;
   float: left;
   padding: 10px 10px;
 }
 
-.navbar{
-	display:inline-block;
+.navbar {
+  display: inline-block;
 }
 
-
-.navbar li{
-list-style: none;
-display:inline-block;
-margin:auto;
+.navbar li {
+  list-style: none;
+  display: inline-block;
+  margin: auto;
 }
 
 .right {
-display: inline-block;
-width: 22%;
-font-size: 18px;
-margin-left: 3%;
-margin-right: 3%;
+  display: inline-block;
+  width: 22%;
+  font-size: 18px;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
-.right a{
+.right a {
   padding: 10px 10px;
 }
 
 .left {
-display: inline-block;
-width: 16%;
-margin: 20px 20px 15px 20px;
-min-width: 250px;
-font-size: 18px;
+  display: inline-block;
+  width: 16%;
+  margin: 20px 20px 15px 20px;
+  min-width: 250px;
+  font-size: 18px;
 }
