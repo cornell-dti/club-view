@@ -1,112 +1,53 @@
-.navBar {
-  position: static;
-  bottom: 805px;
+.header{
+  display: flex;
+  align-items: center;
+}
+   
+.mid {
+	width: 57%;
+	margin: auto;
 }
 
-.searchBar {
-  position: absolute;
-  width: 531.39px;
-  height: 56.91px;
-  left: 310.4px;
-  top: 36px;
-  border-radius: 30px;
-  border: 5px solid #c4c4c4;
+.searchBar{
+  padding: 10px 10px;
+  size: 100px;
+  width: 300px;
+  height: 20px;
 }
 
-.defaultText {
-  position: absolute;
-  width: 275px;
-  height: 29px;
-  left: 311px;
-  top: 51px;
-
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-
-  color: #878787;
+.searchContainer{
+  margin-left: 20px;
+  float: left;
+  padding: 10px 10px;
 }
 
-.clubviewHeader {
-  position: absolute;
-  left: 81px;
-  top: 53px;
-
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 38px;
-  text-align: center;
-
-  color: #ff7062;
+.navbar{
+	display:inline-block;
 }
 
-.registerClubsLeft {
-  position: absolute;
-  left: 0px;
-  height: 55px;
-  width: 55px;
-  border-radius: 100%;
+
+.navbar li{
+list-style: none;
+display:inline-block;
+margin:auto;
 }
 
-.registerClubs {
-  position: absolute;
-  width: 99.63px;
-  height: 56.02px;
-  left: 1181.32px;
-  top: 37px;
-
-  background: #ffc5c5;
+.right {
+display: inline-block;
+width: 22%;
+font-size: 18px;
+margin-left: 3%;
+margin-right: 3%;
 }
 
-.registerClubsLeft {
-  position: absolute;
-  width: 57px;
-  height: 56px;
-  left: 1149px;
-  top: 37px;
-
-  background: #ffc5c5;
-  border-radius: 100%;
+.right a{
+  padding: 10px 10px;
 }
 
-.registerClubsRight {
-  position: absolute;
-  width: 59px;
-  height: 56px;
-  left: 1254px;
-  top: 37px;
-
-  background: #ffc5c5;
-  border-radius: 100%;
-}
-
-.registerClubsText {
-  position: relative;
-  height: 22px;
-  width: 119px;
-  left: 0px;
-  top: 17px;
-
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 25px;
-
-  color: #ffffff;
-}
-
-.profilePic {
-  position: absolute;
-  width: 55px;
-  height: 55px;
-  left: 1333px;
-  top: 36px;
-
-  background: #ffc5c5;
-  border-radius: 100%;
+.left {
+display: inline-block;
+width: 16%;
+margin: 20px 20px 15px 20px;
+min-width: 250px;
+font-size: 18px;
 }
