@@ -9,13 +9,14 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <NavBar/>
+        <ClubBoard/>
         <Routes>
-          <Route path="/" element={ClubBoard} />
-          <Route path="/register" element={ClubRegistration}/>
+          <Route path="/register" element={ClubRegistration} />
+          <Route path="/" element={ClubBoard}/>
         </Routes>
       </Router>
-      <ClubBoard />
+      
     </div>
   );
 }
