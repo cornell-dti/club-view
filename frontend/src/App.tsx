@@ -1,19 +1,21 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ClubBoard from './components/ClubBoard/ClubBoard';
+import NavBar from './components/NavBar/NavBar';
 import ClubRegistration from './components/ClubRegistration/ClubRegistration';
 
 function App() {
   return (
     <div className="App">
-      <nav>
-        <Link to="/">Home</Link>|<Link to="/register">Register</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<ClubBoard />} />
-        <Route path="/register" element={<ClubRegistration />} />
-      </Routes>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={ClubBoard} />
+          <Route path="/register" element={ClubRegistration}/>
+        </Routes>
+      </Router>
+      <ClubBoard />
     </div>
   );
 }
