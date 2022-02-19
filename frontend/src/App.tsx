@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ClubBoard from './components/ClubBoard/ClubBoard';
 import NavBar from './components/NavBar/NavBar';
+import InfoPage from './components/InfoPage/InfoPage';
 import { signIn } from './util/auth';
 
 function App() {
@@ -11,11 +12,11 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={ClubBoard} />
+          <Route path="/" element={<ClubBoard />} />
+          <Route path="/info-page" element={<InfoPage />} />
         </Routes>
       </Router>
-      <ClubBoard />
-      <button onClick={signIn}>Sign IN</button>
+      <button onClick={signIn}>Sign In</button>
     </div>
   );
 }
