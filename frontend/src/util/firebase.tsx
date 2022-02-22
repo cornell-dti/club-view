@@ -69,14 +69,16 @@ const signOutUser = () => {
 
 const uploadImage = async (image: File) => {
   const storageRef = ref(storage);
-  uploadBytes(storageRef, image).then((snapshot) =>{
-    console.log("upload complete");
-    getDownloadURL(snapshot.ref).then((url)=>{
-      return url;
+  uploadBytes(storageRef, image)
+    .then((snapshot) => {
+      console.log('upload complete');
+      getDownloadURL(snapshot.ref).then((url) => {
+        return url;
+      });
     })
-  }).catch((err)=>{
-    console.log(err);
-  })
-}
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 export { SignIn as signIn, signOutUser as signOut, authRequestHeader };
