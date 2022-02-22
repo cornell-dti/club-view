@@ -4,6 +4,7 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
@@ -16,9 +17,10 @@ const firebaseConfig = {
   measurementId: 'G-JBRHXTNM4L',
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const auth = getAuth();
+const storage = getStorage(app);
+const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 provider.setCustomParameters({
@@ -64,5 +66,17 @@ const signOutUser = () => {
       console.log(error);
     });
 };
+
+const uploadImage = async (image: File) => {
+  const storageRef = ref(storage);
+  uploadBytes(storageRef, image).then((snapshot) =>{
+    console.log("upload complete");
+    getDownloadURL(snapshot.ref).then((url)=>{
+      return url;
+    })
+  }).catch((err)=>{
+    console.log(err);
+  })
+}
 
 export { SignIn as signIn, signOutUser as signOut, authRequestHeader };
