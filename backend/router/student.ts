@@ -1,6 +1,6 @@
 import express from 'express';
 import { ClubType, StudentType } from '../types/types';
-import {db} from '../firebase-config/config';
+import { db } from '../firebase-config/config';
 
 const router = express.Router();
 const students = db.collection('students');
