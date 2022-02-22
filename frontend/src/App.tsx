@@ -10,10 +10,10 @@ function App() {
     <div className="App">
       <Router>
         <NavBar/>
-        <ClubBoard/>
+       
         <Routes>
-          <Route path="/register" element={ClubRegistration} />
-          <Route path="/" element={ClubBoard}/>
+          <Route path="/register" element={<ClubRegistration />} />
+          <Route path="/" element={<ClubBoard />}/>
         </Routes>
       </Router>
       
