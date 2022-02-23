@@ -76,4 +76,9 @@ const uploadImage = async (image: File, clubName: string) => {
   return downloadURL;
 };
 
-export { SignIn as signIn, signOutUser as signOut, uploadImage, authRequestHeader };
+export {
+  SignIn as signIn,
+  signOutUser as signOut,
+  uploadImage,
+  authRequestHeader,
+};

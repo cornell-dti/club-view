@@ -5,9 +5,7 @@ import ClubBoard from './components/ClubBoard/ClubBoard';
 import NavBar from './components/NavBar/NavBar';
 import { signIn, uploadImage } from './util/firebase';
 
-
 function App() {
-
   return (
     <div className="App">
       <Router>
@@ -17,13 +15,8 @@ function App() {
         </Routes>
       </Router>
       <ClubBoard />
-      
     </div>
   );
 }
 
-
-
-
 export default App;
-
