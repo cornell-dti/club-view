@@ -14,9 +14,10 @@ function App() {
     setFiles(event.target.files);
   }
 
-  const handleSubmit = () =>{
+  const handleSubmit = async () =>{
     console.log(files);
-    uploadImage(files[0])
+    const url = await uploadImage(files[0], 'Cornell DTI');
+    console.log(url);
   }
 
   return (

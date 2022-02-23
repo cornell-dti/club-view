@@ -6,6 +6,7 @@ import {
 } from 'firebase/auth';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
+import { v4 as uuidv4 } from 'uuid';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC7qOZ_v2ECEaOahK3hrbCrN_2S3c-pE9U',
@@ -67,18 +68,12 @@ const signOutUser = () => {
     });
 };
 
-const uploadImage = async (image: File) => {
-  const storageRef = ref(storage, 'images/hello.jpg');
-  uploadBytes(storageRef, image)
-    .then((snapshot) => {
-      console.log('upload complete');
-      getDownloadURL(snapshot.ref).then((url) => {
-        return url;
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+const uploadImage = async (image: File, clubName: string) => {
+  const clubNameParsed = clubName.replace(' ', '_');
+  const storageRef = ref(storage, `${clubNameParsed}/${uuidv4()}`);
+  const snapshot = await uploadBytes(storageRef, image);
+  const downloadURL = await getDownloadURL(snapshot.ref);
+  return downloadURL;
 };
 
 export { SignIn as signIn, signOutUser as signOut, uploadImage, authRequestHeader };
