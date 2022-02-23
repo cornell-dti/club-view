@@ -68,7 +68,7 @@ const signOutUser = () => {
 };
 
 const uploadImage = async (image: File) => {
-  const storageRef = ref(storage);
+  const storageRef = ref(storage, 'images/hello.jpg');
   uploadBytes(storageRef, image)
     .then((snapshot) => {
       console.log('upload complete');
@@ -81,4 +81,4 @@ const uploadImage = async (image: File) => {
     });
 };
 
-export { SignIn as signIn, signOutUser as signOut, authRequestHeader };
+export { SignIn as signIn, signOutUser as signOut, uploadImage, authRequestHeader };
