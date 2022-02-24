@@ -5,6 +5,8 @@ import {
   signOut,
 } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
+import { TokenContext } from '../context/TokenContext';
+import { useContext } from 'react';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC7qOZ_v2ECEaOahK3hrbCrN_2S3c-pE9U',
@@ -34,16 +36,17 @@ const authRequestHeader = {
   },
 };
 
-function SignIn() {
+const SignIn = () => {
+
+  const {setToken} = useContext(TokenContext);
+
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential?.accessToken;
       const user = result.user;
-      // console.log(user);
       user.getIdToken().then((id_token) => {
-        //save id token to context, then use to make authorized requests.
-        console.log(id_token);
+        setToken(id_token);
       });
     })
     .catch((error) => {

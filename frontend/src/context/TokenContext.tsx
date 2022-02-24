@@ -11,7 +11,7 @@ const initialState: tokenState = {
   setToken: () => {},
 };
 
-const TokenContext = React.createContext(initialState);
+export const TokenContext = React.createContext(initialState);
 
 type TokenProviderProps = {
   children: React.ReactNode;
