@@ -3,23 +3,29 @@ import { createContext, useState } from 'react';
 
 type tokenState = {
   tokenID: string;
+  setToken: (tokenid: string) => void;
 };
 
 const initialState: tokenState = {
   tokenID: '',
+  setToken: () => {}
 };
 
-const TokenContext = React.createContext(null);
+const TokenContext = React.createContext(initialState);
 
 type TokenProviderProps = {
   children: React.ReactNode;
 };
 
 export const TokenProvider = ({ children }: TokenProviderProps) => {
-  const [token, setToken] = useState(null);
+  const [tokenID, changeToken] = useState('');
+
+  const setToken = (tokenid: string) => {
+    changeToken(tokenid);
+  }
 
   return (
-    <TokenContext.Provider value={(token, setToken)}>
+    <TokenContext.Provider value = {{tokenID, setToken}}>
       {children}
     </TokenContext.Provider>
   );
