@@ -8,7 +8,7 @@ type tokenState = {
 
 const initialState: tokenState = {
   tokenID: '',
-  setToken: () => {}
+  setToken: () => {},
 };
 
 const TokenContext = React.createContext(initialState);
@@ -22,10 +22,10 @@ export const TokenProvider = ({ children }: TokenProviderProps) => {
 
   const setToken = (tokenid: string) => {
     changeToken(tokenid);
-  }
+  };
 
   return (
-    <TokenContext.Provider value = {{tokenID, setToken}}>
+    <TokenContext.Provider value={{ tokenID, setToken }}>
       {children}
     </TokenContext.Provider>
   );
