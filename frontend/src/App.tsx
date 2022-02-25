@@ -10,16 +10,16 @@ import './App.css';
 function App() {
   return (
     <TokenProvider>
-    <div className="App">
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ClubBoard />} />
-          <Route path="/info-page" element={<InfoPage />} />
-        </Routes>
-      </Router>
-      <button onClick={signIn}>Sign In</button>
-    </div>
+      <div className="App">
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ClubBoard />} />
+            <Route path="/info-page" element={<InfoPage />} />
+          </Routes>
+        </Router>
+        <button onClick={signIn}>Sign In</button>
+      </div>
     </TokenProvider>
   );
 }

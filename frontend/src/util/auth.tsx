@@ -37,8 +37,7 @@ const authRequestHeader = {
 };
 
 const SignIn = () => {
-
-  const {setToken} = useContext(TokenContext);
+  const { setToken } = useContext(TokenContext);
 
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -56,7 +55,7 @@ const SignIn = () => {
       console.log(errorCode, errorMessage, email);
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
-}
+};
 
 const signOutUser = () => {
   signOut(auth)
