@@ -4,7 +4,7 @@ import './App.css';
 import ClubBoard from './components/ClubBoard/ClubBoard';
 import NavBar from './components/NavBar/NavBar';
 import InfoPage from './components/InfoPage/InfoPage';
-import { signIn } from './util/firebase'
+import { signIn } from './util/firebase';
 
 function App() {
   return (
