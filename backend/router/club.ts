@@ -1,6 +1,7 @@
 import express from 'express';
 import { ClubType } from '../types/types';
 import { db } from '../firebase-config/config';
+import { createSolutionBuilderHost } from 'typescript';
 
 const router = express.Router();
 
@@ -27,6 +28,24 @@ router.get('/:id', async (req, res) => {
   }
   const data = doc.data() as ClubType;
   res.send(data);
+});
+
+router.post('/', async (req, res) => {
+  const clubsCollection = await db.collection('clubs').get();
+  const clubsDoc = clubsCollection.docs
+  const club: ClubType = {
+    id: req.body.id,
+    name: req.body.name,
+    category: req.body.category,
+    email: req.body.email,
+    description: req.body.description,
+    url: req.body.url,
+    status: req.body.status,
+    openDate: req.body.openDate,
+    closeDate: req.body.closeDate,
+    registeredBy: req.body.registeredBy
+  };
+  clubsDoc.push(club);
 });
 
 export default router;
