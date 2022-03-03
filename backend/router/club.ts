@@ -18,6 +18,15 @@ router.get('/', async (req, res) => {
   res.send(clubs);
 });
 
+router.post('/', async (req, res) => {
+  const clubsCollection = await db.collection('clubs');
+  const clubsDoc = clubsCollection.doc()
+  console.log(req.body)
+  const club: ClubType = req.body
+  await clubsDoc.set(club);
+  res.send(club)
+});
+
 router.get('/:id', async (req, res) => {
   const clubId = req.params.id;
   const clubsCollection = db.collection('clubs');
@@ -28,24 +37,6 @@ router.get('/:id', async (req, res) => {
   }
   const data = doc.data() as ClubType;
   res.send(data);
-});
-
-router.post('/', async (req, res) => {
-  const clubsCollection = await db.collection('clubs').get();
-  const clubsDoc = clubsCollection.docs
-  const club: ClubType = {
-    id: req.body.id,
-    name: req.body.name,
-    category: req.body.category,
-    email: req.body.email,
-    description: req.body.description,
-    url: req.body.url,
-    status: req.body.status,
-    openDate: req.body.openDate,
-    closeDate: req.body.closeDate,
-    registeredBy: req.body.registeredBy
-  };
-  clubsDoc.push(club);
 });
 
 export default router;
