@@ -3,19 +3,19 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ClubBoard from './components/ClubBoard/ClubBoard';
 import NavBar from './components/NavBar/NavBar';
-import { signIn } from './util/auth';
+import ClubRegistration from './components/ClubRegistration/ClubRegistration';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <NavBar />
+
         <Routes>
-          <Route path="/" element={ClubBoard} />
+          <Route path="/register" element={<ClubRegistration />} />
+          <Route path="/" element={<ClubBoard />} />
         </Routes>
       </Router>
-      <ClubBoard />
-      <button onClick={signIn}>Sign IN</button>
     </div>
   );
 }
