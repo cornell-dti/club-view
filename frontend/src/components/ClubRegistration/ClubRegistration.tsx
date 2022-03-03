@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ClubRegistration.css';
 import Dropdown from './Dropdown/Dropdown';
+import NavBar from '../../components/NavBar/NavBar';
 
 const ClubRegistration = () => {
   // Controlled values for all the form elements
@@ -21,72 +22,75 @@ const ClubRegistration = () => {
   }
 
   return (
-    <div>
-      <form className="registration">
-        <label>
-          Enter your Club Name: <br />
-          <input
-            name="clubName"
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
+    <>
+      <NavBar hasSearch={false} />
+      <div>
+        <form className="registration">
+          <label>
+            Enter your Club Name: <br />
+            <input
+              name="clubName"
+              type="text"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </label>
 
-        <Dropdown callback={setCategory} />
+          <Dropdown callback={setCategory} />
 
-        <label>
-          Enter your Email: <br />
-          <input
-            name="clubEmail"
-            type="text"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
+          <label>
+            Enter your Email: <br />
+            <input
+              name="clubEmail"
+              type="text"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </label>
 
-        <label>
-          Enter a Description of your Club: <br />
-          <textarea
-            name="clubDescr"
-            value={descr}
-            onChange={(event) => setDescr(event.target.value)}
-          />
-        </label>
+          <label>
+            Enter a Description of your Club: <br />
+            <textarea
+              name="clubDescr"
+              value={descr}
+              onChange={(event) => setDescr(event.target.value)}
+            />
+          </label>
 
-        <label>
-          Enter a link to your Club Website: <br />
-          <input
-            name="clubURL"
-            type="text"
-            value={URL}
-            onChange={(event) => setURL(event.target.value)}
-          />
-        </label>
+          <label>
+            Enter a link to your Club Website: <br />
+            <input
+              name="clubURL"
+              type="text"
+              value={URL}
+              onChange={(event) => setURL(event.target.value)}
+            />
+          </label>
 
-        <label>
-          Enter the Opening Date: <br />
-          <input
-            name="clubOpenDate"
-            type="date"
-            value={openDate}
-            onChange={(event) => setOpenDate(event.target.value)}
-          />
-        </label>
+          <label>
+            Enter the Opening Date: <br />
+            <input
+              name="clubOpenDate"
+              type="date"
+              value={openDate}
+              onChange={(event) => setOpenDate(event.target.value)}
+            />
+          </label>
 
-        <label>
-          Enter the Closing Date: <br />
-          <input
-            name="clubCloseDate"
-            type="date"
-            value={closeDate}
-            onChange={(event) => setCloseDate(event.target.value)}
-          />
-        </label>
+          <label>
+            Enter the Closing Date: <br />
+            <input
+              name="clubCloseDate"
+              type="date"
+              value={closeDate}
+              onChange={(event) => setCloseDate(event.target.value)}
+            />
+          </label>
 
-        <button onClick={(e) => handleSubmit(e)}>Submit</button>
-      </form>
-    </div>
+          <button onClick={(e) => handleSubmit(e)}>Submit</button>
+        </form>
+      </div>
+    </>
   );
 };
 
