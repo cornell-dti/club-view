@@ -18,13 +18,14 @@ router.get('/', async (req, res) => {
   res.send(clubs);
 });
 
+//Adds a club with req.body
 router.post('/', async (req, res) => {
   const clubsCollection = await db.collection('clubs');
-  const clubsDoc = clubsCollection.doc()
-  console.log(req.body)
-  const club: ClubType = req.body
+  const clubsDoc = clubsCollection.doc();
+  console.log(req.body);
+  const club: ClubType = req.body;
   await clubsDoc.set(club);
-  res.send(club)
+  res.send(club);
 });
 
 router.get('/:id', async (req, res) => {
