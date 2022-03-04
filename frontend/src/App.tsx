@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ClubBoard from './components/ClubBoard/ClubBoard';
-
 import ClubRegistration from './components/ClubRegistration/ClubRegistration';
 
 function App() {

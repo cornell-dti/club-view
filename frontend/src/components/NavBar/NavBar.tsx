@@ -19,7 +19,7 @@ interface Props extends RequiredProps, OptionalProps {}
 // Use the optional prop interface to define the default props
 const defaultProps: OptionalProps = {
   callback: (text: string) => {
-    console.log('Placeholder : ' + text);
+    // dummy function
   },
 };
 
