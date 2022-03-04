@@ -35,6 +35,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/no-default-export': 'off',
     'linebreak-style': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
