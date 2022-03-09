@@ -1,7 +1,9 @@
+
 import express from 'express';
 import { ClubType } from '../types/types';
 import { db } from '../firebase-config/config';
 import { createSolutionBuilderHost } from 'typescript';
+import { domainToASCII } from 'url';
 
 const router = express.Router();
 
@@ -26,6 +28,19 @@ router.post('/', async (req, res) => {
   const club: ClubType = req.body;
   await clubsDoc.set(club);
   res.send(club);
+});
+
+//Edits a club information
+router.post('/', async (req, res) => {
+  const clubID = req.body.id;
+  const clubsCollection = db.collection('clubs');
+  const doc = await clubsCollection.doc(clubID).get()
+  if (!doc.exists) {
+    throw new Error('Invalid id');
+  } else {
+    res.send(req.body);
+    console.log("Club info has been updated");
+  }
 });
 
 router.get('/:id', async (req, res) => {
