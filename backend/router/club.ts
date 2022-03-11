@@ -32,15 +32,17 @@ router.post('/', async (req, res) => {
 
 //Edits a club information
 router.post('/', async (req, res) => {
+  const clubUpdated: ClubType = req.body
   const clubID = req.body.id;
-  const clubsCollection = db.collection('clubs');
-  const doc = await clubsCollection.doc(clubID).get()
-  if (!doc.exists) {
-    throw new Error('Invalid id');
-  } else {
-    res.send(req.body);
-    console.log("Club info has been updated");
-  }
+  const clubsCollection = await db.collection('clubs');
+  const clubDoc = clubsCollection.doc(clubID);
+  const doc = await clubDoc.get();
+  try {
+    await clubDoc.set(clubUpdated);
+  } catch {
+    throw new Error("Invalid ID");
+  } 
+  res.send(doc);
 });
 
 router.get('/:id', async (req, res) => {
