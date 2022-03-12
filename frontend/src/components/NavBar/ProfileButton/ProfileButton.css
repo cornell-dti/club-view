@@ -1,0 +1,118 @@
+.profileDropdown {
+  background: #ff998d;
+  max-width: 240px;
+  min-width: 240px;
+  border-radius: 20px;
+  height: fit-content;
+  position: absolute;
+  top: 17px; /* TODO: come up with a better way to position this without resorting to arbitrary valures */
+  color: white;
+}
+
+.expandArea {
+  background-color: #ff998d;
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-position: right 25px center;
+  background-repeat: no-repeat;
+  background-image: url('../../../icons/navbar/profileIcon.svg');
+}
+
+.clubDropdownButton {
+  margin: 10px 20px 10px 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+
+  background-position: left 25px center;
+  background-repeat: no-repeat;
+  background-image: url('../../../icons/navbar/pinkArrow.svg');
+}
+
+.clubDropdownButton:hover {
+  margin: 10px 20px 10px 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: white;
+  color: #ff998d;
+
+  background-position: left 25px center;
+  background-repeat: no-repeat;
+  background-image: url('../../../icons/navbar/pinkArrow.svg');
+}
+
+.clubDropdownButtonExpanded {
+  margin: 10px 20px 10px 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: white;
+  color: #ff998d;
+  cursor: pointer;
+
+  background-position: left 25px center;
+  background-repeat: no-repeat;
+  background-image: url('../../../icons/navbar/pinkArrowRotated.svg');
+}
+
+.signoutButton {
+  margin: 10px 20px 10px 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.dropdownContent {
+  margin-top: -10px; /* eliminate padding distance of when condensed */
+  padding-bottom: 20px; /* add it back to the bottom of the expanded list */
+}
+
+.clubItem {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.clubItem:hover {
+  text-decoration: underline;
+}
+
+.linkWrapper {
+  text-decoration: none;
+  color: white;
+}
+
+.linkWrapper:hover {
+  text-decoration: underline;
+}
+
+.collapseArrow {
+  transform: translateX(-10px);
+}
+
+.expandArrow {
+  transform: translateX(-20px);
+}
+
+.profIconExpanded {
+  transform: translateX(10px);
+  max-height: 25px;
+}
+
+.profIconCollapsed {
+  transform: translateX(20px);
+  max-height: 25px;
+}
+
+.bufferSpace {
+  min-width: 25px;
+  min-height: 25px;
+  max-height: 25px;
+  max-width: 25px;
+}
