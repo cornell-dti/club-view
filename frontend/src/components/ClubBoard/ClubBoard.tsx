@@ -1,5 +1,6 @@
 import React from 'react';
 import ClubCard from '../ClubCard/ClubCard';
+import Filter from '../Filter/Filter';
 import { ClubType } from '../../../../backend/types/types';
 import './ClubBoard.css';
 
@@ -9,11 +10,16 @@ const ClubBoard = () => {
     category: 'Category',
   });
   return (
+    <>
     <div className="cardsContainer">
       {clubArray.map((club) => (
         <ClubCard clubName={club.name} clubCategory={club.category} />
       ))}
     </div>
+    <div>
+      <Filter />
+    </div>
+    </>
   );
 };
 
