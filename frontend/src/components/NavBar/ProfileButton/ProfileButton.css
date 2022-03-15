@@ -7,6 +7,7 @@
   position: absolute;
   top: 17px; /* TODO: come up with a better way to position this without resorting to arbitrary valures */
   color: white;
+  z-index: 100;
 }
 
 .expandArea {
@@ -36,16 +37,25 @@
 }
 
 .clubDropdownButton:hover {
+  background-color: white;
+  color: #ff998d;
+}
+
+.signoutButton {
   margin: 10px 20px 10px 20px;
   border: 2px solid white;
   border-radius: 20px;
   padding: 10px;
-  background-color: white;
-  color: #ff998d;
+  transition: 0.5s;
+  cursor: pointer;
 
-  background-position: left 25px center;
+  background-position: right 40px center;
   background-repeat: no-repeat;
-  background-image: url('../../../icons/navbar/pinkArrow.svg');
+  background-image: url('../../../icons/navbar/signouticon.svg');
+}
+
+.signoutButton:hover {
+  text-decoration: underline;
 }
 
 .clubDropdownButtonExpanded {

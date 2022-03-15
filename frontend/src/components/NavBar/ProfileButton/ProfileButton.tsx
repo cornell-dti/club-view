@@ -108,7 +108,7 @@ const ProfileButton = () => {
               <></>
             )}
           </div>
-          <div className="clubDropdownButton" onClick={signOut}>
+          <div className="signoutButton" onClick={signOut}>
             Sign Out
           </div>
         </div>
