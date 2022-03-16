@@ -5,7 +5,6 @@ import './ClubBoard.css';
 import NavBar from '../NavBar/NavBar';
 
 const ClubBoard = () => {
-
   const [origClubs, setOrigClubs] = useState<ClubType[]>([]); // an array of all clubs
 
   // This useEffect is triggered only on component mount
@@ -44,13 +43,17 @@ const ClubBoard = () => {
     <>
       <NavBar hasSearch={true} callback={updateSearchText} />
       <div className="cardsContainer">
-        {clubArray.length===0
-        ? 
-        <></>
-        : 
-        clubArray.map((club) => (
-          <ClubCard clubName={club.name} clubCategory={club.category} clubID={club.id} />
-        ))}
+        {clubArray.length === 0 ? (
+          <></>
+        ) : (
+          clubArray.map((club) => (
+            <ClubCard
+              clubName={club.name}
+              clubCategory={club.category}
+              clubID={club.id}
+            />
+          ))
+        )}
       </div>
     </>
   );
