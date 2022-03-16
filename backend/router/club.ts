@@ -37,7 +37,7 @@ router.post('/edit/:id', async (req, res) => {
   const clubDoc = clubsCollection.doc(clubID);
   const doc = await clubDoc.get();
   if (!doc.exists) {
-    throw new Error("Invalid ID");
+    throw new Error('Invalid ID');
   }
   await clubDoc.set(clubUpdated);
   res.send(doc);
