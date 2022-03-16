@@ -10,13 +10,20 @@ type Prop = {
 
 const ClubCard = (props: Prop) => {
   return (
-    <div className="cardContainer">
+    <div className="cardContainer" onClick={() => { 
+      console.log('clicked on card');
+      // TODO: ROUTE TO CLUB INFO PAGE
+    }}>
       <div className="clubIcon" />
       <div className="infoContainer">
         <div className="clubName">{props.clubName}</div>
         <div className="clubCategory">{props.clubCategory}</div>
       </div>
-      <img className="favouriteIcon" src={FavouriteIcon} alt="favouriteIcon" />
+      <img className="favouriteIcon" src={FavouriteIcon} alt="favouriteIcon" onClick={(e) => {
+        console.log('clicked on favorites!');
+        // TODO: ADD CLUB TO THIS USER'S FAVORITES
+        e.stopPropagation(); //prevent event bubbling-up triggering a reroute to the club info page
+      }}/>
       <img className="indicatorIcon" src={IndicatorIcon} alt="indicatorIcon" />
     </div>
   );
