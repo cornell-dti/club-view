@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom'
 import './InfoPage.css';
 import NavBar from '../../components/NavBar/NavBar';
 
 const InfoPage = () => {
+  let params = useParams();
+
+  // This useEffect is triggered only on component mount
+  useEffect(() => {
+    // Assuming the backend is already running before starting the frontend,
+    // we should load clubs on mount rather than on render.
+
+    // NOTE: this just pulls the data from localhost
+    fetch('http://localhost:8000/clubs/' + params.id)
+      .then((res) => res.json())
+      .then((data) => {
+      });
+  }, []);
+
   return (
     <>
       <NavBar hasSearch={false} />
