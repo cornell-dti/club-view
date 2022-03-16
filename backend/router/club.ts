@@ -1,4 +1,3 @@
-
 import express from 'express';
 import { ClubType } from '../types/types';
 import { db } from '../firebase-config/config';
@@ -30,18 +29,17 @@ router.post('/', async (req, res) => {
   res.send(club);
 });
 
-//Edits a club information
-router.post('/', async (req, res) => {
-  const clubUpdated: ClubType = req.body
+//Edits a club's information
+router.post('/edit/:id', async (req, res) => {
+  const clubUpdated: ClubType = req.body;
   const clubID = req.body.id;
-  const clubsCollection = await db.collection('clubs');
+  const clubsCollection = db.collection('clubs');
   const clubDoc = clubsCollection.doc(clubID);
   const doc = await clubDoc.get();
-  try {
-    await clubDoc.set(clubUpdated);
-  } catch {
+  if (!doc.exists) {
     throw new Error("Invalid ID");
-  } 
+  }
+  await clubDoc.set(clubUpdated);
   res.send(doc);
 });
 
