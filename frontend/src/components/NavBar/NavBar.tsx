@@ -54,6 +54,13 @@ const NavBar = (props: Props) => {
       )}
       <div className="profileButton">
         <ProfileButton />
+        <div className="right">
+          <Link to="/register">
+          <button className="registerButton">
+          Register Club
+          </button>
+        </Link>
+        </div>
       </div>
     </header>
   );

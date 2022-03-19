@@ -63,6 +63,28 @@
   margin-left: 4.5rem;
   margin-top: 1.563rem;
 }
+.right {
+  display: flex;
+  width: 40%;
+  font-size: 18px;
+  margin-left: 3%;
+  margin-right: 1%;
+}
+
+.registerButton {
+  background-color:salmon;
+  display: inline-block;
+  width: 22%;
+  font-size: 18px;
+  width: 175px;
+  height: 45px;
+  margin-left: 3%;
+  margin-right: 3%;
+  color:white;
+  border-radius: 14px;
+  border: none;
+  font-family: 'Times New Roman', Times, serif;
+}
 
 .profileButton {
   position: absolute;
