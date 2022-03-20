@@ -1,19 +1,18 @@
-import React from "react";
-import cn from "classnames";
-import "./CategoryTag.css";
+import React from 'react';
+import cn from 'classnames';
+import './CategoryTag.css';
 
 type Prop = {
-  title: string
-  large: boolean
-}
+  title: string;
+  large: boolean;
+};
 
-const CategoryTag = ({title, large}: Prop) =>{
-
+const CategoryTag = ({ title, large }: Prop) => {
   return (
-  <div className={cn('categoryTag', large ? "large" : "small" )} >
-    <div className={large ? "largeTitle" : "smallTitle" }>{title}</div>
-  </div>
-  )
-} 
+    <div className={cn('categoryTag', large ? 'large' : 'small')}>
+      <div className={large ? 'largeTitle' : 'smallTitle'}>{title}</div>
+    </div>
+  );
+};
 
 export default CategoryTag;

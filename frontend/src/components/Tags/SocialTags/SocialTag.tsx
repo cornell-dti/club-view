@@ -11,7 +11,7 @@ type Prop = {
   socialName: string;
 };
 
-const SocialTag = ({socialName}: Prop) => {
+const SocialTag = ({ socialName }: Prop) => {
   const renderIcon = (socialName: string) => {
     const nameParsed = socialName.toLowerCase();
     switch (nameParsed) {
