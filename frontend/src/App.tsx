@@ -6,6 +6,7 @@ import ClubRegistration from './components/ClubRegistration/ClubRegistration';
 import NavBar from './components/NavBar/NavBar';
 import InfoPage from './components/InfoPage/InfoPage';
 import { signIn } from './util/auth';
+import SocialTag from './components/Tags/SocialTags/SocialTag';
 
 function App() {
   return (

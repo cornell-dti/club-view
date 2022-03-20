@@ -1,0 +1,15 @@
+.socialTag{
+  display:flex;
+  background-color: #FF998D;
+  width: 165px;
+  height: 40px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.socialName{
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-left: 15px;
+}
