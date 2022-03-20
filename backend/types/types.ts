@@ -37,7 +37,6 @@ export enum StatusType {
   CLOSED = "closed",
   APPROACHING = "approaching",
   PUBLIC = "public" //always open
-
 }
 
 export enum CategoryType {

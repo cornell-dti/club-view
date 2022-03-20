@@ -1,14 +1,15 @@
 import React from 'react';
-import { CategoryType } from '../../types/index';
+import { CategoryType, StatusType } from '../../types/index';
 import './Filter.css';
 
 const Filter = () => {
   const handleApply = () => {};
 
   return (
-    <>
+    <div className="filter">
+      <div className="title">Filter:</div>
       <form>
-        <div id="categoryFilter">
+        <div id="categoryFilter" className="dropdown">
           {Object.values(CategoryType).map((val) => {
             return (
               <div className="checkBox">
@@ -19,11 +20,22 @@ const Filter = () => {
           })}
           <div className="checkBox"></div>
         </div>
-        <div id="statusFilter"></div>
-        <div id="keywordFilter"></div>
+        
+        <div id="statusFilter" className="dropdown">
+        {Object.values(StatusType).map((val) => {
+            return (
+              <div className="checkBox">
+                <label> {val} </label>
+                <input type="checkbox" />
+              </div>
+            );
+          })}
+        </div>
+        <div id="keywordFilter" className="dropdown">
+        </div>
       </form>
       <button onClick={handleApply}>Apply</button>
-    </>
+    </div>
   );
 };
 

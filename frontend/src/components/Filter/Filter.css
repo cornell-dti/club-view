@@ -1,2 +1,16 @@
+
+
+.filter{
+  text-align: left;
+}
+
+.title{
+  font-size: 24px;
+}
+
+.dropdown{
+  margin-bottom: 10px;
+}
+
 .categoryFitler {
 }
