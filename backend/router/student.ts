@@ -6,6 +6,7 @@ import { textSpanIntersection } from 'typescript';
 
 const router = express.Router();
 const students = db.collection('students');
+const clubs = db.collection('clubs');
 
 const clubsToString = (clubs) => {
   const clubNameArray: ClubType[] = [];
@@ -79,6 +80,25 @@ router.get('/:id/favorites', async (req, res) => {
     const favoritesClubs = await getFavorites(student.data());
     console.log(favoritesClubs);
     res.status(200).send(favoritesClubs);
+  }
+});
+// Update a Student's favorites list with club {cid} added
+router.put('/:sid/favorites/:cid', async (req, res) => {
+  const sid = req.params.sid;
+  const cid = req.params.cid;
+  const studentDoc = students.doc(sid);
+  const student = await studentDoc.get();
+  const clubDoc = clubs.doc(cid);
+  const club = await clubDoc.get();
+  if (!student.exists) {
+    res.status(404).send({ err: 'Student not found' });
+  } else if (!club.exists) {
+    res.status(404).send({ err: 'Club not found' });
+  } else {
+    const favorites = await student.get('favorites');
+    const updatedFavorites = [...favorites, club.get('name')];
+    await studentDoc.update({ favorites: updatedFavorites });
+    res.status(200).send(club.get('name'));
   }
 });
 

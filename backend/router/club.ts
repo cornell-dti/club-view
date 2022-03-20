@@ -1,23 +1,58 @@
 import express from 'express';
-import db from '../firebase-config/config';
+import { ClubType } from '../types/types';
+import { db } from '../firebase-config/config';
+import { createSolutionBuilderHost } from 'typescript';
+import { domainToASCII } from 'url';
 
 const router = express.Router();
-
-type Club = {
-  name: string;
-};
 
 //Gets all club infrormation
 router.get('/', async (req, res) => {
   const clubsCollection = db.collection('clubs');
   const clubsSnapshot = await clubsCollection.get();
   const allClubs = clubsSnapshot.docs;
-  const clubs: Club[] = [];
+  const clubs: ClubType[] = [];
   for (let doc of allClubs) {
-    const post: Club = doc.data() as Club;
-    clubs.push(post);
+    const club: ClubType = doc.data() as ClubType;
+    clubs.push(club);
   }
   res.send(clubs);
+});
+
+//Adds a club with req.body
+router.post('/', async (req, res) => {
+  const clubsCollection = await db.collection('clubs');
+  const clubsDoc = clubsCollection.doc();
+  console.log(req.body);
+  const club: ClubType = req.body;
+  await clubsDoc.set(club);
+  res.send(club);
+});
+
+//Edits a club's information
+router.post('/edit/:id', async (req, res) => {
+  const clubUpdated: ClubType = req.body;
+  const clubID = req.body.id;
+  const clubsCollection = db.collection('clubs');
+  const clubDoc = clubsCollection.doc(clubID);
+  const doc = await clubDoc.get();
+  if (!doc.exists) {
+    throw new Error('Invalid ID');
+  }
+  await clubDoc.set(clubUpdated);
+  res.send(doc);
+});
+
+router.get('/:id', async (req, res) => {
+  const clubId = req.params.id;
+  const clubsCollection = db.collection('clubs');
+  const ref = clubsCollection.doc(clubId);
+  const doc = await ref.get();
+  if (!doc.exists) {
+    throw new Error('Invalid id');
+  }
+  const data = doc.data() as ClubType;
+  res.send(data);
 });
 
 export default router;
