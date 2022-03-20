@@ -1,4 +1,4 @@
-import { StatusType } from "../../../backend/types/types"
+// import { StatusType } from "../../../backend/types/types"
 
 
 export enum CategoryType {
@@ -22,4 +22,9 @@ export enum CategoryType {
   THE_ARTS = 'the arts',
 }
 
-export type Status = StatusType
+export enum StatusType {
+  OPEN = "open",
+  CLOSED = "closed",
+  APPROACHING = "approaching",
+  PUBLIC = "public" //always open
+}
