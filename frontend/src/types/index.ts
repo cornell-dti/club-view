@@ -1,5 +1,3 @@
-
-
 export enum CategoryType {
   ACADEMIC = 'academic',
   PROJECTTEAM = 'project team',

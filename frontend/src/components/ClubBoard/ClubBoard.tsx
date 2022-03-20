@@ -11,14 +11,14 @@ const ClubBoard = () => {
   });
   return (
     <>
-    <div className="cardsContainer">
-      {clubArray.map((club) => (
-        <ClubCard clubName={club.name} clubCategory={club.category} />
-      ))}
-    </div>
-    <div className= "filterContainer">
-      <Filter />
-    </div>
+      <div className="cardsContainer">
+        {clubArray.map((club) => (
+          <ClubCard clubName={club.name} clubCategory={club.category} />
+        ))}
+      </div>
+      <div className="filterContainer">
+        <Filter />
+      </div>
     </>
   );
 };

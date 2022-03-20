@@ -5,10 +5,10 @@
   flex-wrap: wrap;
   max-width: 75vw;
   overflow: auto;
-  max-height: 96vh;
+  max-height: 96vh; /* sub-optimal fix later. Need height to make clubBoard scrollable*/
   margin-top: 1%;
 }
 
-.filterContainer{
-  float:left;
+.filterContainer {
+  float: left;
 }
