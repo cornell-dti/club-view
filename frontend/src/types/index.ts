@@ -1,6 +1,5 @@
 // import { StatusType } from "../../../backend/types/types"
 
-
 export enum CategoryType {
   ACADEMIC = 'academic',
   PROJECTTEAM = 'project team',
@@ -23,8 +22,8 @@ export enum CategoryType {
 }
 
 export enum StatusType {
-  OPEN = "open",
-  CLOSED = "closed",
-  APPROACHING = "approaching",
-  PUBLIC = "public" //always open
+  OPEN = 'open',
+  CLOSED = 'closed',
+  APPROACHING = 'approaching',
+  PUBLIC = 'public', //always open
 }

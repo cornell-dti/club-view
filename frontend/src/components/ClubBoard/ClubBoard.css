@@ -1,5 +1,5 @@
-.dashboardContainer{
-  width: 96vw
+.dashboardContainer {
+  width: 96vw;
 }
 
 .cardsContainer {
@@ -16,5 +16,5 @@
 .filterContainer {
   float: left;
   margin-top: 1%;
-  width:20%;
+  width: 20%;
 }

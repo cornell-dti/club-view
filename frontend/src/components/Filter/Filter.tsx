@@ -20,9 +20,9 @@ const Filter = () => {
           })}
           <div className="checkBox"></div>
         </div>
-        
+
         <div id="statusFilter" className="dropdown">
-        {Object.values(StatusType).map((val) => {
+          {Object.values(StatusType).map((val) => {
             return (
               <div className="checkBox">
                 <label> {val} </label>
@@ -31,8 +31,7 @@ const Filter = () => {
             );
           })}
         </div>
-        <div id="keywordFilter" className="dropdown">
-        </div>
+        <div id="keywordFilter" className="dropdown"></div>
       </form>
       <button onClick={handleApply}>Apply</button>
     </div>

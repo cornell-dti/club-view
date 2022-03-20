@@ -33,10 +33,10 @@ export type EventType = {
 };
 
 export enum StatusType {
-  OPEN = "open",
-  CLOSED = "closed",
-  APPROACHING = "approaching",
-  PUBLIC = "public" //always open
+  OPEN = 'open',
+  CLOSED = 'closed',
+  APPROACHING = 'approaching',
+  PUBLIC = 'public', //always open
 }
 
 export enum CategoryType {
