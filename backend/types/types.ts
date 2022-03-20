@@ -32,6 +32,14 @@ export type EventType = {
   location: string;
 };
 
+export enum StatusType {
+  OPEN = "open",
+  CLOSED = "closed",
+  APPROACHING = "approaching",
+  PUBLIC = "public" //always open
+
+}
+
 export enum CategoryType {
   ACADEMIC = 'academic',
   PROJECTTEAM = 'project team',

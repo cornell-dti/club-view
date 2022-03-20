@@ -1,3 +1,6 @@
+import { StatusType } from "../../../backend/types/types"
+
+
 export enum CategoryType {
   ACADEMIC = 'academic',
   PROJECTTEAM = 'project team',
@@ -18,3 +21,5 @@ export enum CategoryType {
   ENVIRONMENTAL_WILDLIFE = 'environmental and wildlife',
   THE_ARTS = 'the arts',
 }
+
+export type Status = StatusType
