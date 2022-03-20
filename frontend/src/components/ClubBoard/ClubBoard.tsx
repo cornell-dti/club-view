@@ -16,7 +16,7 @@ const ClubBoard = () => {
         <ClubCard clubName={club.name} clubCategory={club.category} />
       ))}
     </div>
-    <div>
+    <div className= "filterContainer">
       <Filter />
     </div>
     </>

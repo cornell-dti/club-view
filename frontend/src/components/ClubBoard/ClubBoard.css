@@ -1,5 +1,14 @@
 .cardsContainer {
   display: flex;
+  float: left;
   flex-direction: row;
   flex-wrap: wrap;
+  max-width: 75vw;
+  overflow: auto;
+  max-height: 96vh;
+  margin-top: 1%;
+}
+
+.filterContainer{
+  float:left;
 }
