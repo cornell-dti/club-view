@@ -11,9 +11,9 @@ type Prop = {
   socialName: string;
 };
 
-const SocialTag = (props: Prop) => {
+const SocialTag = ({socialName}: Prop) => {
   const renderIcon = (socialName: string) => {
-    const nameParsed = props.socialName.toLowerCase();
+    const nameParsed = socialName.toLowerCase();
     switch (nameParsed) {
       case 'instagram':
         return instragramIcon;
@@ -28,8 +28,8 @@ const SocialTag = (props: Prop) => {
 
   return (
     <div className="socialTag">
-      <img className="socialIcon" src={renderIcon(props.socialName)} />
-      <div className="socialName">{props.socialName}</div>
+      <img className="socialIcon" src={renderIcon(socialName)} />
+      <div className="socialName">{socialName}</div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import NavBar from './components/NavBar/NavBar';
 import InfoPage from './components/InfoPage/InfoPage';
 import { signIn } from './util/auth';
 import SocialTag from './components/Tags/SocialTags/SocialTag';
+import CategoryTag from './components/Tags/CategoryTags/CategoryTag';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
         </Routes>
       </Router>
       <button onClick={signIn}>Sign In</button>
+      <CategoryTag large={false} title="Dance" />
+      <CategoryTag large={false} title="Academic" />
+      <CategoryTag large={true} title="Dance" />
+      <CategoryTag large={true} title="Academic" />
     </div>
   );
 }
