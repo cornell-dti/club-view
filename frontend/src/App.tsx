@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<ClubBoard />} />
         </Routes>
       </Router>
-      <button onClick={signIn}>Sign In</button>
+      {/* <button onClick={signIn}>Sign In</button> */}
     </div>
   );
 }

@@ -46,6 +46,7 @@ const ClubBoard = () => {
   return (
     <>
       <NavBar hasSearch={true} callback={updateSearchText}/>
+      <div className="dashboardContainer">
       <div className="cardsContainer">
         {clubArray.map((club) => (
           <ClubCard clubName={club.name} clubCategory={club.category} />
@@ -53,6 +54,7 @@ const ClubBoard = () => {
       </div>
       <div className="filterContainer">
         <Filter />
+      </div>
       </div>
     </>
   );
