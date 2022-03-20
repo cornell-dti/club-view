@@ -1,6 +1,6 @@
-.socialTag{
-  display:flex;
-  background-color: #FF998D;
+.socialTag {
+  display: flex;
+  background-color: #ff998d;
   width: 165px;
   height: 40px;
   border-radius: 10px;
@@ -8,8 +8,8 @@
   align-items: center;
 }
 
-.socialName{
+.socialName {
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 15px;
 }
