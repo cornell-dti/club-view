@@ -9,6 +9,11 @@ export type StudentType = {
   favorites: string[];
 };
 
+export type SocialType = {
+  platform: string;
+  url: string;
+}
+
 export type ClubType = {
   id: string;
   name: string;
@@ -20,6 +25,7 @@ export type ClubType = {
   openDate?: string;
   closeDate?: string;
   registeredBy: string;
+  socials: SocialType[];
 };
 
 export type EventType = {

@@ -1,5 +1,5 @@
 import express from 'express';
-import { ClubType } from '../types/types';
+import { ClubType, SocialType } from '../types/types';
 import { db } from '../firebase-config/config';
 import { createSolutionBuilderHost } from 'typescript';
 import { domainToASCII } from 'url';
@@ -41,6 +41,22 @@ router.post('/edit/:id', async (req, res) => {
   }
   await clubDoc.set(clubUpdated);
   res.send(doc);
+});
+
+//Adds a club's social links
+router.put('/:id/socials', async (req, res) => {
+  const clubID = req.body.id;
+  const clubDoc = db.collection('clubs').doc(clubID);
+  console.log(req.body);
+  const doc = await clubDoc.get();
+  if (!doc.exists) {
+    throw new Error("This club could not be found");
+  } else {
+    const socials = await doc.get('socials');
+    const updatedSocials = [...socials, {socialType: req.body.socialType, url: req.body.url}];
+    await clubDoc.update({socials: updatedSocials});
+  }
+  res.send(clubDoc);
 });
 
 router.get('/:id', async (req, res) => {
