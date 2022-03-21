@@ -20,7 +20,7 @@ export type ClubType = {
   openDate?: string;
   closeDate?: string;
   registeredBy: string;
-  events: string[]
+  events: string[];
 };
 
 export type EventType = {
