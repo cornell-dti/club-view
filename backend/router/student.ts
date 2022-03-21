@@ -1,8 +1,7 @@
 import express from 'express';
 import { ClubType, StudentType } from '../types/types';
-import db from '../firebase-config/config';
+import { db } from '../firebase-config/config';
 import { firestore } from 'firebase-admin';
-import { textSpanIntersection } from 'typescript';
 
 const router = express.Router();
 const students = db.collection('students');
