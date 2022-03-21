@@ -6,3 +6,4 @@ Contributors:
 - Justin Kang: Software Developer
 - Daniel Wei: Software Developer
 - Justin Kong: Software Developer
+- Richard Gu: Software Developer 
