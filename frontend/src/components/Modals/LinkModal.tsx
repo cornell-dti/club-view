@@ -16,9 +16,6 @@ const LinkModal = (props: LinkModalProps) => {
   }
   return (
     <div className="modal">
-      SyntaxError: unknown: Namespace tags are not supported by default. React's
-      JSX doesn't support namespace tags. You can set `throwIfNamespace: false`
-      to bypass this warning.
       <div className="modalContent">
         <div className="modalHeader">
           <div className="modalTitle">Add a Link</div>
