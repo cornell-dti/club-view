@@ -1,8 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import './InfoPage.css';
 import NavBar from '../../components/NavBar/NavBar';
+import LinkModal from '../Modals/LinkModal';
 
 const InfoPage = () => {
+  const [showLinkModal, setShowLinkModal] = useState(false);
   return (
     <>
       <NavBar hasSearch={false} />
@@ -13,6 +16,11 @@ const InfoPage = () => {
             <div className="name"></div>
             <div className="categories"></div>
             <div className="socials"></div>
+            <button onClick={() => setShowLinkModal(true)}>Add Link</button>
+            <LinkModal
+              show={showLinkModal}
+              onClose={() => setShowLinkModal(false)}
+            />
           </div>
         </div>
         <div className="infoContainer">
