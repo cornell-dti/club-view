@@ -4,7 +4,9 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
+import { v4 as uuidv4 } from 'uuid';
 import { TokenContext } from '../context/TokenContext';
 import { useContext } from 'react';
 
@@ -18,9 +20,10 @@ const firebaseConfig = {
   measurementId: 'G-JBRHXTNM4L',
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const auth = getAuth();
+const storage = getStorage(app);
+const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 provider.setCustomParameters({
@@ -67,4 +70,17 @@ const signOutUser = () => {
     });
 };
 
-export { SignIn as signIn, signOutUser as signOut, authRequestHeader };
+const uploadImage = async (image: File, clubName: string) => {
+  const clubNameParsed = clubName.replace(' ', '_');
+  const storageRef = ref(storage, `${clubNameParsed}/${uuidv4()}`);
+  const snapshot = await uploadBytes(storageRef, image);
+  const downloadURL = await getDownloadURL(snapshot.ref);
+  return downloadURL;
+};
+
+export {
+  SignIn as signIn,
+  signOutUser as signOut,
+  uploadImage,
+  authRequestHeader,
+};
