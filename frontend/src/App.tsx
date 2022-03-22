@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
 import ClubBoard from './components/ClubBoard/ClubBoard';
 import ClubRegistration from './components/ClubRegistration/ClubRegistration';
 import InfoPage from './components/InfoPage/InfoPage';
 import { signIn } from './util/auth';
+import { TokenProvider } from './context/TokenContext';
+import './App.css';
 
 function App() {
   return (
