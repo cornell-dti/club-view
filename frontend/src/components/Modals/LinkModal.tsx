@@ -9,13 +9,16 @@ type LinkModalProps = {
 let dummySocials: string[] = Array(11).fill('Instagram');
 
 const LinkModal = (props: LinkModalProps) => {
-  const [value, setValue] = useState('Begin typing link here...');
+  const [value, setValue] = useState('');
   const [socials, setSocials] = useState();
   if (!props.show) {
     return null;
   }
   return (
     <div className="modal">
+      SyntaxError: unknown: Namespace tags are not supported by default. React's
+      JSX doesn't support namespace tags. You can set `throwIfNamespace: false`
+      to bypass this warning.
       <div className="modalContent">
         <div className="modalHeader">
           <div className="modalTitle">Add a Link</div>
@@ -25,7 +28,7 @@ const LinkModal = (props: LinkModalProps) => {
           <input
             className="linkField"
             type="text"
-            value={value}
+            placeholder="Begin typing link here..."
             onChange={(e) => setValue(e.target.value)}
           />
           <div className="socialTitle">Select an option</div>
