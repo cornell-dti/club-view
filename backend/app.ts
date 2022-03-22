@@ -18,6 +18,6 @@ app.use(express.json());
 app.use('/clubs', clubRoutes);
 app.use('/students', studentRoutes);
 
-app.listen(3000, () => {
-  console.log('Server listening on Port 3000');
+app.listen(8000, () => {
+  console.log('Server listening on Port 8000');
 });
