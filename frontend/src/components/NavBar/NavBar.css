@@ -72,16 +72,16 @@
 }
 
 .registerButton {
-  background-color:salmon;
+  background-color: salmon;
   display: inline-block;
   width: 22%;
-  font-size: 18px;
-  width: 175px;
-  height: 45px;
+  font-size: medium;
+  width: 10.938rem; /* 175px; */
+  height: 2.813rem; /*45px; */
   margin-left: 3%;
   margin-right: 3%;
-  color:white;
-  border-radius: 14px;
+  color: white;
+  border-radius: 0.875rem; /*14px; */
   border: none;
   font-family: 'Times New Roman', Times, serif;
 }
