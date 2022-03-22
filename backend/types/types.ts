@@ -20,13 +20,16 @@ export type ClubType = {
   openDate?: string;
   closeDate?: string;
   registeredBy: string;
+  events: string[];
 };
 
 export type EventType = {
   id: string;
-  name: string;
-  clubID: string;
-  date: string;
+  title: string;
+  hostedBy: string;
+  description: string;
+  startDate: string;
+  endDate?: string;
   startTime: string;
   endTime: string;
   location: string;
