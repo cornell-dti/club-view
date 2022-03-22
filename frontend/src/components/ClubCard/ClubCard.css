@@ -8,6 +8,7 @@
   border-radius: 3px;
   margin: 0.844rem 0.844rem;
   position: relative;
+  cursor: pointer;
 }
 
 .clubIcon {
@@ -54,6 +55,7 @@
   position: absolute;
   right: 0.6rem;
   top: 0.544rem;
+  z-index: 100;
 }
 
 .indicatorIcon {
