@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ClubCard from '../ClubCard/ClubCard';
+import Filter from '../Filter/Filter';
 import { ClubType } from '../../../../backend/types/types';
 import './ClubBoard.css';
 import NavBar from '../NavBar/NavBar';
@@ -42,18 +43,23 @@ const ClubBoard = () => {
   return (
     <>
       <NavBar hasSearch={true} callback={updateSearchText} />
-      <div className="cardsContainer">
-        {clubArray.length === 0 ? (
-          <></>
-        ) : (
-          clubArray.map((club) => (
-            <ClubCard
-              clubName={club.name}
-              clubCategory={club.category}
-              clubID={club.id}
-            />
-          ))
-        )}
+      <div className="dashboardContainer">
+        <div className="cardsContainer">
+          {clubArray.length === 0 ? (
+            <></>
+          ) : (
+            clubArray.map((club) => (
+              <ClubCard
+                clubName={club.name}
+                clubCategory={club.category}
+                clubID={club.id}
+              />
+            ))
+          )}
+        </div>
+        <div className="filterContainer">
+          <Filter />
+        </div>
       </div>
     </>
   );
