@@ -1,8 +1,6 @@
 import express from 'express';
 import { ClubType } from '../types/types';
 import { db } from '../firebase-config/config';
-import { createSolutionBuilderHost } from 'typescript';
-import { domainToASCII } from 'url';
 
 const router = express.Router();
 
@@ -12,7 +10,7 @@ router.get('/', async (req, res) => {
   const clubsSnapshot = await clubsCollection.get();
   const allClubs = clubsSnapshot.docs;
   const clubs: ClubType[] = [];
-  for (let doc of allClubs) {
+  for (const doc of allClubs) {
     const club: ClubType = doc.data() as ClubType;
     clubs.push(club);
   }
