@@ -61,7 +61,6 @@ const ClubBoard = () => {
           <Filter />
         </div>
       </div>
-      
     </>
   );
 };
