@@ -4,6 +4,7 @@ import Filter from '../Filter/Filter';
 import { ClubType } from '../../../../backend/types/types';
 import './ClubBoard.css';
 import NavBar from '../NavBar/NavBar';
+import UploadImageModal from '../UploadImageModal/UploadImageModal';
 
 const ClubBoard = () => {
   const [origClubs, setOrigClubs] = useState<ClubType[]>([]); // an array of all clubs
@@ -43,6 +44,7 @@ const ClubBoard = () => {
   return (
     <>
       <NavBar hasSearch={true} callback={updateSearchText} />
+      <UploadImageModal />
       <div className="dashboardContainer">
         <div className="cardsContainer">
           {clubArray.length === 0 ? (
