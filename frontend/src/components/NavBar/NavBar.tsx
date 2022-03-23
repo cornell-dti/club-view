@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavigationType } from 'react-router-dom';
 import { logo } from '../../icons/navbar';
 import './NavBar.css';
+import styled from 'styled-components';
 
+//hello
+// function clickMe() {
+//   <Link to="/register">Register</Link>
+// }
 const NavBar = () => {
   return (
     <header className="header">
@@ -19,7 +24,10 @@ const NavBar = () => {
         </div>
       </div>
       <div className="right">
-        <Link to="/register">Register</Link>
+        <Link to="/register">
+          <button className="registerButton">Register Club</button>
+        </Link>
+
         <Link to="/profile">Profile</Link>
       </div>
     </header>

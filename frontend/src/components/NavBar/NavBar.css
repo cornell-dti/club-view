@@ -32,11 +32,26 @@
 }
 
 .right {
-  display: inline-block;
-  width: 22%;
+  display: flex;
+  width: 40%;
   font-size: 18px;
   margin-left: 3%;
+  margin-right: 1%;
+}
+
+.registerButton {
+  background-color: salmon;
+  display: inline-block;
+  width: 22%;
+  font-size: medium;
+  width: 10.938rem; /* 175px; */
+  height: 2.813rem; /*45px; */
+  margin-left: 3%;
   margin-right: 3%;
+  color: white;
+  border-radius: 0.875rem; /*14px; */
+  border: none;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .right a {
