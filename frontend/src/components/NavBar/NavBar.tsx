@@ -55,6 +55,9 @@ const NavBar = (props: Props) => {
         )}
       </div>
       <div className="right">
+        <Link to="/register">
+          <button className="registerButton">Register Club</button>
+        </Link>
         {/* <Link to="/register">Register</Link> */
         /* TODO: What to do with this? */}
         <ProfileButton />
