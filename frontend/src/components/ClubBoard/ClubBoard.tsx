@@ -41,10 +41,23 @@ const ClubBoard = () => {
     );
   }
 
+  // TODO: temporary trigger to test the modal; needs to be removed later
+  const [showUploadModal, setShowModal] = useState(false);
+
   return (
     <>
       <NavBar hasSearch={true} callback={updateSearchText} />
-      <UploadImageModal />
+
+      {/* TODO: temporary components to test the modal; needs to be removed later */}
+      <button onClick={() => setShowModal(true)}>Show Modal</button>
+      <UploadImageModal
+        show={showUploadModal}
+        onClose={() => setShowModal(false)}
+        // optionally:
+        sendFile={(file: File) => {
+          console.log(file.name);
+        }}
+      />
       <div className="dashboardContainer">
         <div className="cardsContainer">
           {clubArray.length === 0 ? (
