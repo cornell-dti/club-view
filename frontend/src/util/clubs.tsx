@@ -1,12 +1,16 @@
-import { ClubType, StatusType } from '../../../backend/types/types';
+import { Club, StatusType } from './types';
 
-const getStatus = async (cid: string) => {
+const getStatus = async (
+  cid: string,
+  callback: (status: StatusType) => void
+) => {
   const club = await fetch(`https://localhost:8000/clubs/${cid}`)
     .then((res) => res.json())
     .then((data) => {
-      return data as ClubType;
+      return data as Club;
     });
-  return club.status as StatusType;
+  const status = club.status as StatusType;
+  callback(status);
 };
 
 export { getStatus };
