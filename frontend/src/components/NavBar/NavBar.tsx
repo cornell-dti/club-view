@@ -4,7 +4,6 @@ import { logo } from '../../icons/navbar';
 import './NavBar.css';
 import styled from 'styled-components';
 
-//hello test
 // function clickMe() {
 //   <Link to="/register">Register</Link>
 // }
