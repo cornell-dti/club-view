@@ -20,7 +20,24 @@ const defaultProps: OptionalProps = {
   sendFile: (file: File) => {},
 };
 
+function getFileExt(fname: string) {
+  return fname.slice(((fname.lastIndexOf('.') - 1) >>> 0) + 2).toLowerCase();
+}
+
 const UploadImageModal = (props: Props) => {
+  const [selectedFile, setSelectedFile] = useState<File>();
+
+  let defaultMessage = 'Drag files here \n or';
+  let tooManyFilesMsg = 'Only one file at a time please!';
+  let notAnImgMsg = "This file isn't an image!";
+  let notAFileMsg = "This isn't a valid file.";
+  const [message, setMessage] = useState(defaultMessage);
+
+  function updateFile(file: File | undefined) {
+    setSelectedFile(file);
+    setMessage(defaultMessage);
+  }
+
   const closeModal = (sendFile: boolean) => {
     // if we clicked on the Upload button, send the file back and do something with it
     if (sendFile && selectedFile !== undefined) {
@@ -33,13 +50,52 @@ const UploadImageModal = (props: Props) => {
     props.onClose();
 
     // also, reset the file stored within the modal
-    setSelectedFile(undefined);
+    updateFile(undefined);
   };
 
-  const [selectedFile, setSelectedFile] = useState<File>();
-
   const changeHandler = (event: any) => {
-    setSelectedFile(event.target.files[0]);
+    updateFile(event.target.files[0]);
+  };
+
+  const handleDrop = (ev: any) => {
+    console.log('File(s) dropped');
+
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+
+    if (ev.dataTransfer.items) {
+      // Use DataTransferItemList interface to access the file(s)
+      if (ev.dataTransfer.items.length > 1) {
+        setMessage(tooManyFilesMsg);
+      } else {
+        if (ev.dataTransfer.items[0].kind === 'file') {
+          var file = ev.dataTransfer.items[0].getAsFile();
+          if ('jpg png jpeg gif'.includes(getFileExt(file.name))) {
+            updateFile(file);
+          } else {
+            setMessage(notAnImgMsg);
+          }
+        } else {
+          setMessage(notAFileMsg);
+        }
+      }
+    } else {
+      // Use DataTransfer interface to access the file(s)
+      if (ev.dataTransfer.files.length > 1) {
+        setMessage(tooManyFilesMsg);
+      } else {
+        updateFile(ev.dataTransfer.files[0]);
+      }
+    }
+  };
+
+  const handleDragOver = (ev: any) => {
+    console.log('File(s) in drop zone');
+
+    // TODO: animate the drop zone on hover ??
+
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
   };
 
   if (!props.show) {
@@ -53,7 +109,14 @@ const UploadImageModal = (props: Props) => {
             <a href="#" className="close" onClick={() => closeModal(false)} />
           </div>
           <div className="modalBody">
-            <input type="file" name="file" onChange={changeHandler} />
+            <div
+              className="dropzone"
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+            >
+              <p>{message}</p>
+              <input type="file" name="file" onChange={changeHandler} />
+            </div>
 
             {selectedFile !== undefined ? (
               <div>
@@ -66,7 +129,9 @@ const UploadImageModal = (props: Props) => {
             )}
           </div>
           <div className="modalFooter">
-            <button onClick={() => closeModal(true)}>Done</button>
+            <button className="doneButton" onClick={() => closeModal(true)}>
+              Done
+            </button>
           </div>
         </div>
       </div>

@@ -35,6 +35,9 @@
   line-height: 2.063rem;
   margin: 2.25rem 0 0 2.688rem;
   color: #424242;
+
+  justify-content: center;
+  padding-right: 3rem;
 }
 
 .close {
@@ -133,4 +136,24 @@
   border-radius: 1.25rem;
   margin: 1.813rem 0 0 0;
   border: none;
+}
+
+.doneButton {
+  width: 5rem;
+  height: 2.813rem;
+  left: 42.5rem;
+  top: 34.188rem;
+  font-size: 1.125rem;
+  color: #ffffff;
+  border-radius: 1.25rem;
+  margin: 1.813rem 0 0 0;
+  border: none;
+  background: #35c1fd;
+  border-radius: 10px;
+}
+
+.dropzone {
+  border: 5px solid blue;
+  width: 200px;
+  height: 100px;
 }
