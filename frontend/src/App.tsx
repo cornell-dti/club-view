@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
 import ClubBoard from './components/ClubBoard/ClubBoard';
 import ClubRegistration from './components/ClubRegistration/ClubRegistration';
 import InfoPage from './components/InfoPage/InfoPage';
-import { signIn } from './util/auth';
+import { signIn } from './util/firebase';
 import SocialTag from './components/Tags/SocialTags/SocialTag';
 import CategoryTag from './components/Tags/CategoryTags/CategoryTag';
 import { TokenProvider } from './context/TokenContext';
