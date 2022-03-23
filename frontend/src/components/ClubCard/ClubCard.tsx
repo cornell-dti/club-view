@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ClubCard.css';
 import FavouriteIcon from '../../assets/favourite.svg';
 import IndicatorIcon from '../../assets/indicator.svg';
 import { useNavigate } from 'react-router-dom';
+import { getStatus } from '../../util/clubs';
+import { StatusType } from '../../types';
 
 type Prop = {
   clubName: string;
@@ -11,7 +13,12 @@ type Prop = {
 };
 
 const ClubCard = (props: Prop) => {
+  const [status, setStatus] = useState<StatusType>();
+  useEffect(() => {
+    getStatus(props.clubID, setStatus);
+  });
   const navigateTo = useNavigate();
+  console.log(`club name: ${props.clubName}, club Status: ${status}`);
 
   return (
     <div
