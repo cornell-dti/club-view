@@ -7,13 +7,7 @@ const router = express.Router();
 const students = db.collection('students');
 const clubs = db.collection('clubs');
 
-const clubsToString = (clubs) => {
-  const clubNameArray: ClubType[] = [];
-  clubs.forEach((club) => {
-    clubNameArray.push(club);
-  });
-  return clubNameArray;
-};
+/** getClubDataFromReference takes in a reference to a club and finds and returns its document */
 const getClubDataFromReference = async (
   clubReference: firestore.DocumentReference
 ) => {
@@ -21,27 +15,30 @@ const getClubDataFromReference = async (
   const clubData: ClubType = clubPromise.data() as ClubType;
   return clubData;
 };
-
-const getFavorites = async (student) => {
-  const favorites: firestore.DocumentReference[] = student.favorites;
-  const favoritesClubPromises = favorites.map((clubReference) => {
+/** getClubsFromReference returns a list of clubs corresponding to typeOfClub. This can be either the student's favorited clubs, or their managed clubs */
+const getClubsFromReference = async (student, typeOfClub) => {
+  const clubListRaw: firestore.DocumentReference[] = student[typeOfClub];
+  const clubListPromises = clubListRaw.map((clubReference) => {
     return getClubDataFromReference(clubReference);
   });
-  const favoritesClubs = await Promise.all(favoritesClubPromises).then(
-    (clubArray) => {
-      return clubArray;
-    }
-  );
-  return favoritesClubs;
+  const clubList = await Promise.all(clubListPromises).then((clubArray) => {
+    return clubArray;
+  });
+  return clubList;
 };
+
 // Get All Students
-router.get('/', async (req, res) => {
+router.get('/', async (_, res) => {
   const studentsSnapshot = await students.get();
   const allStudents = studentsSnapshot.docs;
   const studentsArray: StudentType[] = [];
   for (const student of allStudents) {
     const studentData = student.data();
-    const favoritesClubs = await getFavorites(studentData);
+    const favoritesClubs = await getClubsFromReference(
+      studentData,
+      'favorites'
+    );
+    const managedClubs = await getClubsFromReference(studentData, 'managed');
 
     const studentInstance: StudentType = {
       id: studentData.id,
@@ -49,7 +46,7 @@ router.get('/', async (req, res) => {
       lastName: studentData.lastNsame,
       year: studentData.year,
       email: studentData.email,
-      managed: clubsToString(studentData.managed),
+      managed: managedClubs,
       favorites: favoritesClubs,
     };
     studentsArray.push(studentInstance);
@@ -76,8 +73,10 @@ router.get('/:id/favorites', async (req, res) => {
   if (!student.exists) {
     res.status(404).send({ err: 'Student not found' });
   } else {
-    const favoritesClubs = await getFavorites(student.data());
-    console.log(favoritesClubs);
+    const favoritesClubs = await getClubsFromReference(
+      student.data(),
+      'favorites'
+    );
     res.status(200).send(favoritesClubs);
   }
 });
@@ -89,13 +88,14 @@ router.put('/:sid/favorites/:cid', async (req, res) => {
   const student = await studentDoc.get();
   const clubDoc = clubs.doc(cid);
   const club = await clubDoc.get();
+  const clubReference = firestore().doc(`/clubs/${cid}`);
   if (!student.exists) {
     res.status(404).send({ err: 'Student not found' });
   } else if (!club.exists) {
     res.status(404).send({ err: 'Club not found' });
   } else {
     const favorites = await student.get('favorites');
-    const updatedFavorites = [...favorites, club.get('name')];
+    const updatedFavorites = [...favorites, clubReference];
     await studentDoc.update({ favorites: updatedFavorites });
     res.status(200).send(club.get('name'));
   }
