@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 //Adds a club with req.body
 router.post('/', async (req, res) => {
   const clubsCollection = await db.collection('clubs');
-  const clubsDoc = clubsCollection.doc();
+  const clubsDoc = clubsCollection.doc(req.body.id);
   console.log(req.body);
   const club: ClubType = req.body;
   await clubsDoc.set(club);
@@ -47,7 +47,8 @@ router.get('/:id', async (req, res) => {
   const ref = clubsCollection.doc(clubId);
   const doc = await ref.get();
   if (!doc.exists) {
-    throw new Error('Invalid id');
+    // throw new Error('Invalid id'); // bit dramatic to crash the whole backend over a bad id, no?
+    console.log('INVALID ID: ' + clubId);
   }
   const data = doc.data() as ClubType;
   res.send(data);

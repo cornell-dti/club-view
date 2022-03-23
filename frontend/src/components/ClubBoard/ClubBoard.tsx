@@ -1,32 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ClubCard from '../ClubCard/ClubCard';
+import Filter from '../Filter/Filter';
 import { ClubType } from '../../../../backend/types/types';
 import './ClubBoard.css';
 import NavBar from '../NavBar/NavBar';
 
 const ClubBoard = () => {
-  // keeps an updated list of ALL clubs in the database since the component mounted
-  const [origClubArray, setOrigClubArray] = useState<ClubType[]>([]);
-
-  // keeps the list of clubs to be rendered, depending on search
-  const [clubArray, setClubArray] = useState<ClubType[]>([]);
-
-  function updateSearchText(text: string) {
-    setClubArray(
-      // remove all clubs that don't begin with search string
-      origClubArray.filter(function (item: ClubType) {
-        return item.name
-          .trim()
-          .toLowerCase()
-          .includes(text.trim().toLowerCase()); // The search currently only matches exact name searches
-      })
-    );
-  }
-
-  // This useEffect is triggered on render
-  useEffect(() => {
-    // No need for this for now...
-  });
+  const [origClubs, setOrigClubs] = useState<ClubType[]>([]); // an array of all clubs
 
   // This useEffect is triggered only on component mount
   useEffect(() => {
@@ -37,18 +17,49 @@ const ClubBoard = () => {
     fetch('http://localhost:8000/clubs')
       .then((res) => res.json())
       .then((data) => {
-        setClubArray(data);
-        setOrigClubArray(data);
+        setOrigClubs(data);
       });
   }, []);
+
+  // keeps the list of clubs to be rendered, depending on search
+  const [clubArray, setClubArray] = useState(origClubs);
+
+  useEffect(() => {
+    setClubArray(origClubs);
+  }, [origClubs]);
+
+  function updateSearchText(text: string) {
+    setClubArray(
+      // remove all clubs that don't begin with search string
+      origClubs.filter(function (item: ClubType) {
+        return item.name
+          .trim()
+          .toLowerCase()
+          .includes(text.trim().toLowerCase()); // The search currently only matches exact name searches
+      })
+    );
+  }
 
   return (
     <>
       <NavBar hasSearch={true} callback={updateSearchText} />
-      <div className="cardsContainer">
-        {clubArray.map((club) => (
-          <ClubCard clubName={club.name} clubCategory={club.category} />
-        ))}
+      <div className="dashboardContainer">
+        <div className="cardsContainer">
+          {clubArray.length === 0 ? (
+            <></>
+          ) : (
+            clubArray.map((club) => (
+              <ClubCard
+                clubName={club.name}
+                clubCategory={club.category}
+                clubID={club.id}
+              />
+            ))
+          )}
+        </div>
+        <div className="filterContainer">
+          <Filter />
+        </div>
       </div>
     </>
   );

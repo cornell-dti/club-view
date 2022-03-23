@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ProfileButton.css';
-import { signIn, signOut } from '../../../util/auth';
+import { signIn, signOut } from '../../../util/firebase';
 import { Link } from 'react-router-dom';
 import { whiteArrow, whiteArrowRotated } from '../../../icons/navbar';
 
