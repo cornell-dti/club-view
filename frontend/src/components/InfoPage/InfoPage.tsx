@@ -17,6 +17,8 @@ const InfoPage = () => {
             <div className="categories"></div>
             <div className="socials"></div>
             <button onClick={() => setShowLinkModal(true)}>Add Link</button>
+
+            {/* Feel free to delete*/}
             <LinkModal
               show={showLinkModal}
               onClose={() => setShowLinkModal(false)}
