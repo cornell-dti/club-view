@@ -1,39 +1,8 @@
-//file for types
-export type StudentType = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  year: string;
-  email: string;
-  managed: string[];
-  favorites: string[];
-};
+import { StudentType, ClubType, EventType } from '../../../backend/types/types';
 
-export type ClubType = {
-  id: string;
-  name: string;
-  category: string;
-  email: string;
-  description: string;
-  url: string;
-  status: string;
-  openDate?: string;
-  closeDate?: string;
-  registeredBy: string;
-  events: string[];
-};
-
-export type EventType = {
-  id: string;
-  title: string;
-  hostedBy: string;
-  description: string;
-  startDate: string;
-  endDate?: string;
-  startTime: string;
-  endTime: string;
-  location: string;
-};
+export type Student = StudentType;
+export type Club = ClubType;
+export type Event = EventType;
 
 export enum StatusType {
   OPEN = 'open',
