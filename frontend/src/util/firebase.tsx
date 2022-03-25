@@ -4,7 +4,11 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
+import { v4 as uuidv4 } from 'uuid';
+import { TokenContext } from '../context/TokenContext';
+import { useContext } from 'react';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC7qOZ_v2ECEaOahK3hrbCrN_2S3c-pE9U',
@@ -16,9 +20,10 @@ const firebaseConfig = {
   measurementId: 'G-JBRHXTNM4L',
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const auth = getAuth();
+const storage = getStorage(app);
+const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 provider.setCustomParameters({
@@ -34,16 +39,16 @@ const authRequestHeader = {
   },
 };
 
-function SignIn() {
+const SignIn = () => {
+  const { setToken } = useContext(TokenContext);
+
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential?.accessToken;
       const user = result.user;
-      // console.log(user);
       user.getIdToken().then((id_token) => {
-        //save id token to context, then use to make authorized requests.
-        console.log(id_token);
+        setToken(id_token);
       });
     })
     .catch((error) => {
@@ -53,7 +58,7 @@ function SignIn() {
       console.log(errorCode, errorMessage, email);
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
-}
+};
 
 const signOutUser = () => {
   signOut(auth)
@@ -65,4 +70,17 @@ const signOutUser = () => {
     });
 };
 
-export { SignIn as signIn, signOutUser as signOut, authRequestHeader };
+const uploadImage = async (image: File, clubName: string) => {
+  const clubNameParsed = clubName.replace(' ', '_');
+  const storageRef = ref(storage, `${clubNameParsed}/${uuidv4()}`);
+  const snapshot = await uploadBytes(storageRef, image);
+  const downloadURL = await getDownloadURL(snapshot.ref);
+  return downloadURL;
+};
+
+export {
+  SignIn as signIn,
+  signOutUser as signOut,
+  uploadImage,
+  authRequestHeader,
+};

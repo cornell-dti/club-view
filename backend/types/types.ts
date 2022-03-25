@@ -43,19 +43,28 @@ export type ClubType = {
 
 export type EventType = {
   id: string;
-  name: string;
-  clubID: string;
-  date: string;
+  title: string;
+  hostedBy: string;
+  description: string;
+  startDate: string;
+  endDate?: string;
   startTime: string;
   endTime: string;
   location: string;
 };
 
+export enum StatusType {
+  OPEN = 'open',
+  CLOSED = 'closed',
+  APPROACHING = 'approaching',
+  PUBLIC = 'public', //always open
+}
+
 export enum CategoryType {
   ACADEMIC = 'academic',
   PROJECTTEAM = 'project team',
-  CAREERDEVELOPMENT = 'careerdevelopment',
-  COMMUNITYSERVICE = 'communityservice',
+  CAREERDEVELOPMENT = 'career development',
+  COMMUNITYSERVICE = 'community service',
   CULTURAL = 'cultural',
   SOCIAL = 'social',
   FOOD_DRINK = 'food and drink',
