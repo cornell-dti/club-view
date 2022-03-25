@@ -38,6 +38,7 @@ export type ClubType = {
   closeDate?: string;
   registeredBy: string;
   socials: SocialType[];
+  events: string[];
 };
 
 export type EventType = {
