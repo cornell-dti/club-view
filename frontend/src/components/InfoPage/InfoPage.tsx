@@ -1,21 +1,11 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useState } from 'react';
 import './InfoPage.css';
 import NavBar from '../../components/NavBar/NavBar';
+import LinkModal from '../Modals/LinkModal';
 
 const InfoPage = () => {
-  let params = useParams();
-
-  // This useEffect is triggered only on component mount
-  useEffect(() => {
-    // NOTE: this just pulls the data from localhost
-    fetch('http://localhost:8000/clubs/' + params.id)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  }, []);
-
+  const [showLinkModal, setShowLinkModal] = useState(false);
   return (
     <>
       <NavBar hasSearch={false} />
@@ -26,6 +16,13 @@ const InfoPage = () => {
             <div className="name"></div>
             <div className="categories"></div>
             <div className="socials"></div>
+            <button onClick={() => setShowLinkModal(true)}>Add Link</button>
+
+            {/* Feel free to delete*/}
+            <LinkModal
+              show={showLinkModal}
+              onClose={() => setShowLinkModal(false)}
+            />
           </div>
         </div>
         <div className="infoContainer">
