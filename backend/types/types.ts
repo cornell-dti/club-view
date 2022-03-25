@@ -10,7 +10,7 @@ export type StudentType = {
 };
 
 export enum URLs {
-  instagram = 'instagram.com',
+  'instagram' = 'instagram.com',
   'facebook' = 'facebook.com',
   'slack' = 'slack.com',
   'discord' = 'discord.gg',
