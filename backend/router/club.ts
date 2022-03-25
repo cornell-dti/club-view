@@ -1,6 +1,8 @@
 import express from 'express';
 import { ClubType, SocialType, URLs } from '../types/types';
 import { db } from '../firebase-config/config';
+import { createSolutionBuilderHost } from 'typescript';
+import { domainToASCII } from 'url';
 
 const router = express.Router();
 
@@ -10,7 +12,7 @@ router.get('/', async (req, res) => {
   const clubsSnapshot = await clubsCollection.get();
   const allClubs = clubsSnapshot.docs;
   const clubs: ClubType[] = [];
-  for (const doc of allClubs) {
+  for (let doc of allClubs) {
     const club: ClubType = doc.data() as ClubType;
     clubs.push(club);
   }
@@ -20,7 +22,7 @@ router.get('/', async (req, res) => {
 //Adds a club with req.body
 router.post('/', async (req, res) => {
   const clubsCollection = await db.collection('clubs');
-  const clubsDoc = clubsCollection.doc(req.body.id);
+  const clubsDoc = clubsCollection.doc();
   console.log(req.body);
   const club: ClubType = req.body;
   await clubsDoc.set(club);
@@ -71,8 +73,7 @@ router.get('/:id', async (req, res) => {
   const ref = clubsCollection.doc(clubId);
   const doc = await ref.get();
   if (!doc.exists) {
-    // throw new Error('Invalid id'); // bit dramatic to crash the whole backend over a bad id, no?
-    console.log('INVALID ID: ' + clubId);
+    throw new Error('Invalid id');
   }
   const data = doc.data() as ClubType;
   res.send(data);
