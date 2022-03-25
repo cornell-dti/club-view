@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logo } from '../../icons/navbar';
+import Handle from '../../assets/handle.svg';
+import Ellipse from '../../assets/ellipse.svg';
 import './NavBar.css';
 import ProfileButton from './ProfileButton/ProfileButton';
 
@@ -30,7 +32,7 @@ const NavBar = (props: Props) => {
   return (
     <header className="header">
       <div className="left">
-        <div>
+        <div className="logo">
           <Link to="/">
             <img src={logo} alt="Logo of ClubView" />
           </Link>
