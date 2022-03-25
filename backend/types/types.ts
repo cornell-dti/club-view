@@ -9,6 +9,19 @@ export type StudentType = {
   favorites: string[];
 };
 
+export enum URLs {
+  'instagram'= 'instagram.com',
+  'facebook'= 'facebook.com',
+  'slack'= 'slack.com',
+  'discord'= 'discord.gg',
+  'twitter'= 'twitter.com',
+  'linkedin'= 'linkedin.com',
+  'youtube'= 'youtube.com',
+  'github'= 'github.com',
+  'reddit'= 'reddit.com',
+  'other'= ''
+}
+
 export type SocialType = {
   platform: string;
   url: string;
@@ -20,7 +33,6 @@ export type ClubType = {
   category: string;
   email: string;
   description: string;
-  url: string;
   status: string;
   openDate?: string;
   closeDate?: string;

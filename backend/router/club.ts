@@ -1,5 +1,5 @@
 import express from 'express';
-import { ClubType, SocialType } from '../types/types';
+import { ClubType, SocialType, URLs } from '../types/types';
 import { db } from '../firebase-config/config';
 import { createSolutionBuilderHost } from 'typescript';
 import { domainToASCII } from 'url';
@@ -43,20 +43,26 @@ router.post('/edit/:id', async (req, res) => {
   res.send(doc);
 });
 
-//Adds a club's social links
-router.put('/:id/socials', async (req, res) => {
+//Adds a club's social links (platform is other for custom social medias)
+router.post('/:id/socials/', async (req, res) => {
   const clubID = req.body.id;
   const clubDoc = db.collection('clubs').doc(clubID);
-  console.log(req.body);
-  const doc = await clubDoc.get();
-  if (!doc.exists) {
-    throw new Error("This club could not be found");
+  if (req.params.id == clubDoc['registeredBy']) { throw new Error("You are not authenticated");}
+  const url = req.body.toLowerCase()
+  const platform = req.body.toLowerCase()
+  if (url.includes(URLs[platform])) {
+    const doc = await clubDoc.get();
+    if (!doc.exists) {
+      throw new Error("Invalid ID");
+    } else {
+      const socials = await doc.get('socials');
+      socials.push({platform: req.body.platform, url: req.body.url});
+      await clubDoc.update({socials: socials});
+    }
+    res.send(clubDoc);
   } else {
-    const socials = await doc.get('socials');
-    const updatedSocials = [...socials, {socialType: req.body.socialType, url: req.body.url}];
-    await clubDoc.update({socials: updatedSocials});
+    throw new Error('URL not valid');
   }
-  res.send(clubDoc);
 });
 
 router.get('/:id', async (req, res) => {
