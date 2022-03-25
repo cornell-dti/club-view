@@ -47,17 +47,19 @@ router.post('/edit/:id', async (req, res) => {
 router.post('/:id/socials/', async (req, res) => {
   const clubID = req.body.id;
   const clubDoc = db.collection('clubs').doc(clubID);
-  if (req.params.id == clubDoc['registeredBy']) { throw new Error("You are not authenticated");}
-  const url = req.body.toLowerCase()
-  const platform = req.body.toLowerCase()
+  if (req.params.id == clubDoc['registeredBy']) {
+    throw new Error('You are not authenticated');
+  }
+  const url = req.body.toLowerCase();
+  const platform = req.body.toLowerCase();
   if (url.includes(URLs[platform])) {
     const doc = await clubDoc.get();
     if (!doc.exists) {
-      throw new Error("Invalid ID");
+      throw new Error('Invalid ID');
     } else {
       const socials = await doc.get('socials');
-      socials.push({platform: req.body.platform, url: req.body.url});
-      await clubDoc.update({socials: socials});
+      socials.push({ platform: req.body.platform, url: req.body.url });
+      await clubDoc.update({ socials: socials });
     }
     res.send(clubDoc);
   } else {
