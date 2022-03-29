@@ -25,20 +25,20 @@ const Filter = () => {
         </div>
 
         <div id="statusFilter" className="dropdown">
-        <Collapsible
+          <Collapsible
             open
             title="Status"
             openIcon={ArrowUp}
             closedIcon={ArrowDown}
           >
             {Object.values(StatusType).map((val) => {
-            return (
-              <div className="checkBox">
-                <label> {val} </label>
-                <input type="checkbox" />
-              </div>
-            );
-          })}
+              return (
+                <div className="checkBox">
+                  <label> {val} </label>
+                  <input type="checkbox" />
+                </div>
+              );
+            })}
           </Collapsible>
         </div>
         <div id="keywordFilter" className="dropdown"></div>

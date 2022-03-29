@@ -1,18 +1,14 @@
-.name{
-  font-size:21px;
+.name {
+  font-size: 21px;
 }
 
-.filterHeader{
+.filterHeader {
   display: flex;
- justify-content: space-between;
+  justify-content: space-between;
 }
 
-.expandButton{
-
-
+.expandButton {
 }
 
-
-.content{
-
+.content {
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Collapsible.css";
+import './Collapsible.css';
 
 interface IProps {
   open?: boolean;
@@ -23,7 +23,11 @@ const Collapsible: React.FC<IProps> = ({
         <div>
           <div className="filterHeader">
             <div className="nsme">{title}</div>
-            <button type="button" className="expandButton" onClick={()=>setIsOpen((prev) => !prev)}>
+            <button
+              type="button"
+              className="expandButton"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
               {!isOpen ? <img src={closedIcon} /> : <img src={openIcon} />}
             </button>
           </div>
