@@ -22,7 +22,7 @@ const Collapsible: React.FC<IProps> = ({
       <div className="">
         <div>
           <div className="filterHeader">
-            <div className="nsme">{title}</div>
+            <div className="name">{title}</div>
             <button
               type="button"
               className="expandButton"

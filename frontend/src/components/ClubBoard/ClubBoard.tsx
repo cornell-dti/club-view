@@ -40,6 +40,10 @@ const ClubBoard = () => {
     );
   }
 
+  function updatetoFilter(){
+    
+  }
+
   return (
     <>
       <NavBar hasSearch={true} callback={updateSearchText} />
@@ -49,11 +53,68 @@ const ClubBoard = () => {
             <></>
           ) : (
             clubArray.map((club) => (
-              <ClubCard
-                clubName={club.name}
-                clubCategory={club.category}
-                clubID={club.id}
-              />
+              <>
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+                <ClubCard
+                  clubName={club.name}
+                  clubCategory={club.category}
+                  clubID={club.id}
+                />
+              </>
             ))
           )}
         </div>

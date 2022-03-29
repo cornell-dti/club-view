@@ -5,10 +5,10 @@
 .filterHeader {
   display: flex;
   justify-content: space-between;
+  height: 30px;
 }
 
-.expandButton {
-}
-
-.content {
+.expandButton{
+  background: none;
+  border: none;
 }

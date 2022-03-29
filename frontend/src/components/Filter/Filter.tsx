@@ -5,9 +5,9 @@ import Collapsible from '../Collapsible/Collapsible';
 import './Filter.css';
 
 const Filter = () => {
-  const handleExpand = () => {};
+  const handleApply = () => {
 
-  const handleApply = () => {};
+  };
 
   return (
     <div className="filter">
@@ -20,7 +20,14 @@ const Filter = () => {
             openIcon={ArrowUp}
             closedIcon={ArrowDown}
           >
-            Categories
+            {Object.values(CategoryType).map((val) => {
+              return (
+                <div className="checkBox">
+                  <label> {val} </label>
+                  <input type="checkbox" />
+                </div>
+              );
+            })}
           </Collapsible>
         </div>
 
@@ -43,7 +50,7 @@ const Filter = () => {
         </div>
         <div id="keywordFilter" className="dropdown"></div>
       </form>
-      <button onClick={handleApply}>Apply</button>
+      <button onClick={handleApply} className="apply">Apply</button>
     </div>
   );
 };
