@@ -3,7 +3,7 @@ export type StudentType = {
   id: string;
   firstName: string;
   lastName: string;
-  year: string;
+  year?: string;
   email: string;
   managed: string[];
   favorites: string[];
