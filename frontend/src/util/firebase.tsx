@@ -9,6 +9,7 @@ import { initializeApp } from 'firebase/app';
 import { v4 as uuidv4 } from 'uuid';
 import { TokenContext } from '../context/TokenContext';
 import { useContext } from 'react';
+import axios from 'axios';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC7qOZ_v2ECEaOahK3hrbCrN_2S3c-pE9U',
@@ -40,15 +41,16 @@ const authRequestHeader = {
 };
 
 const SignIn = () => {
-  const { setToken } = useContext(TokenContext);
+  
 
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential?.accessToken;
       const user = result.user;
+      console.log(user);
+      axios.post('http://localhost:8000/students/register', user);
       user.getIdToken().then((id_token) => {
-        setToken(id_token);
       });
     })
     .catch((error) => {
