@@ -41,8 +41,6 @@ const authRequestHeader = {
 };
 
 const SignIn = () => {
-  
-
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -50,8 +48,7 @@ const SignIn = () => {
       const user = result.user;
       console.log(user);
       axios.post('http://localhost:8000/students/register', user);
-      user.getIdToken().then((id_token) => {
-      });
+      user.getIdToken().then((id_token) => {});
     })
     .catch((error) => {
       const errorCode = error.code;

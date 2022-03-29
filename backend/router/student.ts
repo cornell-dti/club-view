@@ -73,8 +73,8 @@ router.post('/register', async (req, res) => {
   const studentCollection = db.collection('students');
   const snapshot = await studentCollection.where('id', '==', sid).get();
 
-  if (snapshot.empty){
-    const displayName : string = body.displayName;
+  if (snapshot.empty) {
+    const displayName: string = body.displayName;
     const first = displayName.split(' ')[0];
     const last = displayName.split(' ')[1];
 
@@ -88,13 +88,12 @@ router.post('/register', async (req, res) => {
     };
 
     await studentCollection.doc().set(newStudent);
-    console.log("Student with that uid does not exist. Added.")
+    console.log('Student with that uid does not exist. Added.');
     res.send(newStudent);
-
-  }else{
-    console.log("Student with that uid already exists.")
+  } else {
+    console.log('Student with that uid already exists.');
     res.send(snapshot.docs[0].data());
   }
-})
+});
 
 export default router;
