@@ -5,8 +5,8 @@ export type StudentType = {
   lastName: string;
   year?: string;
   email: string;
-  managed: string[];
-  favorites: string[];
+  managed: ClubType[];
+  favorites: ClubType[];
 };
 
 export type ClubType = {
@@ -19,8 +19,8 @@ export type ClubType = {
   status: string;
   openDate?: string;
   closeDate?: string;
-  registeredBy: string;
-  events: string[];
+  registeredBy: StudentType;
+  events: EventType[];
 };
 
 export type EventType = {
