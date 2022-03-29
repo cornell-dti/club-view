@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowUp, ArrowDown } from '../../icons/filter';
 import { CategoryType, StatusType } from '../../types/index';
 import Collapsible from '../Collapsible/Collapsible';
 import './Filter.css';
 
 const Filter = () => {
+
+  //These states contain the categories and statuses selected.
+  const [categories, setCategories] = useState([]);
+  const [statuses, setStatus]= useState([]);
+ 
   const handleApply = () => {
 
   };
@@ -24,7 +29,7 @@ const Filter = () => {
               return (
                 <div className="checkBox">
                   <label> {val} </label>
-                  <input type="checkbox" />
+                  <input type="checkbox" id={val}/>
                 </div>
               );
             })}
@@ -42,7 +47,7 @@ const Filter = () => {
               return (
                 <div className="checkBox">
                   <label> {val} </label>
-                  <input type="checkbox" />
+                  <input type="checkbox" id={val}/>
                 </div>
               );
             })}
