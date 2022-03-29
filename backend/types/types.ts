@@ -12,11 +12,11 @@ export type StudentType = {
 export type ClubType = {
   id: string;
   name: string;
-  category: string;
+  category: CategoryType;
   email: string;
   description: string;
   url: string;
-  status: string;
+  status: StatusType;
   openDate?: string;
   closeDate?: string;
   registeredBy: string;

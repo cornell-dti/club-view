@@ -1,8 +1,12 @@
 import React from 'react';
+import { ArrowUp, ArrowDown } from '../../icons/filter';
 import { CategoryType, StatusType } from '../../types/index';
+import Collapsible from '../Collapsible/Collapsible';
 import './Filter.css';
 
 const Filter = () => {
+  const handleExpand = () => {};
+
   const handleApply = () => {};
 
   return (
@@ -10,19 +14,24 @@ const Filter = () => {
       <div className="title">Filter:</div>
       <form>
         <div id="categoryFilter" className="dropdown">
-          {Object.values(CategoryType).map((val) => {
-            return (
-              <div className="checkBox">
-                <label> {val} </label>
-                <input type="checkbox" />
-              </div>
-            );
-          })}
-          <div className="checkBox"></div>
+          <Collapsible
+            open
+            title="Category"
+            openIcon={ArrowUp}
+            closedIcon={ArrowDown}
+          >
+            Categories
+          </Collapsible>
         </div>
 
         <div id="statusFilter" className="dropdown">
-          {Object.values(StatusType).map((val) => {
+        <Collapsible
+            open
+            title="Status"
+            openIcon={ArrowUp}
+            closedIcon={ArrowDown}
+          >
+            {Object.values(StatusType).map((val) => {
             return (
               <div className="checkBox">
                 <label> {val} </label>
@@ -30,6 +39,7 @@ const Filter = () => {
               </div>
             );
           })}
+          </Collapsible>
         </div>
         <div id="keywordFilter" className="dropdown"></div>
       </form>
