@@ -61,18 +61,7 @@ const UploadImageModal = (props: Props) => {
     updateFile(undefined);
   };
 
-  const changeHandler = (event: any) => {
-    if (isAnImage(event.target.files[0].name)) {
-      updateFile(event.target.files[0]);
-    } else {
-      setMessage(notAnImgMsg);
-      setHoveringDrop(false);
-    }
-  };
-
   const handleDrop = (ev: any) => {
-    console.log('File(s) dropped');
-
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
 
@@ -125,7 +114,7 @@ const UploadImageModal = (props: Props) => {
       <div className="modal">
         <div className="modalContent">
           <div className="modalHeader">
-            <div className="modalTitle">Add a Link</div>
+            <div className="modalTitle">Upload Image</div>
             <a href="#" className="close" onClick={() => closeModal(false)} />
           </div>
           <div className="modalBody">
@@ -189,7 +178,8 @@ const UploadImageModal = (props: Props) => {
                   id="hiddenFileInput"
                   type="file"
                   name="file"
-                  onChange={changeHandler}
+                  accept="image/png, image/jpeg"
+                  onChange={(e: any) => updateFile(e.target.files[0])}
                 />
               </div>
             </div>
