@@ -4,7 +4,7 @@ import FavouriteIcon from '../../assets/favourite.svg';
 import IndicatorIcon from '../../assets/indicator.svg';
 import { useNavigate } from 'react-router-dom';
 import { getStatus } from '../../util/clubs';
-import { StatusType } from '../../types';
+import { Club } from '../../util/types';
 
 type Prop = {
   clubName: string;
@@ -12,25 +12,21 @@ type Prop = {
   clubID: string;
 };
 
-const ClubCard = (props: Prop) => {
-  const [status, setStatus] = useState<StatusType>();
-  useEffect(() => {
-    getStatus(props.clubID, setStatus);
-  });
+const ClubCard = (props: Club) => {
+  const status = getStatus(props);
   const navigateTo = useNavigate();
-  console.log(`club name: ${props.clubName}, club Status: ${status}`);
 
   return (
     <div
       className="cardContainer"
       onClick={() => {
-        navigateTo('/clubs/' + props.clubID);
+        navigateTo('/clubs/' + props.id);
       }}
     >
       <div className="clubIcon" />
       <div className="infoContainer">
-        <div className="clubName">{props.clubName}</div>
-        <div className="clubCategory">{props.clubCategory}</div>
+        <div className="clubName">{props.name}</div>
+        <div className="clubCategory">{props.category}</div>
       </div>
       <img
         className="favouriteIcon"
