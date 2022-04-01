@@ -3,10 +3,10 @@ export type StudentType = {
   id: string;
   firstName: string;
   lastName: string;
-  year: string;
+  year?: string;
   email: string;
-  managed: string[];
-  favorites: string[];
+  managed: ClubType[];
+  favorites: ClubType[];
 };
 
 export enum URLs {
@@ -36,26 +36,35 @@ export type ClubType = {
   status: string;
   openDate?: string;
   closeDate?: string;
-  registeredBy: string;
   socials: SocialType[];
-  events: string[];
+  registeredBy: StudentType;
+  events: EventType[];
 };
 
 export type EventType = {
   id: string;
-  name: string;
-  clubID: string;
-  date: string;
+  title: string;
+  hostedBy: string;
+  description: string;
+  startDate: string;
+  endDate?: string;
   startTime: string;
   endTime: string;
   location: string;
 };
 
+export enum StatusType {
+  OPEN = 'open',
+  CLOSED = 'closed',
+  APPROACHING = 'approaching',
+  PUBLIC = 'public', //always open
+}
+
 export enum CategoryType {
   ACADEMIC = 'academic',
   PROJECTTEAM = 'project team',
-  CAREERDEVELOPMENT = 'careerdevelopment',
-  COMMUNITYSERVICE = 'communityservice',
+  CAREERDEVELOPMENT = 'career development',
+  COMMUNITYSERVICE = 'community service',
   CULTURAL = 'cultural',
   SOCIAL = 'social',
   FOOD_DRINK = 'food and drink',

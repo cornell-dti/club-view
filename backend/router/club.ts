@@ -1,7 +1,6 @@
 import express from 'express';
 import { ClubType, SocialType, URLs } from '../types/types';
 import { db } from '../firebase-config/config';
-import { createSolutionBuilderHost } from 'typescript';
 
 const router = express.Router();
 
@@ -11,7 +10,7 @@ router.get('/', async (req, res) => {
   const clubsSnapshot = await clubsCollection.get();
   const allClubs = clubsSnapshot.docs;
   const clubs: ClubType[] = [];
-  for (let doc of allClubs) {
+  for (const doc of allClubs) {
     const club: ClubType = doc.data() as ClubType;
     clubs.push(club);
   }
@@ -34,7 +33,7 @@ router.post('/:id/socials/', async (req, res) => {
   const clubDoc = db.collection('clubs').doc(clubID);
   const url = req.body.url;
   const platform = req.body.platform;
-  if (req.body.userID != (await (await clubDoc.get()).get('registeredBy'))) {
+  if (req.body.userID != (await (await clubDoc.get()).get('registeredBy').id)) {
     console.log('You are not authenticated');
   } else if (url.includes(URLs[platform])) {
     const doc = await clubDoc.get();
@@ -49,6 +48,19 @@ router.post('/:id/socials/', async (req, res) => {
     console.log('URL not valid');
   }
   res.send(clubDoc);
+
+//Edits a club's information
+router.post('/edit/:id', async (req, res) => {
+  const clubUpdated: ClubType = req.body;
+  const clubID = req.body.id;
+  const clubsCollection = db.collection('clubs');
+  const clubDoc = clubsCollection.doc(clubID);
+  const doc = await clubDoc.get();
+  if (!doc.exists) {
+    throw new Error('Invalid ID');
+  }
+  await clubDoc.set(clubUpdated);
+  res.send(doc);
 });
 
 router.get('/:id', async (req, res) => {
@@ -57,7 +69,7 @@ router.get('/:id', async (req, res) => {
   const ref = clubsCollection.doc(clubId);
   const doc = await ref.get();
   if (!doc.exists) {
-    console.log('INVALID ID ' + clubId);
+    console.log('INVALID ID: ' + clubId);
   }
   const data = doc.data() as ClubType;
   res.send(data);
