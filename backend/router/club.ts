@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
 
 //Adds a club's social links (platform is other for custom social medias)
 router.post('/:id/socials/', async (req, res) => {
-  const clubID = req.body.id;
+  const clubID = req.params.id;
   const clubDoc = db.collection('clubs').doc(clubID);
   const url = req.body.url;
   const platform = req.body.platform;
