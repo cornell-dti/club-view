@@ -48,6 +48,7 @@ router.post('/:id/socials/', async (req, res) => {
     console.log('URL not valid');
   }
   res.send(clubDoc);
+});
 
 //Edits a club's information
 router.post('/edit/:id', async (req, res) => {
