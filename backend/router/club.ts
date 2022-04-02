@@ -1,7 +1,7 @@
 import express from 'express';
 import { ClubType, SocialType, URLs } from '../types/types';
 import { db } from '../firebase-config/config';
-import { currentUser } from '../frontend/src/util/firebase';
+import { currentUser } from '../../frontend/src/util/firebase';
 
 const router = express.Router();
 
