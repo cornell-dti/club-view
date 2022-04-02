@@ -60,7 +60,7 @@ const SignIn = () => {
     });
 };
 
-async function currentUser() {
+const currentUser = async() =>{
   try {
     const user = getAuth().currentUser;
     console.log(user);
@@ -93,4 +93,5 @@ export {
   signOutUser as signOut,
   uploadImage,
   authRequestHeader,
+  currentUser,
 };
