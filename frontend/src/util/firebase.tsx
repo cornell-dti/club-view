@@ -60,6 +60,15 @@ const SignIn = () => {
     });
 };
 
+async function currentUser() {
+  try {
+    const user = getAuth().currentUser;
+    return user;
+  } catch {
+    SignIn();
+  }
+}
+
 const signOutUser = () => {
   signOut(auth)
     .then(() => {
