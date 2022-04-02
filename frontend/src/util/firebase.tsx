@@ -59,16 +59,6 @@ const SignIn = () => {
     });
 };
 
-async function currentUser() {
-  try {
-    const user = getAuth().currentUser;
-    console.log(user);
-    return user;
-  } catch {
-    SignIn();
-  }
-}
-
 const signOutUser = () => {
   signOut(auth)
     .then(() => {
