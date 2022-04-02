@@ -33,6 +33,7 @@ router.post('/:id/socials/', async (req, res) => {
   const clubDoc = db.collection('clubs').doc(clubID);
   const url = req.body.url;
   const platform = req.body.platform;
+  // check current user
   if (req.body.id != (await (await clubDoc.get()).get('registeredBy').id)) {
     console.log('You are not authenticated');
   } else if (url.includes(URLs[platform])) {
