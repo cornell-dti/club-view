@@ -60,7 +60,7 @@ const SignIn = () => {
     });
 };
 
-const currentUser = async() =>{
+const currentUser = async () => {
   try {
     const user = getAuth().currentUser;
     console.log(user);
@@ -68,7 +68,7 @@ const currentUser = async() =>{
   } catch {
     SignIn();
   }
-}
+};
 
 const signOutUser = () => {
   signOut(auth)
