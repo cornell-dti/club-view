@@ -63,7 +63,7 @@ const currentUser = async () => {
   try {
     const user = getAuth().currentUser;
     console.log(user);
-    return user;
+    return user?.uid;
   } catch {
     SignIn();
   }

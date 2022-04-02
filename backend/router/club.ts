@@ -1,6 +1,7 @@
 import express from 'express';
 import { ClubType, SocialType, URLs } from '../types/types';
 import { db } from '../firebase-config/config';
+import { currentUser } from '../../frontend/src/util/firebase';
 
 const router = express.Router();
 
@@ -33,8 +34,8 @@ router.post('/:id/socials/', async (req, res) => {
   const clubDoc = db.collection('clubs').doc(clubID);
   const url = req.body.url;
   const platform = req.body.platform;
-  // check current user
-  if (req.body.id != (await (await clubDoc.get()).get('registeredBy').id)) {
+  // currentUser.id needs to be changed to get the id of user in Students type
+  if (currentUser?.uid != (await (await clubDoc.get()).get('registeredBy').id)) {
     console.log('You are not authenticated');
   } else if (url.includes(URLs[platform])) {
     const doc = await clubDoc.get();
