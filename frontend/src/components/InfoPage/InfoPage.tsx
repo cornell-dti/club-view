@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './InfoPage.css';
 import NavBar from '../../components/NavBar/NavBar';
+import Favorites from '../Button/Favorites';
 
 const InfoPage = () => {
   let params = useParams();
@@ -22,7 +23,9 @@ const InfoPage = () => {
       <div className="container">
         <div className="clubOuterContainer">
           <div className="clubContainer">
-            <div className="profile"></div>
+            <div className="profile">
+              <Favorites clubCard={false} />
+            </div>
             <div className="name"></div>
             <div className="categories"></div>
             <div className="socials"></div>
