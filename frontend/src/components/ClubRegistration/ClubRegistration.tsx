@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ClubRegistration.css';
 import Dropdown from './Dropdown/Dropdown';
 import NavBar from '../../components/NavBar/NavBar';
+import Sidebar from './Sidebar';
 
 const ClubRegistration = () => {
   // Controlled values for all the form elements
@@ -18,13 +19,14 @@ const ClubRegistration = () => {
     event.preventDefault();
     alert('Submit Action Triggered!');
 
-    //NOT IMPLEMENTED: SUBMIT DATA STORED IN REACT HOOKS TO BACKEND
+    //TODO NOT IMPLEMENTED: SUBMIT DATA STORED IN REACT HOOKS TO BACKEND
   }
 
   return (
     <>
       <NavBar hasSearch={false} />
-      <div>
+      <div className="page-container">
+        <Sidebar currentPath={0} />
         <form className="registration">
           <label>
             Enter your Club Name: <br />

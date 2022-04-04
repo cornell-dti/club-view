@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logo } from '../../icons/navbar';
-import Handle from '../../assets/handle.svg';
-import Ellipse from '../../assets/ellipse.svg';
 import './NavBar.css';
 import ProfileButton from './ProfileButton/ProfileButton';
 
