@@ -22,7 +22,6 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const clubsCollection = await db.collection('clubs');
   const clubsDoc = clubsCollection.doc(req.body.id);
-  console.log(req.body);
   const club: ClubType = req.body;
   await clubsDoc.set(club);
   res.send(club);
@@ -66,6 +65,30 @@ router.post('/edit/:id', async (req, res) => {
   }
   await clubDoc.set(clubUpdated);
   res.send(doc);
+});
+
+// Get club events
+router.get('/:id', async (req, res) => {
+  const clubID = req.params.id;
+  const clubsCollection = db.collection('clubs');
+  const ref = clubsCollection.doc(clubID);
+  const doc = await ref.get();
+  const events: EventType[] = await doc.get('events');
+  res.send(events);
+});
+
+// Adds event to club
+router.post('/:id', async (req, res) => {
+  const clubID = req.params.id;
+  const clubsCollection = db.collection('clubs');
+  const ref = clubsCollection.doc(clubID);
+  const doc = await ref.get();
+  const events: EventType[] = await doc.get('events');
+  const event: EventType = req.body;
+  const updated_events = [...events, event];
+  res.send(updated_events);
+  await ref.update({ events: updated_events });
+  res.send(ref);
 });
 
 router.get('/:id', async (req, res) => {
