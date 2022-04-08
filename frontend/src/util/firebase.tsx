@@ -63,7 +63,6 @@ const SignIn = () => {
 const currentUser = async () => {
   try {
     const user = getAuth().currentUser;
-    console.log(user);
     return user;
   } catch {
     SignIn();
