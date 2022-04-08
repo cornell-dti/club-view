@@ -44,7 +44,11 @@ router.post('/:id/socials/', async (req, res) => {
       console.log('INVALID CLUB: ' + clubID);
     } else {
       const socials = await doc.get('socials');
-      socials.push({ platform: req.body.platform, url: req.body.url });
+      const socialsBody = {
+        platform: req.body.platform,
+        url: req.body.url
+      }
+      socials.push(socialsBody);
       await clubDoc.update({ socials: socials });
     }
   } else {

@@ -22,11 +22,6 @@ export enum URLs {
   'other' = '',
 }
 
-export type SocialType = {
-  platform: string;
-  url: string;
-};
-
 export type ClubType = {
   id: string;
   name: string;
@@ -39,6 +34,11 @@ export type ClubType = {
   socials: SocialType[];
   registeredBy: StudentType;
   events: EventType[];
+};
+
+export type SocialType = {
+  platform: string;
+  url: string;
 };
 
 export type EventType = {
