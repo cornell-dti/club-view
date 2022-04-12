@@ -1,4 +1,4 @@
-.bannerContainer{
+.bannerContainer {
   border-radius: 20px;
   width: 500px;
   height: 60px;
@@ -8,11 +8,11 @@
   justify-content: left;
   padding: 20px;
   align-items: center;
-  background-color: #FFFFFF;
-  transition: background-color .3s;
+  background-color: #ffffff;
+  transition: background-color 0.3s;
   text-align: left;
 }
 
-.bannerContainer:hover{
-  background-color: #FFEDE9;
+.bannerContainer:hover {
+  background-color: #ffede9;
 }
