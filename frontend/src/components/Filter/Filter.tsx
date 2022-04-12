@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import { validateArgCount } from '@firebase/util';
+import React, { useEffect, useState } from 'react';
 import { ArrowUp, ArrowDown } from '../../icons/filter';
 import { CategoryType, StatusType } from '../../types/index';
 import Collapsible from '../Collapsible/Collapsible';
 import './Filter.css';
 
-const Filter = () => {
-  //These states contain the categories and statuses selected.
-  const [categories, setCategories] = useState([]);
-  const [statuses, setStatus] = useState([]);
+type FilterProps = {
+  callback: (filter1: any, filter2: any) => void;
+}
 
-  const handleApply = () => {};
+const Filter = ({callback}: FilterProps) => {
+  //These states contain the categories and statuses selected.
+  const categories = new Set<string>();
+  const statuses = new Set<string>();
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let {name, checked, id} = event.target;
+    const updated = statuses
+    if (id == "status"){
+      checked ? statuses.add(name) : statuses.delete(name)
+    } else {
+      checked ? categories.add(name) : categories.delete(name)
+    }
+
+  };
+
+  const handleApply = () => {
+    callback(categories, statuses);
+  }
 
   return (
     <div className="filter">
@@ -26,7 +44,10 @@ const Filter = () => {
               return (
                 <div className="checkBox">
                   <label> {val} </label>
-                  <input type="checkbox" id={val} />
+                  <input type="checkbox"
+                    name={val} 
+                    id="category" 
+                    onChange={handleChange}/>
                 </div>
               );
             })}
@@ -44,7 +65,10 @@ const Filter = () => {
               return (
                 <div className="checkBox">
                   <label> {val} </label>
-                  <input type="checkbox" id={val} />
+                  <input type="checkbox" 
+                  name={val} 
+                  id="status"
+                  onChange={handleChange}/>
                 </div>
               );
             })}

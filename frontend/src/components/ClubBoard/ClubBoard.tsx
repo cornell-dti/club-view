@@ -4,6 +4,7 @@ import Filter from '../Filter/Filter';
 import { ClubType } from '../../../../backend/types/types';
 import './ClubBoard.css';
 import NavBar from '../NavBar/NavBar';
+import { stat } from 'fs';
 
 const ClubBoard = () => {
   const [origClubs, setOrigClubs] = useState<ClubType[]>([]); // an array of all clubs
@@ -40,7 +41,17 @@ const ClubBoard = () => {
     );
   }
 
-  function updatetoFilter() {}
+  function updatetoFilter(categorySet: Set<string>, statusSet: Set<string>) {
+    console.log("category set", categorySet);
+    console.log("original:", origClubs);
+    setClubArray(
+      origClubs.filter((item: ClubType) =>{
+        console.log(item.category)
+        console.log(`does statusSet have ${item.status}:`, statusSet.has(item.status))
+        return categorySet.has(item.category) || statusSet.has(item.status)
+      })
+    )
+  }
 
   return (
     <>
@@ -57,67 +68,12 @@ const ClubBoard = () => {
                   clubCategory={club.category}
                   clubID={club.id}
                 />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
               </>
             ))
           )}
         </div>
         <div className="filterContainer">
-          <Filter />
+          <Filter callback={updatetoFilter}/>
         </div>
       </div>
     </>
