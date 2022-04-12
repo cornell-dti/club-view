@@ -32,20 +32,18 @@ router.post('/:id/socials/', async (req, res) => {
   const clubDoc = db.collection('clubs').doc(clubID);
   const url = req.body.url;
   const platform = req.body.platform;
-  const doc = await clubDoc.get()
-  if (
-    req.body.id != await doc.get('registeredBy').id
-  ) {
+  const doc = await clubDoc.get();
+  if (req.body.id != (await doc.get('registeredBy').id)) {
     console.log('You are not authenticated');
   } else if (url.includes(URLs[platform])) {
     if (!doc.exists) {
       console.log('INVALID CLUB: ' + clubID);
     } else {
-      const socialsList = await doc.get('socials'); 
+      const socialsList = await doc.get('socials');
       const socialsBody = {
         platform: req.body.platform,
-        url: req.body.url
-      }
+        url: req.body.url,
+      };
       socialsList.push(socialsBody);
       await clubDoc.update({ socials: socialsList });
     }
