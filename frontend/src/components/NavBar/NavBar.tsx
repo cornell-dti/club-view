@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logo } from '../../icons/navbar';
+import Handle from '../../assets/handle.svg';
+import Ellipse from '../../assets/ellipse.svg';
 import './NavBar.css';
 import ProfileButton from './ProfileButton/ProfileButton';
 
@@ -29,40 +31,33 @@ const NavBar = (props: Props) => {
 
   return (
     <header className="header">
-      <div className="left">
-        <div>
-          <Link to="/">
-            <img src={logo} alt="Logo of ClubView" />
-          </Link>
+      <div className="logo">
+        <Link to="/">
+          <img src={logo} alt="Logo of ClubView" />
+        </Link>
+      </div>
+      {props.hasSearch ? (
+        <div className="searchContainer">
+          <input
+            placeholder="Search Clubs"
+            type="text"
+            className="searchBar"
+            value={searchPhrase}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setSearchPhrase(event.target.value);
+              props.callback(event.target.value);
+            }}
+          />
         </div>
-      </div>
-      <div className="mid">
-        {props.hasSearch ? (
-          <div className="searchContainer">
-            <input
-              placeholder="Search Clubs"
-              type="text"
-              className="searchBar"
-              value={searchPhrase}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                setSearchPhrase(event.target.value);
-                props.callback(event.target.value);
-              }}
-            />
-          </div>
-        ) : (
-          <></>
-        )}
-      </div>
-      <div className="right">
-        {/* <Link to="/register">Register</Link> */
-        /* TODO: What to do with this? */}
+      ) : (
+        <></>
+      )}
+      <div className="profileButton">
         <ProfileButton />
       </div>
     </header>
   );
 };
-
 NavBar.defaultProps = defaultProps;
 
 export default NavBar;
