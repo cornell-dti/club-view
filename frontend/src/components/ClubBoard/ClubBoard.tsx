@@ -42,15 +42,18 @@ const ClubBoard = () => {
   }
 
   function updatetoFilter(categorySet: Set<string>, statusSet: Set<string>) {
-    console.log("category set", categorySet);
-    console.log("original:", origClubs);
+    console.log('category set', categorySet);
+    console.log('original:', origClubs);
     setClubArray(
-      origClubs.filter((item: ClubType) =>{
-        console.log(item.category)
-        console.log(`does statusSet have ${item.status}:`, statusSet.has(item.status))
-        return categorySet.has(item.category) || statusSet.has(item.status)
+      origClubs.filter((item: ClubType) => {
+        console.log(item.category);
+        console.log(
+          `does statusSet have ${item.status}:`,
+          statusSet.has(item.status)
+        );
+        return categorySet.has(item.category) || statusSet.has(item.status);
       })
-    )
+    );
   }
 
   return (
@@ -73,7 +76,7 @@ const ClubBoard = () => {
           )}
         </div>
         <div className="filterContainer">
-          <Filter callback={updatetoFilter}/>
+          <Filter callback={updatetoFilter} />
         </div>
       </div>
     </>

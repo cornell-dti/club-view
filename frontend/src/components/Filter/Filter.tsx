@@ -7,27 +7,26 @@ import './Filter.css';
 
 type FilterProps = {
   callback: (filter1: any, filter2: any) => void;
-}
+};
 
-const Filter = ({callback}: FilterProps) => {
+const Filter = ({ callback }: FilterProps) => {
   //These states contain the categories and statuses selected.
   const categories = new Set<string>();
   const statuses = new Set<string>();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let {name, checked, id} = event.target;
-    const updated = statuses
-    if (id == "status"){
-      checked ? statuses.add(name) : statuses.delete(name)
+    let { name, checked, id } = event.target;
+    const updated = statuses;
+    if (id == 'status') {
+      checked ? statuses.add(name) : statuses.delete(name);
     } else {
-      checked ? categories.add(name) : categories.delete(name)
+      checked ? categories.add(name) : categories.delete(name);
     }
-
   };
 
   const handleApply = () => {
     callback(categories, statuses);
-  }
+  };
 
   return (
     <div className="filter">
@@ -44,10 +43,12 @@ const Filter = ({callback}: FilterProps) => {
               return (
                 <div className="checkBox">
                   <label> {val} </label>
-                  <input type="checkbox"
-                    name={val} 
-                    id="category" 
-                    onChange={handleChange}/>
+                  <input
+                    type="checkbox"
+                    name={val}
+                    id="category"
+                    onChange={handleChange}
+                  />
                 </div>
               );
             })}
@@ -65,10 +66,12 @@ const Filter = ({callback}: FilterProps) => {
               return (
                 <div className="checkBox">
                   <label> {val} </label>
-                  <input type="checkbox" 
-                  name={val} 
-                  id="status"
-                  onChange={handleChange}/>
+                  <input
+                    type="checkbox"
+                    name={val}
+                    id="status"
+                    onChange={handleChange}
+                  />
                 </div>
               );
             })}
