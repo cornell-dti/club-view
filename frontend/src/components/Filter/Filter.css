@@ -12,14 +12,14 @@
   margin-bottom: 10px;
 }
 
-.checkBox{
+.checkBox {
   font-size: 14px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
-.apply{
+.apply {
   display: flex;
   justify-content: center;
 }

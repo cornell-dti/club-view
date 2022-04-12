@@ -40,9 +40,7 @@ const ClubBoard = () => {
     );
   }
 
-  function updatetoFilter(){
-    
-  }
+  function updatetoFilter() {}
 
   return (
     <>
