@@ -42,19 +42,14 @@ const ClubBoard = () => {
   }
 
   function updatetoFilter(categorySet: Set<string>, statusSet: Set<string>) {
-    console.log('category set', categorySet);
-    console.log('original:', origClubs);
-    setClubArray(
-      origClubs.filter((item: ClubType) => {
-        console.log(item.category);
-        console.log(
-          `does statusSet have ${item.status}:`,
-          statusSet.has(item.status)
-        );
-        return categorySet.has(item.category) || statusSet.has(item.status);
-      })
-    );
+    if (categorySet.size + statusSet.size !=0){
+      setClubArray(
+        origClubs.filter((item: ClubType) => {
+          return categorySet.has(item.category) || statusSet.has(item.status);
+        })
+      );
   }
+}
 
   return (
     <>
