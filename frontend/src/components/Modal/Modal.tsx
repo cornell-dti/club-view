@@ -8,21 +8,16 @@ interface RequiredProps {
 
   title: string;
   bodyChildren: React.ReactNode;
-  showSubmitButton: boolean;
 }
 
 // Optional props
-interface OptionalProps {
-  onSubmit: () => void;
-}
+interface OptionalProps {}
 
 // Combine required and optional props to build the full prop interface
 interface Props extends RequiredProps, OptionalProps {}
 
 // Use the optional prop interface to define the default props
-const defaultProps: OptionalProps = {
-  onSubmit: () => console.log('Submitted Modal'),
-};
+const defaultProps: OptionalProps = {};
 
 const Modal = (props: Props) => {
   if (!props.show) {
@@ -36,21 +31,6 @@ const Modal = (props: Props) => {
             <a href="#" className="close" onClick={() => props.onClose()} />
           </div>
           <div className="modalBody">{props.bodyChildren}</div>
-          <div className="modalFooter">
-            {props.showSubmitButton ? (
-              <button
-                className="doneButton"
-                onClick={() => {
-                  props.onClose();
-                  props.onSubmit();
-                }}
-              >
-                Done
-              </button>
-            ) : (
-              <></>
-            )}
-          </div>
         </div>
       </div>
     );

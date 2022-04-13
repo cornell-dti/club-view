@@ -44,7 +44,7 @@ const ClubBoard = () => {
     );
   }
 
-  // BEGIN: FOR UPLOAD IMAGE MODAL
+  // BEGIN: HELPER CODE FOR UPLOAD IMAGE MODAL
   const [showUploadModal, setShowModal] = useState(false);
 
   function getFileExt(fname: string) {
@@ -108,10 +108,6 @@ const ClubBoard = () => {
   const handleDragOver = (ev: any) => {
     setHoveringDrop(true);
 
-    // setTimeout(function () {
-    //   setHoveringDrop(false);
-    // }, 5000); //turn it back to grey in 5 seconds
-
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
   };
@@ -120,7 +116,18 @@ const ClubBoard = () => {
     // TODO: UPLOAD THE FILE TO THE BACKEND
     console.log(file.name);
   };
-  // END: FOR UPLOAD IMAGE MODAL
+
+  const closeModal = (shouldSubmit: boolean) => {
+    setShowModal(false); // close modal
+    updateFile(undefined); // reset the file stored within the modal
+    if (shouldSubmit) {
+      if (selectedFile !== undefined) {
+        // if a file is selected
+        uploadImageFile(selectedFile); // send the file to backend to be uploaded
+      }
+    }
+  };
+  // END: HELPER CODE FOR UPLOAD IMAGE MODAL
 
   return (
     <>
@@ -130,18 +137,8 @@ const ClubBoard = () => {
       <button onClick={() => setShowModal(true)}>Show Modal</button>
       <Modal
         show={showUploadModal}
-        onClose={() => {
-          setShowModal(false); // close modal
-          updateFile(undefined); // reset the file stored within the modal
-        }}
-        onSubmit={() => {
-          if (selectedFile !== undefined) {
-            // if a file is selected
-            uploadImageFile(selectedFile); // send the file to backend to be uploaded
-          }
-        }}
+        onClose={() => closeModal(false)}
         title={'Upload Image'}
-        showSubmitButton={true}
         bodyChildren={
           <>
             <div className="fileinfozone">
@@ -209,6 +206,9 @@ const ClubBoard = () => {
                 />
               </div>
             </div>
+            <button className="doneButton" onClick={() => closeModal(true)}>
+              Done
+            </button>
           </>
         }
       />
