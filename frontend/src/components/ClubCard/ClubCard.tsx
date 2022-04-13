@@ -25,8 +25,8 @@ const ClubCard = (props: Club) => {
     >
       <div className="clubIcon" />
       <div className="infoContainer">
-        <div className="clubName">{props.clubName}</div>
-        <div className="clubCategory">{props.clubCategory}</div>
+        <div className="clubName">{props.name}</div>
+        <div className="clubCategory">{props.category}</div>
         {/* TODO: check user's favorites list and see if this club is in that list. if so, make the favorites icon filled in already */}
         <Favorites clubCard={true} />
       </div>
