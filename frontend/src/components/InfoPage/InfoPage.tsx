@@ -13,6 +13,7 @@ import {
   FaEnvelope,
 } from 'react-icons/fa';
 import { isConstructorTypeNode } from 'typescript';
+import Favorites from '../Button/Favorites';
 
 const InfoPage = () => {
   let params = useParams();
@@ -51,7 +52,9 @@ const InfoPage = () => {
       <div className="container">
         <div className="clubOuterContainer">
           <div className="clubContainer">
-            <div className="profile"></div>
+            <div className="profile">
+              <Favorites clubCard={false} />
+            </div>
             <div className="name">
               <div className="nameText">{club.name}</div>
             </div>
