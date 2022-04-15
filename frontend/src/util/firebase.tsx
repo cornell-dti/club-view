@@ -59,6 +59,15 @@ const SignIn = () => {
     });
 };
 
+const currentUser = async () => {
+  try {
+    const user = getAuth().currentUser;
+    return user;
+  } catch {
+    SignIn();
+  }
+};
+
 const signOutUser = () => {
   signOut(auth)
     .then(() => {
@@ -82,4 +91,5 @@ export {
   signOutUser as signOut,
   uploadImage,
   authRequestHeader,
+  currentUser,
 };
