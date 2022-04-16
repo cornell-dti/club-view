@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Source+Sans+Pro&display=swap');
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modalHeader {
+  position: relative;
+}
+
+.modalContent {
+  width: 51.813rem;
+  height: 29.5rem;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.modalTitle {
+  display: flex;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2.063rem;
+  margin: 2.25rem 0 0 2.688rem;
+  color: #424242;
+
+  justify-content: center;
+  padding-right: 3rem;
+}
+
+.close {
+  position: absolute;
+  top: -1rem;
+  right: 3rem;
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 0.938rem;
+  content: ' ';
+  height: 2.063rem;
+  width: 0.125rem;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.linkField {
+  width: 41.5rem;
+  height: 3.438rem;
+  background: rgba(199, 199, 199, 0.3);
+  border-radius: 1.25rem;
+  border: none;
+  padding: 0 2.125rem;
+  font-size: 1rem;
+  margin: 1rem 0 0 2.688rem;
+  border: none;
+  color: #424242;
+}
+
+.modalBody {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialTitle {
+  display: flex;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.313rem;
+  text-align: center;
+  margin: 1.938rem 0 0.813rem 3.188rem;
+}
+
+.socialContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 0 0 3.188rem;
+}
+
+.socialLinkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.313rem;
+  height: 2.5rem;
+  left: 23.375rem;
+  top: 23.813rem;
+  margin: 0.25rem 0.313rem;
+  background: #c7c7c7;
+  border-radius: 0.625rem;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.875rem;
+  line-height: 1.188rem;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+}
+
+.saveButton {
+  width: 5rem;
+  height: 2.813rem;
+  left: 42.5rem;
+  top: 34.188rem;
+  font-size: 1.125rem;
+  color: #ffffff;
+  background: #c7c7c7;
+  border-radius: 1.25rem;
+  margin: 1.813rem 0 0 0;
+  border: none;
+}
+
+.doneButton {
+  width: 5rem;
+  height: 2.813rem;
+  left: 42.5rem;
+  /* top: 34.188rem; */
+  font-size: 1.125rem;
+  color: #ffffff;
+  border-radius: 1.25rem;
+  margin: 18px 0 0 0;
+  border: none;
+  background: #35c1fd;
+  border-radius: 10px;
+}
+
+.dropzonewrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 18px;
+}
+
+.dropzone {
+  border: 2px dashed #b4b4b4;
+  width: 684px;
+  height: 240px;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropzoneHovering {
+  border: 2px dashed #35c1fd;
+  width: 684px;
+  height: 240px;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fileinfozone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fileinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  background: rgba(53, 193, 253, 0.2);
+  border: 2px solid #35c1fd;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  width: 684px;
+  height: 42px;
+}
+
+.filename {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 2.063rem;
+}
+
+.fileIconWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fileNameAndIcon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.fileIcon {
+  padding-right: 7px;
+  padding-left: 18px;
+}
+
+.closeIcon {
+  padding-right: 18px;
+}
+
+.infoCloud {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+
+  color: #b4b4b4;
+}
+
+.errorMessage {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+
+  color: #ff7777;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.browseFiles {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  text-decoration: underline;
+
+  color: #b4b4b4;
+  cursor: pointer;
+}
