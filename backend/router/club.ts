@@ -1,5 +1,5 @@
 import express from 'express';
-import { ClubType, SocialType, EventType, URLs } from '../types/types';
+import { ClubType, EventType, URLs } from '../types/types';
 import { db } from '../firebase-config/config';
 
 const router = express.Router();
@@ -97,6 +97,7 @@ router.get('/:id', async (req, res) => {
   const ref = clubsCollection.doc(clubId);
   const doc = await ref.get();
   if (!doc.exists) {
+    // throw new Error('Invalid id'); // bit dramatic to crash the whole backend over a bad id, no?
     console.log('INVALID ID: ' + clubId);
   }
   const data = doc.data() as ClubType;
