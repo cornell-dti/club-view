@@ -7,6 +7,7 @@ export type StudentType = {
   email: string;
   managed: ClubType[];
   favorites: ClubType[];
+  events: EventType[];
 };
 
 export type ClubType = {
@@ -26,7 +27,7 @@ export type ClubType = {
 export type EventType = {
   id: string;
   title: string;
-  hostedBy: string;
+  hostedBy: ClubType;
   description: string;
   startDate: string;
   endDate?: string;
