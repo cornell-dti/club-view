@@ -1,5 +1,5 @@
 import express from 'express';
-import { ClubType, StudentType, EventType } from '../types/types';
+import { StudentType } from '../types/types';
 import { db } from '../firebase-config/config';
 import { firestore } from 'firebase-admin';
 import { getDataFromPromises } from '../util/common';

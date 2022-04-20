@@ -11,12 +11,18 @@ const getPromisedDataFromReference = async (
   switch (dataType) {
     case 'ClubType': {
       promisedDataFromReference = dataPromise.data() as ClubType;
+      break;
     }
     case 'EventType': {
       promisedDataFromReference = dataPromise.data() as EventType;
+      break;
     }
     case 'StudentType': {
       promisedDataFromReference = dataPromise.data() as StudentType;
+      break;
+    }
+    default: {
+      throw 'Not a valid data type';
     }
   }
   return promisedDataFromReference;
