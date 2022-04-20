@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ClubRegistration.css';
 import Dropdown from './Dropdown/Dropdown';
 import NavBar from '../../components/NavBar/NavBar';
+import ModalController from './RecInfoModalSeq/ModalController';
 
 const ClubRegistration = () => {
   // Controlled values for all the form elements
@@ -24,6 +25,7 @@ const ClubRegistration = () => {
   return (
     <>
       <NavBar hasSearch={false} />
+      <ModalController />
       <div>
         <form className="registration">
           <label>
