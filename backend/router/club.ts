@@ -66,7 +66,7 @@ router.post('/:id', async (req, res) => {
 });
 
 // Adds image to club
-router.post('/:id/addimage', async(req, res) => {
+router.post('/:id/addimage', async (req, res) => {
   const clubID = req.params.id;
   const clubsCollection = db.collection('clubs');
   const ref = clubsCollection.doc(clubID);
@@ -75,11 +75,11 @@ router.post('/:id/addimage', async(req, res) => {
   const imagesDoc = await doc.get('images');
   if (!imagesDoc.exists) {
     const updatedImages: string[] = [imageURL];
-    await ref.update({images: updatedImages});
+    await ref.update({ images: updatedImages });
   } else {
     const images: string[] = imagesDoc;
     const updatedImages = [...images, imageURL];
-    await ref.update({images: updatedImages});
+    await ref.update({ images: updatedImages });
   }
   res.send(ref);
 });
