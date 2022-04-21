@@ -46,7 +46,8 @@
 
 .clubContainer .categories {
   width: 25.125rem;
-  height: 6.563rem;
+  height: 4.5rem;
+  /*height: 6.563rem;*/
 
   border: 0.063rem dashed #d7d7d7;
   box-sizing: border-box;
@@ -60,6 +61,49 @@
   border: 0.063rem dashed #d7d7d7;
   box-sizing: border-box;
   border-radius: 1.25rem;
+}
+
+/* club name label */
+.nameText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  display: flex;
+  margin-left: 7%;
+  margin-right: 3%;
+}
+
+/* club category labels */
+.category {
+  background-color: mistyrose;
+  display: block;
+  width: 22%;
+  font-size: 1.125rem; /* 18px*/
+  width: 8.5rem;
+  height: 2rem;
+  margin-left: 7%;
+  margin-right: 3%;
+  color: black;
+  border-radius: 0.875rem; /*14px; */
+  border: none;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* buttons -> club social media links */
+.socialsButton {
+  background-color: salmon;
+  display: inline-block;
+  width: 22%;
+  font-size: 0.875rem; /* 14px */
+  width: 10rem;
+  height: 2.3rem;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 5%;
+  color: white;
+  border-radius: 0.7rem;
+  border: none;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .infoContainer {
@@ -94,4 +138,39 @@
   box-sizing: border-box;
   box-shadow: 0.25rem -0.125rem 0.5rem 0.188rem rgba(0, 0, 0, 0.1);
   border-radius: 1.25rem;
+}
+
+/* styling for description and events headers */
+.infoHeader {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.875rem; /* 30px */
+  font-weight: bold;
+  display: flex;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 4%;
+  margin-bottom: 3%;
+}
+
+/* club status body */
+.statusContents {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem; /* 24px */
+  font-weight: normal;
+  display: flex;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 4%;
+  margin-bottom: 5%;
+}
+
+/* club description body */
+.descriptionContents {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.125rem; /* 18px*/
+  font-weight: normal;
+  display: flex;
+  margin-left: 7%;
+  margin-right: 10%;
+  margin-bottom: 6%;
 }

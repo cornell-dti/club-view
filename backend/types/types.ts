@@ -15,8 +15,8 @@ export type ClubType = {
   category: string;
   email: string;
   description: string;
-  url: string;
   status: string;
+  images?: string[];
   openDate?: string;
   closeDate?: string;
   registeredBy: StudentType;

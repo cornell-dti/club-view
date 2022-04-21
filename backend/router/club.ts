@@ -1,6 +1,7 @@
 import express from 'express';
 import { ClubType, EventType } from '../types/types';
 import { db } from '../firebase-config/config';
+import { uploadImage } from '../../frontend/src/util/firebase';
 
 const router = express.Router();
 
@@ -31,12 +32,12 @@ router.post('/edit/:id', async (req, res) => {
   const clubUpdated: ClubType = req.body;
   const clubID = req.body.id;
   const clubsCollection = db.collection('clubs');
-  const clubDoc = clubsCollection.doc(clubID);
-  const doc = await clubDoc.get();
+  const ref = clubsCollection.doc(clubID);
+  const doc = await ref.get();
   if (!doc.exists) {
     throw new Error('Invalid ID');
   }
-  await clubDoc.set(clubUpdated);
+  await ref.set(clubUpdated);
   res.send(doc);
 });
 
@@ -61,6 +62,25 @@ router.post('/:id', async (req, res) => {
   const updated_events = [...events, event];
   res.send(updated_events);
   await ref.update({ events: updated_events });
+  res.send(ref);
+});
+
+// Adds image to club
+router.post('/:id/addimage', async(req, res) => {
+  const clubID = req.params.id;
+  const clubsCollection = db.collection('clubs');
+  const ref = clubsCollection.doc(clubID);
+  const doc = await ref.get();
+  const imageURL = uploadImage;
+  const imagesDoc = await doc.get('images');
+  if (!imagesDoc.exists) {
+    const updatedImages: string[] = [imageURL];
+    await ref.update({images: updatedImages});
+  } else {
+    const images: string[] = imagesDoc;
+    const updatedImages = [...images, imageURL];
+    await ref.update({images: updatedImages});
+  }
   res.send(ref);
 });
 
