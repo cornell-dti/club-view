@@ -54,35 +54,55 @@ const ModalController = (props: Props) => {
     {
       title: 'Is your Club a...',
       content: (
-        <>
-          <HorizButton
-            callback={() => setSlideData(updateArray(slideData, 0, 0))}
-            text="Recruitment Based Club"
-            depressed={slideData[0] === 0 ? true : false}
-          />
-          <HorizButton
-            callback={() => setSlideData(updateArray(slideData, 0, 1))}
-            text="Non Recruitment Club"
-            depressed={slideData[0] === 1 ? true : false}
-          />
-        </>
+        <div className="button-wrapper">
+          <div className="horiz-button-spacer">
+            <VertButton
+              callback={() => setSlideData(updateArray(slideData, 0, 0))}
+              child={
+                <p>
+                  Recruitment
+                  <br />
+                  Based
+                  <br />
+                  Club
+                </p>
+              }
+              depressed={slideData[0] === 0 ? true : false}
+            />
+            <VertButton
+              callback={() => setSlideData(updateArray(slideData, 0, 1))}
+              child={
+                <p>
+                  Non
+                  <br />
+                  Recruitment
+                  <br />
+                  Club
+                </p>
+              }
+              depressed={slideData[0] === 1 ? true : false}
+            />
+          </div>
+        </div>
       ),
     },
     {
       title: 'How frequently does your club recruit?',
       content: (
-        <>
-          <VertButton
-            callback={() => setSlideData(updateArray(slideData, 1, 0))}
-            text="Once a year!"
-            depressed={slideData[1] === 0 ? true : false}
-          />
-          <VertButton
-            callback={() => setSlideData(updateArray(slideData, 1, 1))}
-            text="Once a semester!"
-            depressed={slideData[1] === 1 ? true : false}
-          />
-        </>
+        <div className="button-wrapper">
+          <div className="vert-button-spacer">
+            <HorizButton
+              callback={() => setSlideData(updateArray(slideData, 1, 0))}
+              child={<p>Once a year!</p>}
+              depressed={slideData[1] === 0 ? true : false}
+            />
+            <HorizButton
+              callback={() => setSlideData(updateArray(slideData, 1, 1))}
+              child={<p>Once a semester!</p>}
+              depressed={slideData[1] === 1 ? true : false}
+            />
+          </div>
+        </div>
       ),
     },
   ];
@@ -94,43 +114,45 @@ const ModalController = (props: Props) => {
         show={showModal}
         onClose={() => closeModal(false)}
         title={modalSlides[slideNumber].title}
+        placeTitleOnLeft={true}
+        smallModalSize={true}
         bodyChildren={
           <>
             {modalSlides[slideNumber].content}
-            {slideNumber === 0 ? ( // if first slide, display Next only
-              <div>
+            <div className="bottom-bar">
+              {slideNumber === 0 ? ( // if first slide, display Next only
                 <ChangeSlideButton
                   procedure={1}
                   onClick={() => setSlideNumber(slideNumber + 1)}
                   disabled={slideData[0] === -1}
                 />
-              </div>
-            ) : slideNumber === modalSlides.length - 1 ? ( // if last slide, display Save and Back
-              <div>
-                <ChangeSlideButton
-                  procedure={-1}
-                  onClick={() => setSlideNumber(slideNumber - 1)}
-                />
-                <ChangeSlideButton
-                  procedure={0}
-                  onClick={() => closeModal(true)}
-                  disabled={slideData[slideData.length - 1] === -1}
-                />
-              </div>
-            ) : (
-              // else is a normal middle slide, display Next and Back
-              <div>
-                <ChangeSlideButton
-                  procedure={-1}
-                  onClick={() => setSlideNumber(slideNumber - 1)}
-                />
-                <ChangeSlideButton
-                  procedure={1}
-                  onClick={() => setSlideNumber(slideNumber + 1)}
-                  disabled={slideData[slideNumber] === -1}
-                />
-              </div>
-            )}
+              ) : slideNumber === modalSlides.length - 1 ? ( // if last slide, display Save and Back
+                <>
+                  <ChangeSlideButton
+                    procedure={0}
+                    onClick={() => closeModal(true)}
+                    disabled={slideData[slideData.length - 1] === -1}
+                  />
+                  <ChangeSlideButton
+                    procedure={-1}
+                    onClick={() => setSlideNumber(slideNumber - 1)}
+                  />
+                </>
+              ) : (
+                // else is a normal middle slide, display Next and Back
+                <>
+                  <ChangeSlideButton
+                    procedure={1}
+                    onClick={() => setSlideNumber(slideNumber + 1)}
+                    disabled={slideData[slideNumber] === -1}
+                  />
+                  <ChangeSlideButton
+                    procedure={-1}
+                    onClick={() => setSlideNumber(slideNumber - 1)}
+                  />
+                </>
+              )}
+            </div>
           </>
         }
       />

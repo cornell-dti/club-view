@@ -3,7 +3,7 @@ import './HelperComponentStyles.css';
 
 interface Props {
   callback: () => void;
-  text: string;
+  child: React.ReactNode;
   depressed: boolean;
 }
 
@@ -13,7 +13,7 @@ const VertButton = (props: Props) => {
       className={'vert-modal-seq-btn-' + (props.depressed ? 'dep' : 'norm')}
       onClick={() => props.callback()}
     >
-      {props.text}
+      <div className="vert-text-form">{props.child}</div>
     </button>
   );
 };

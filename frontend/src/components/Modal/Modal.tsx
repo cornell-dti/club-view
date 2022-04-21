@@ -11,13 +11,19 @@ interface RequiredProps {
 }
 
 // Optional props
-interface OptionalProps {}
+interface OptionalProps {
+  placeTitleOnLeft: boolean;
+  smallModalSize: boolean;
+}
 
 // Combine required and optional props to build the full prop interface
 interface Props extends RequiredProps, OptionalProps {}
 
 // Use the optional prop interface to define the default props
-const defaultProps: OptionalProps = {};
+const defaultProps: OptionalProps = {
+  placeTitleOnLeft: false,
+  smallModalSize: false,
+};
 
 const Modal = (props: Props) => {
   if (!props.show) {
@@ -25,12 +31,22 @@ const Modal = (props: Props) => {
   } else {
     return (
       <div className="modal">
-        <div className="modalContent">
+        <div
+          className={
+            props.smallModalSize ? 'smallModalContent' : 'modalContent'
+          }
+        >
           <div className="modalHeader">
-            <div className="modalTitle">{props.title}</div>
+            <div
+              className={
+                props.placeTitleOnLeft ? 'leftModalTitle' : 'modalTitle'
+              }
+            >
+              {props.title}
+            </div>
             <a href="#" className="close" onClick={() => props.onClose()} />
           </div>
-          <div className="modalBody">{props.bodyChildren}</div>
+          <div>{props.bodyChildren}</div>
         </div>
       </div>
     );

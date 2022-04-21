@@ -3,7 +3,7 @@ import './HelperComponentStyles.css';
 
 interface Props {
   callback: () => void;
-  text: string;
+  child: React.ReactNode;
   depressed: boolean;
 }
 
@@ -13,7 +13,7 @@ const HorizButton = (props: Props) => {
       className={'horiz-modal-seq-btn-' + (props.depressed ? 'dep' : 'norm')}
       onClick={() => props.callback()}
     >
-      {props.text}
+      {props.child}
     </button>
   );
 };

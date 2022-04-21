@@ -1,12 +1,117 @@
 .horiz-modal-seq-btn-norm {
-  color: lightslategrey;
+  width: 100%;
+  height: 45%;
+  background: #c7c7c7;
+  border-radius: 20px;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .horiz-modal-seq-btn-dep {
-  color: black;
+  width: 100%;
+  height: 45%;
+  background: #717171;
+  border-radius: 20px;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .vert-modal-seq-btn-norm {
   color: lightslategrey;
+  width: 45%;
+  height: 100%;
+  background: #c7c7c7;
+  border-radius: 20px;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 .vert-modal-seq-btn-dep {
   color: black;
+  width: 45%;
+  height: 100%;
+  background: #717171;
+  border-radius: 20px;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.vert-text-form {
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.button-wrapper {
+  padding: 0 2.688rem 0 2.688rem;
+  margin: 18px 0 18px 0;
+}
+
+.horiz-button-spacer {
+  width: 100%;
+  height: 12rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.vert-button-spacer {
+  width: 100%;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.slide-button {
+  font-size: 22px;
+  color: #717171;
+}
+.slide-button:hover {
+  text-decoration: underline;
+}
+.slide-button-disabled {
+  font-size: 22px;
+  color: #c7c7c7;
+}
+.slide-icon {
+  margin: 0 0.6rem 0 0.6rem;
+}
+
+.bottom-bar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 8px 2.688rem 8px 2.688rem;
 }

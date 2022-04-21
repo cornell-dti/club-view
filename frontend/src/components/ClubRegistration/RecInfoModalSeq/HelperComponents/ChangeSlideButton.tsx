@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import './HelperComponentStyles.css';
+import {
+  back,
+  next,
+  lightNext,
+  darkBack,
+} from '../../../../icons/rec-info-seq-modal';
 
 // Required props
 interface RequiredProps {
@@ -27,8 +33,29 @@ const ModalController = (props: Props) => {
   else if (props.procedure === 1) text = 'Next';
   return (
     <>
-      <button onClick={() => props.onClick()} disabled={props.disabled}>
-        {text}
+      <button
+        className={'slide-button' + (props.disabled ? '-disabled' : '')}
+        onClick={() => props.onClick()}
+        disabled={props.disabled}
+      >
+        {props.procedure === -1 ? (
+          <img className="slide-icon" height="15" src={back} alt="Icon" />
+        ) : (
+          <></>
+        )}
+        <span style={props.procedure === -1 ? { color: '#C7C7C7' } : {}}>
+          {text}
+        </span>
+        {props.procedure === 1 ? (
+          <img
+            className="slide-icon"
+            height="15"
+            src={props.disabled ? lightNext : next}
+            alt="Icon"
+          />
+        ) : (
+          <></>
+        )}
       </button>
     </>
   );
