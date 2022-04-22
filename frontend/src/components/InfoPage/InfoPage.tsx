@@ -59,7 +59,7 @@ const InfoPage = () => {
               <div className="nameText">{club.name}</div>
               <div className="superCat">The Arts</div>
             </div>
-            
+
             <div className="categories">
               <button className="category">{club.category}</button>
             </div>

@@ -66,18 +66,18 @@
 /* club name label */
 .nameText {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 3rem; 
-  font-weight: 700; /* bold */ 
+  font-size: 3rem;
+  font-weight: 700; /* bold */
   display: flex;
   margin-left: 7%;
   margin-right: 3%;
 }
 
-/* super category label (or whatever "The Arts" is) */ 
-.superCat { 
-  font-family:cursive;
+/* super category label (or whatever "The Arts" is) */
+.superCat {
+  font-family: cursive;
   font-size: 1.125rem; /* 18px*/
-  font-weight: 600; /* Semi Bold */ 
+  font-weight: 600; /* Semi Bold */
   display: flex;
   margin-left: 7%;
   margin-right: 3%;
@@ -155,7 +155,7 @@
 .infoHeader {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.875rem; /* 30px */
-  font-weight: 700; /* bold */ 
+  font-weight: 700; /* bold */
   display: flex;
   margin-left: 4%;
   margin-right: 4%;
@@ -167,7 +167,7 @@
 .statusContents {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.5rem; /* 24px */
-  font-weight: 600; /* semi bold */ 
+  font-weight: 600; /* semi bold */
   display: flex;
   margin-left: 4%;
   margin-right: 4%;
@@ -179,7 +179,7 @@
 .descriptionContents {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.125rem; /* 18px*/
-  font-weight: 400; /* regular */ 
+  font-weight: 400; /* regular */
   display: flex;
   margin-left: 7%;
   margin-right: 10%;
