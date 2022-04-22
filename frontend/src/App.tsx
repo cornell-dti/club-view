@@ -9,6 +9,7 @@ import SocialTag from './components/Tags/SocialTags/SocialTag';
 import CategoryTag from './components/Tags/CategoryTags/CategoryTag';
 import { TokenProvider } from './context/TokenContext';
 import './App.css';
+import EventBanner from './components/Events/InfoBanner/EventBanner';
 
 function App() {
   return (
