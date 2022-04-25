@@ -73,7 +73,7 @@ router.get('/:id', async (req, res) => {
     const studentInstance = {
       id: student.id,
       firstName: student.firstName,
-      lastName: student.lastNsame,
+      lastName: student.lastName,
       year: student.year,
       email: student.email,
       managed: managedClubs,
