@@ -4,3 +4,7 @@
   flex-direction: column;
   gap: 1em;
 }
+
+.displayed-page {
+  padding-left: 3em;
+}
