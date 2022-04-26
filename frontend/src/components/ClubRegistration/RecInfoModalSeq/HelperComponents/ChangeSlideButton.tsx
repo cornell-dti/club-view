@@ -39,13 +39,11 @@ const ModalController = (props: Props) => {
         disabled={props.disabled}
       >
         {props.procedure === -1 ? (
-          <img className="slide-icon" height="15" src={back} alt="Icon" />
+          <img className="slide-icon" height="15" src={darkBack} alt="Icon" />
         ) : (
           <></>
         )}
-        <span style={props.procedure === -1 ? { color: '#C7C7C7' } : {}}>
-          {text}
-        </span>
+        <span>{text}</span>
         {props.procedure === 1 ? (
           <img
             className="slide-icon"
