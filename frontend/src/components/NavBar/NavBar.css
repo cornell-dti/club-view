@@ -95,11 +95,11 @@
   height: 3.7rem;
   margin-left: 3%;
   margin-right: 3%;
-  border-radius: 0.95rem; /*14px; */
+  border-radius: 0.95rem; 
 }
 
 .profileButton {
   position: absolute;
-  right: 18rem; /* old 28.5rem; */
+  right: 18rem; 
   top: 0rem;
 }
