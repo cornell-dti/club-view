@@ -74,7 +74,7 @@
 .registerButton {
   position: absolute;
   right: 17rem;
-  top: 17px;
+  top: 9px;
 
   display: flex;
   justify-content: center;
@@ -95,11 +95,11 @@
   height: 3.7rem;
   margin-left: 3%;
   margin-right: 3%;
-  border-radius: 0.95rem; 
+  border-radius: 0.95rem;
 }
 
 .profileButton {
   position: absolute;
-  right: 18rem; 
+  right: 18rem;
   top: 0rem;
 }

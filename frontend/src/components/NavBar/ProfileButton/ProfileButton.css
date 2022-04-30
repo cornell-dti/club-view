@@ -5,7 +5,7 @@
   border-radius: 20px;
   height: fit-content;
   position: absolute;
-  top: 17px; /* TODO: come up with a better way to position this without resorting to arbitrary valures */
+  top: 9px; /* TODO: come up with a better way to position this without resorting to arbitrary valures */
   color: white;
   z-index: 100;
 }
