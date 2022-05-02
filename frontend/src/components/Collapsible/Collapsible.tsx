@@ -20,17 +20,17 @@ const Collapsible: React.FC<IProps> = ({
   return (
     <>
       <div className="">
-          <div className="collapsibleHeader">
-            <div className="name">{title}</div>
-            <button
-              type="button"
-              className="expandButton"
-              onClick={() => setIsOpen((prev) => !prev)}
-            >
-              {!isOpen ? <img src={closedIcon} /> : <img src={openIcon} />}
-            </button>
+        <div className="collapsibleHeader">
+          <div className="name">{title}</div>
+          <button
+            type="button"
+            className="expandButton"
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            {!isOpen ? <img src={closedIcon} /> : <img src={openIcon} />}
+          </button>
         </div>
-          <div>{isOpen && <>{children}</>}</div>
+        <div>{isOpen && <>{children}</>}</div>
       </div>
     </>
   );
