@@ -66,19 +66,40 @@
 /* club name label */
 .nameText {
   font-family: Arial, Helvetica, sans-serif;
+<<<<<<< HEAD
   font-size: xx-large;
   font-weight: bold;
+=======
+  font-size: 3rem;
+  font-weight: 700; /* bold */
+>>>>>>> main
   display: flex;
   margin-left: 7%;
   margin-right: 3%;
 }
 
+<<<<<<< HEAD
+=======
+/* super category label (or whatever "The Arts" is) */
+.superCat {
+  font-family: cursive;
+  font-size: 1.125rem; /* 18px*/
+  font-weight: 600; /* Semi Bold */
+  display: flex;
+  margin-left: 7%;
+  margin-right: 3%;
+}
+>>>>>>> main
 /* club category labels */
 .category {
   background-color: mistyrose;
   display: block;
   width: 22%;
   font-size: 1.125rem; /* 18px*/
+<<<<<<< HEAD
+=======
+  font-weight: 400;
+>>>>>>> main
   width: 8.5rem;
   height: 2rem;
   margin-left: 7%;
@@ -95,6 +116,10 @@
   display: inline-block;
   width: 22%;
   font-size: 0.875rem; /* 14px */
+<<<<<<< HEAD
+=======
+  font-weight: 400;
+>>>>>>> main
   width: 10rem;
   height: 2.3rem;
   margin-left: 3%;
@@ -144,7 +169,11 @@
 .infoHeader {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.875rem; /* 30px */
+<<<<<<< HEAD
   font-weight: bold;
+=======
+  font-weight: 700; /* bold */
+>>>>>>> main
   display: flex;
   margin-left: 4%;
   margin-right: 4%;
@@ -156,7 +185,11 @@
 .statusContents {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.5rem; /* 24px */
+<<<<<<< HEAD
   font-weight: normal;
+=======
+  font-weight: 600; /* semi bold */
+>>>>>>> main
   display: flex;
   margin-left: 4%;
   margin-right: 4%;
@@ -168,7 +201,11 @@
 .descriptionContents {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.125rem; /* 18px*/
+<<<<<<< HEAD
   font-weight: normal;
+=======
+  font-weight: 400; /* regular */
+>>>>>>> main
   display: flex;
   margin-left: 7%;
   margin-right: 10%;
