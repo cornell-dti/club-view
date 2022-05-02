@@ -40,7 +40,7 @@ const authRequestHeader = {
   },
 };
 
-const SignIn = () => {
+const SignIn =  async () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -68,7 +68,7 @@ const currentUser = async () => {
   }
 };
 
-const signOutUser = () => {
+const signOutUser = async () => {
   signOut(auth)
     .then(() => {
       console.log('sign out complete');
