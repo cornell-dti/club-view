@@ -8,7 +8,9 @@ import { FaHandHolding } from 'react-icons/fa';
 
 const ProfileButton = () => {
   const [profDropdownExpanded, setProfDropdownExpanded] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(getAuth().currentUser == null ? false : true);
+  const [loggedIn, setLoggedIn] = useState(
+    getAuth().currentUser == null ? false : true
+  );
   const [editDropdownExpanded, setEditDropdownExpanded] = useState(false);
   const [manageDropdownExpanded, setManageDropdownExpanded] = useState(false);
   const [faveDropdownExpanded, setFaveDropdownExpanded] = useState(false);
@@ -20,21 +22,17 @@ const ProfileButton = () => {
   const manageClubs = ['Breakfree', 'Design and Tech Initiative', 'Appdev'];
   const faveClubs = ['Breakfree', 'Design and Tech Initiative', 'Appdev'];
 
-  const handleClick = () =>{
-    if (!loggedIn){
-      signIn()
-      .then(()=> setLoggedIn(true));
-    } else{
-      signOut()
-      .then(()=> setLoggedIn(false));
+  const handleClick = () => {
+    if (!loggedIn) {
+      signIn().then(() => setLoggedIn(true));
+    } else {
+      signOut().then(() => setLoggedIn(false));
     }
-  }
+  };
 
-  useEffect(()=>{
-    console.log(
-      "change"
-    )
-  },[loggedIn])
+  useEffect(() => {
+    console.log('change');
+  }, [loggedIn]);
 
   return (
     <div className="profileDropdown">
@@ -127,7 +125,7 @@ const ProfileButton = () => {
             )}
           </div>
           <div className="signoutButton" onClick={handleClick}>
-            {loggedIn == false ? "Sign In" : "Sign Out"}
+            {loggedIn == false ? 'Sign In' : 'Sign Out'}
           </div>
         </div>
       ) : (

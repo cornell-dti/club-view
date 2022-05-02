@@ -40,7 +40,7 @@ const authRequestHeader = {
   },
 };
 
-const SignIn =  async () => {
+const SignIn = async () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
