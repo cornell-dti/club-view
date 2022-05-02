@@ -38,18 +38,21 @@ const Filter = ({ callback }: FilterProps) => {
             title="Category"
             openIcon={ArrowUp}
             closedIcon={ArrowDown}
+
           >
+
             {Object.values(CategoryType).map((val) => {
               return (
-                <div className="checkBox">
-                  <label> {val} </label>
+                  <label className="checkBox">
+                  <div className="checkTitle">{val}</div>
                   <input
                     type="checkbox"
                     name={val}
                     id="category"
                     onChange={handleChange}
                   />
-                </div>
+                  <span className='checkmark'></span>
+                  </label>
               );
             })}
           </Collapsible>
@@ -62,17 +65,19 @@ const Filter = ({ callback }: FilterProps) => {
             openIcon={ArrowUp}
             closedIcon={ArrowDown}
           >
+            <div className='container'></div>
             {Object.values(StatusType).map((val) => {
               return (
-                <div className="checkBox">
-                  <label> {val} </label>
+               <label className="checkBox"> 
+               <div className="checkTitle">{val}</div>
                   <input
                     type="checkbox"
                     name={val}
                     id="status"
                     onChange={handleChange}
                   />
-                </div>
+                  <span className='checkmark'></span>
+                  </label>
               );
             })}
           </Collapsible>

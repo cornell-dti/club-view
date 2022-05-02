@@ -20,8 +20,7 @@ const Collapsible: React.FC<IProps> = ({
   return (
     <>
       <div className="">
-        <div>
-          <div className="filterHeader">
+          <div className="collapsibleHeader">
             <div className="name">{title}</div>
             <button
               type="button"
@@ -30,12 +29,8 @@ const Collapsible: React.FC<IProps> = ({
             >
               {!isOpen ? <img src={closedIcon} /> : <img src={openIcon} />}
             </button>
-          </div>
         </div>
-
-        <div className="">
-          <div>{isOpen && <div>{children}</div>}</div>
-        </div>
+          <div>{isOpen && <>{children}</>}</div>
       </div>
     </>
   );
