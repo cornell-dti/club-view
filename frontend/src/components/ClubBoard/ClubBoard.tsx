@@ -44,6 +44,15 @@ const ClubBoard = () => {
     );
   }
 
+  function updatetoFilter(categorySet: Set<string>, statusSet: Set<string>) {
+    if (categorySet.size + statusSet.size != 0) {
+      setClubArray(
+        origClubs.filter((item: ClubType) => {
+          return categorySet.has(item.category) || statusSet.has(item.status);
+        })
+      );
+    }
+  }
   // BEGIN: HELPER CODE FOR UPLOAD IMAGE MODAL
   const [showUploadModal, setShowModal] = useState(false);
 
@@ -221,7 +230,7 @@ const ClubBoard = () => {
           )}
         </div>
         <div className="filterContainer">
-          <Filter />
+          <Filter callback={updatetoFilter} />
         </div>
       </div>
     </>

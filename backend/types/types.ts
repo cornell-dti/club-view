@@ -7,6 +7,7 @@ export type StudentType = {
   email: string;
   managed: ClubType[];
   favorites: ClubType[];
+  events: EventType[];
 };
 
 export enum URLs {
@@ -25,7 +26,7 @@ export enum URLs {
 export type ClubType = {
   id: string;
   name: string;
-  category: string;
+  category: CategoryType;
   email: string;
   description: string;
   url: string;
@@ -45,7 +46,7 @@ export type SocialType = {
 export type EventType = {
   id: string;
   title: string;
-  hostedBy: string;
+  hostedBy: ClubType;
   description: string;
   startDate: string;
   endDate?: string;
