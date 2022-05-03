@@ -60,7 +60,6 @@ const InfoPage = () => {
               <div className="superCat">The Arts</div>
             </div>
 
->>>>>>> main
             <div className="categories">
               <button className="category">{club.category}</button>
             </div>
