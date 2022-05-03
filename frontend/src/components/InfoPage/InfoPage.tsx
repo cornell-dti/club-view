@@ -73,7 +73,9 @@ const InfoPage = () => {
             </div>
             <div className="name">
               <div className="nameText">{club.name}</div>
+              <div className="superCat">The Arts</div>
             </div>
+
             <div className="categories">
               <button className="category">{club.category}</button>
             </div>
@@ -83,11 +85,11 @@ const InfoPage = () => {
               </button>
 
               <button className="socialsButton">
-                <FaFacebook /> FACEBOOK
+                <FaGlobe /> WEBSITE
               </button>
 
               <button className="socialsButton">
-                <FaGlobe /> WEBSITE
+                <FaFacebook /> FACEBOOK
               </button>
 
               <button className="socialsButton">
