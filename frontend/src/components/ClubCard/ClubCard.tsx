@@ -7,7 +7,7 @@ type Prop = {
   clubName: string;
   clubCategory: string;
   clubID: string;
-  clubIcon?: string; 
+  clubIcon?: string;
 };
 
 const ClubCard = (props: Prop) => {
@@ -20,9 +20,8 @@ const ClubCard = (props: Prop) => {
         navigateTo('/clubs/' + props.clubID);
       }}
     >
-      <img src={props.clubIcon} className="clubIcon"/> 
+      <img src={props.clubIcon} className="clubIcon" />
 
-      
       <div className="infoContainer">
         <div className="clubName">{props.clubName}</div>
         <div className="clubCategory">{props.clubCategory}</div>

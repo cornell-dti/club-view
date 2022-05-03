@@ -31,7 +31,8 @@ const InfoPage = () => {
   // This useEffect is triggered only on component mount
   useEffect(() => {
     // NOTE: this just pulls the data from localhost
-    axios.get('http://localhost:8000/clubs/' + params.id)
+    axios
+      .get('http://localhost:8000/clubs/' + params.id)
       .then((res) => console.log(res.data))
       //
       .then((res) => {
@@ -67,7 +68,7 @@ const InfoPage = () => {
         <div className="clubOuterContainer">
           <div className="clubContainer">
             <div className="profile">
-             <img src="" alt="club logo"></img>
+              <img src="" alt="club logo"></img>
               <Favorites clubCard={false} />
             </div>
             <div className="name">
@@ -77,11 +78,9 @@ const InfoPage = () => {
               <button className="category">{club.category}</button>
             </div>
             <div className="socials">
-              
-                <button className="socialsButton">
-                  <FaInstagram /> INSTAGRAM
-                </button>
-              
+              <button className="socialsButton">
+                <FaInstagram /> INSTAGRAM
+              </button>
 
               <button className="socialsButton">
                 <FaFacebook /> FACEBOOK
