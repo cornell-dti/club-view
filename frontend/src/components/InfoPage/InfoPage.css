@@ -73,6 +73,11 @@
   margin-right: 3%;
 }
 
+/* club logo image */ 
+.img-club {
+  width: 400px;
+}
+
 /* club category labels */
 .category {
   background-color: mistyrose;
