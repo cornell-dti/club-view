@@ -24,8 +24,6 @@
 }
 
 .clubName {
-  width: 9.25rem;
-  height: 1.688rem;
   display: flex;
   flex-direction: row;
 
@@ -37,16 +35,24 @@
 }
 
 .clubCategory {
-  width: 9.25rem;
-  height: 1.688rem;
   display: flex;
-  flex-direction: row;
-
   font-family: Nunito;
   font-style: normal;
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.188rem;
+
+  background: rgba(255, 112, 98, 0.9);
+  border-radius: 0.313rem;
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+  padding-top: 0.063rem;
+  padding-bottom: 0.125rem;
+}
+
+.clubCategoryBackground {
+  display: flex;
+  background: rgba(255, 255, 255);
 }
 
 .favouriteIcon {
@@ -56,12 +62,4 @@
   right: 0.6rem;
   top: 0.544rem;
   z-index: 100;
-}
-
-.indicatorIcon {
-  width: 0.938rem;
-  height: 0.938rem;
-  position: absolute;
-  left: 0.625rem;
-  bottom: 0.563rem;
 }
