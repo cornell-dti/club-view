@@ -11,7 +11,6 @@ type Prop = {
 
 const ClubCard = (props: Prop) => {
   const navigateTo = useNavigate();
-
   return (
     <div
       className="cardContainer"
@@ -22,11 +21,14 @@ const ClubCard = (props: Prop) => {
       <div className="clubIcon" />
       <div className="infoContainer">
         <div className="clubName">{props.clubName}</div>
-        <div className="clubCategory">{props.clubCategory}</div>
+        {/* clubCategoryBackground necessary to cut off excess background in category tag*/}
+        <div className="clubCategoryBackground">
+          <div className="clubCategory">{props.clubCategory}</div>
+        </div>
+
         {/* TODO: check user's favorites list and see if this club is in that list. if so, make the favorites icon filled in already */}
         <Favorites clubCard={true} />
       </div>
-      <img className="indicatorIcon" src={IndicatorIcon} alt="indicatorIcon" />
     </div>
   );
 };
