@@ -26,7 +26,7 @@ export enum URLs {
 export type ClubType = {
   id: string;
   name: string;
-  category: string;
+  category: CategoryType;
   email: string;
   description: string;
   status: string;

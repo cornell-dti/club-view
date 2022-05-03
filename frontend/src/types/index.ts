@@ -3,8 +3,8 @@
 export enum CategoryType {
   ACADEMIC = 'academic',
   PROJECTTEAM = 'project team',
-  CAREERDEVELOPMENT = 'careerdevelopment',
-  COMMUNITYSERVICE = 'communityservice',
+  CAREERDEVELOPMENT = 'career development',
+  COMMUNITYSERVICE = 'community service',
   CULTURAL = 'cultural',
   SOCIAL = 'social',
   FOOD_DRINK = 'food and drink',
