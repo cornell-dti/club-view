@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Dropdown.css';
-import { CategoryType } from './categories';
+import { CategoryType } from '../../../types/index';
 
 const Dropdown = ({ callback }: { callback: any }) => {
   // Helper function to convert the strings in the imported enum to human-readable Title Case so no hard-coding is necessary

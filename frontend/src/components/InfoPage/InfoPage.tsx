@@ -12,8 +12,8 @@ import {
   FaGlobe,
   FaEnvelope,
 } from 'react-icons/fa';
-import { isConstructorTypeNode } from 'typescript';
-import Favorites from '../Button/Favorites';
+import FavoriteButton from '../Button/Favorites/FavoriteButton';
+import CategoryTag from '../Tags/CategoryTags/CategoryTag';
 
 const InfoPage = () => {
   let params = useParams();
@@ -22,7 +22,7 @@ const InfoPage = () => {
     category: '',
     email: '',
     description: '',
-    socials: '',
+    socials: [],
     events: [],
   }); // useState hook stores club object from API calll in the club state
 
@@ -53,15 +53,15 @@ const InfoPage = () => {
         <div className="clubOuterContainer">
           <div className="clubContainer">
             <div className="profile">
-              <Favorites clubCard={false} />
+              <FavoriteButton clubCard={false} />
             </div>
             <div className="name">
-              <div className="nameText">{club.name}</div>
+              <div className="nameText">Name</div>
               <div className="superCat">The Arts</div>
             </div>
 
             <div className="categories">
-              <button className="category">{club.category}</button>
+              <CategoryTag title='Category' large={true}/>
             </div>
             <div className="socials">
               <a href={club.socials[0]} target="_blank" rel="noreferrer">
@@ -85,17 +85,17 @@ const InfoPage = () => {
           </div>
         </div>
         <div className="infoContainer">
-          <div className="statusContainer">
+          <div className="statusContainer infoBox">
             <div className="statusContents">
               Recruitment has closed. Check back later for recruitment times
               next semester!
             </div>
           </div>
-          <div className="descContainer">
+          <div className="descContainer infoBox">
             <div className="infoHeader">Description</div>
             <div className="descriptionContents">{club.description}</div>
           </div>
-          <div className="eventsContainer">
+          <div className="eventsContainer infoBox">
             <div className="infoHeader">Events</div>
           </div>
         </div>

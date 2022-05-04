@@ -1,15 +1,13 @@
-import './Favorites.css';
-import FavouriteIcon from '../../assets/favourite.svg';
-import FilledFavoriteIcon from '../../assets/filledFavorite.svg';
-import FavoriteInfoIcon from '../../assets/favoriteInfo.svg';
-import FilledFavoriteInfoIcon from '../../assets/filledFavoriteInfo.svg';
+import './FavoriteButton.css';
+import FavouriteIcon from '../../../assets/favourite.svg';
+import FilledFavoriteIcon from '../../../assets/filledFavorite.svg';
+import FavoriteInfoIcon from '../../../assets/favoriteInfo.svg';
+import FilledFavoriteInfoIcon from '../../../assets/filledFavoriteInfo.svg';
 import { useState } from 'react';
 interface Props {
   clubCard: boolean;
-  //TODO
-  // isFavorite: boolean;
 }
-const Favorites = (props: Props) => {
+const FavoriteButton = (props: Props) => {
   const [isFavorite, setFavorite] = useState(false);
   const className = props.clubCard ? 'clubCard' : 'clubInfo';
 
@@ -38,4 +36,4 @@ const Favorites = (props: Props) => {
   );
 };
 
-export default Favorites;
+export default FavoriteButton;
