@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../../Modal/Modal';
 import ChangeSlideButton from './HelperComponents/ChangeSlideButton';
-import HorizButton from './HelperComponents/HorizontalButton';
-import VertButton from './HelperComponents/VerticalButton';
+import OrientedButton from './HelperComponents/OrientedButton';
 
 // Required props
 interface RequiredProps {}
@@ -56,7 +55,7 @@ const ModalController = (props: Props) => {
       content: (
         <div className="button-wrapper">
           <div className="horiz-button-spacer">
-            <VertButton
+            <OrientedButton
               callback={() => setSlideData(updateArray(slideData, 0, 0))}
               child={
                 <p>
@@ -68,8 +67,9 @@ const ModalController = (props: Props) => {
                 </p>
               }
               depressed={slideData[0] === 0 ? true : false}
+              orientation={1}
             />
-            <VertButton
+            <OrientedButton
               callback={() => setSlideData(updateArray(slideData, 0, 1))}
               child={
                 <p>
@@ -81,6 +81,7 @@ const ModalController = (props: Props) => {
                 </p>
               }
               depressed={slideData[0] === 1 ? true : false}
+              orientation={1}
             />
           </div>
         </div>
@@ -91,15 +92,17 @@ const ModalController = (props: Props) => {
       content: (
         <div className="button-wrapper">
           <div className="vert-button-spacer">
-            <HorizButton
+            <OrientedButton
               callback={() => setSlideData(updateArray(slideData, 1, 0))}
               child={<p>Once a year!</p>}
               depressed={slideData[1] === 0 ? true : false}
+              orientation={0}
             />
-            <HorizButton
+            <OrientedButton
               callback={() => setSlideData(updateArray(slideData, 1, 1))}
               child={<p>Once a semester!</p>}
               depressed={slideData[1] === 1 ? true : false}
+              orientation={0}
             />
           </div>
         </div>
