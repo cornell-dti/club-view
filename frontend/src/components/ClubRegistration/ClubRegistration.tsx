@@ -17,12 +17,23 @@ const ClubRegistration = () => {
   const [openDate, setOpenDate] = useState('');
   const [closeDate, setCloseDate] = useState('');
 
+  const [photoURL, setPhotoURL] = useState(
+    'https://yt3.ggpht.com/bbfIGY1xoj_-qDTcA5mQKTCeSXwHHhxePgUidXFF150w9dqUoVTST58aQDEr-VwjNXsDCRaosQ=s900-c-k-c0x00ffffff-no-rj'
+  ); // TODO: set this to pull the proper image from the backend
+
   // Function to submit the data to the backend
   function handleSubmit(event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
     alert('Submit Action Triggered!');
 
-    //NOT IMPLEMENTED: SUBMIT DATA STORED IN REACT HOOKS TO BACKEND
+    //TODO NOT IMPLEMENTED: SUBMIT DATA STORED IN REACT HOOKS TO BACKEND
+  }
+
+  function triggerPhotoUpload(event: any): void {
+    event.preventDefault();
+    alert('Photo upload triggered!');
+
+    //TODO: UPLOAD/EDIT PHOTO (modify photoURL hook)
   }
 
   function changeDisplayedPage(newIndex: number) {
@@ -31,50 +42,69 @@ const ClubRegistration = () => {
 
   const pages = [];
 
+  // TODO FOR DAN: IMPLEMENT THE BELOW (IN GOOGLE MUI)
+  // ADDITIONALLY, IMPLEMENT TAGS ? perhaps adding a new tag to a globally maintained list of tags
+
+  // Profile:
+  // - club name
+  // - category
+  // - tags (need to add)
+  // - links (need to modify)
+
+  // Recruitment Banner:
+  // - Recruitment Season (need to add)
+  // - Recruitment Start Date and End Date (Date Selectors)
+  // - Application Link (need to add)
+  // - Message (need to add)
+
   // 0: Profile (default registration page)
   pages.push(
+    <form className="profile">
+      <div className="edit-photo">
+        <div className="photo-click-zone" onClick={triggerPhotoUpload}>
+          <img className="club-photo" src={photoURL} alt="Club Logo" />
+        </div>
+        <span className="photo-caption" onClick={triggerPhotoUpload}>
+          Change or Upload a Photo
+        </span>
+      </div>
+      <div className="edit-inputs">
+        <label>
+          Club Name: <br />
+          <input
+            name="clubName"
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+        </label>
+
+        <Dropdown callback={setCategory} />
+
+        <label>
+          Enter a Description of your Club: <br />
+          <textarea
+            name="clubDescr"
+            value={descr}
+            onChange={(event) => setDescr(event.target.value)}
+          />
+        </label>
+
+        <label>
+          Enter a link to your Club Website: <br />
+          <input
+            name="clubURL"
+            type="text"
+            value={URL}
+            onChange={(event) => setURL(event.target.value)}
+          />
+        </label>
+      </div>
+    </form>
+  );
+  // 1: Recruitment page
+  pages.push(
     <form className="registration">
-      <label>
-        Enter your Club Name: <br />
-        <input
-          name="clubName"
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </label>
-
-      <Dropdown callback={setCategory} />
-
-      <label>
-        Enter your Email: <br />
-        <input
-          name="clubEmail"
-          type="text"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-      </label>
-
-      <label>
-        Enter a Description of your Club: <br />
-        <textarea
-          name="clubDescr"
-          value={descr}
-          onChange={(event) => setDescr(event.target.value)}
-        />
-      </label>
-
-      <label>
-        Enter a link to your Club Website: <br />
-        <input
-          name="clubURL"
-          type="text"
-          value={URL}
-          onChange={(event) => setURL(event.target.value)}
-        />
-      </label>
-
       <label>
         Enter the Opening Date: <br />
         <input
@@ -94,12 +124,8 @@ const ClubRegistration = () => {
           onChange={(event) => setCloseDate(event.target.value)}
         />
       </label>
-
-      <button onClick={(e) => handleSubmit(e)}>Submit</button>
     </form>
   );
-  // 1: Recruitment page
-  pages.push(<h1>Club Recruitment Page</h1>);
   // 2: Description page
   pages.push(<h1>Club Description Page</h1>);
   // 3: Club Events page

@@ -5,6 +5,54 @@
   gap: 1em;
 }
 
+.profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.club-photo {
+  width: 270px;
+  border-radius: 20px;
+}
+
+.photo-click-zone {
+  border: 2px dashed #c7c7c7;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.photo-click-zone:hover {
+  cursor: pointer;
+}
+
+.edit-photo {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-caption {
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #717171;
+}
+
+.photo-caption:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.edit-inputs {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-left: 3em;
+}
+
 .displayed-page {
   padding-left: 3em;
 }
