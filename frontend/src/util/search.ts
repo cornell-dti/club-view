@@ -41,14 +41,14 @@ const distanceBetweenStrings = (queryString, clubNames) => {
         compMatrix[i - 1][j - 1] = compMatrix[i][j];
       } else {
         // take the minimum distance from performing a letter substitution, insertion, deletion
-        compMatrix[i][j] = Math.min(
+        compMatrix[i][j] =
           Math.min(
-            compMatrix[i - 1][j - 1] + 1, // substitution: add one letter (allows for typos)
-            compMatrix[i][j - 1] + 1, // checks to see if shifting user word one spot right of matrix results in smaller distance
-            
-          ),
-          compMatrix[i - 1][j] + 1 // checks to see if deleting a character results in smaller distance
-        );
+            Math.min(
+              compMatrix[i - 1][j - 1], // substitution: add one letter (allows for typos)
+              compMatrix[i][j - 1] // checks to see if shifting user word one spot right of matrix results in smaller distance
+            ),
+            compMatrix[i - 1][j] // checks to see if deleting a character results in smaller distance
+          ) + 1;
       }
     }
   }
