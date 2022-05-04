@@ -2,16 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './InfoPage.css';
 import NavBar from '../../components/NavBar/NavBar';
-import { facebookIcon } from '../../icons/tags';
-import { instragramIcon } from '../../icons/tags';
 import SocialTag from '../Tags/SocialTags/SocialTag';
-import {
-  FaExternalLinkAlt,
-  FaFacebook,
-  FaInstagram,
-  FaGlobe,
-  FaEnvelope,
-} from 'react-icons/fa';
 import FavoriteButton from '../Button/Favorites/FavoriteButton';
 import CategoryTag from '../Tags/CategoryTags/CategoryTag';
 
@@ -61,26 +52,13 @@ const InfoPage = () => {
             </div>
 
             <div className="categories">
-              <CategoryTag title='Category' large={true}/>
+              <CategoryTag title="Category" large={true} />
             </div>
             <div className="socials">
-              <a href={club.socials[0]} target="_blank" rel="noreferrer">
-                <button className="socialsButton">
-                  <FaInstagram /> INSTAGRAM
-                </button>
-              </a>
-
-              <button className="socialsButton">
-                <FaGlobe /> WEBSITE
-              </button>
-
-              <button className="socialsButton">
-                <FaFacebook /> FACEBOOK
-              </button>
-
-              <button className="socialsButton">
-                <FaEnvelope /> LISTSERV
-              </button>
+              <SocialTag socialName='instagram' />
+              <SocialTag socialName='facebook' />
+              <SocialTag socialName='listserv' />
+              <SocialTag socialName='globe' />
             </div>
           </div>
         </div>

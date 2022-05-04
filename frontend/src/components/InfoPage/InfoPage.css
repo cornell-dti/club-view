@@ -34,7 +34,6 @@
   margin-top: 3%;
 }
 
-
 .nameText {
   font-size: 3rem;
   font-weight: 700;
@@ -56,13 +55,12 @@
 }
 
 .superCat {
-  font-size: 1.125rem; 
-  font-weight: 600; 
+  font-size: 1.125rem;
+  font-weight: 600;
   display: flex;
   margin-left: 7%;
   margin-right: 3%;
 }
-
 
 /* buttons -> club social media links */
 .socialsButton {
@@ -86,7 +84,7 @@
   width: 100%;
 }
 
-.infoContainer .infoBox{
+.infoContainer .infoBox {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -103,8 +101,8 @@
 }
 
 .statusContents {
-  font-size: 1.5rem; 
-  font-weight: 600; 
+  font-size: 1.5rem;
+  font-weight: 600;
   display: flex;
   margin: 4%;
 }
@@ -122,14 +120,14 @@
 }
 
 .infoHeader {
-  font-size: 1.875rem; 
+  font-size: 1.875rem;
   padding: 3% 4% 3% 4%;
   text-align: left;
 }
 
 /* club description body */
 .descriptionContents {
-  font-size: 1.125rem; 
-  font-weight: 400; 
+  font-size: 1.125rem;
+  font-weight: 400;
   margin: 5%;
 }
