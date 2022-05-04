@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ClubRegistration.css';
 import Dropdown from './Dropdown/Dropdown';
 import NavBar from '../../components/NavBar/NavBar';
+import ModalController from './RecInfoModalSeq/ModalController';
 import Sidebar, { sidebarItems } from './Sidebar/Sidebar';
 
 const ClubRegistration = () => {
@@ -108,6 +109,7 @@ const ClubRegistration = () => {
   return (
     <>
       <NavBar hasSearch={false} />
+      <ModalController />
       <div className="page-container">
         <Sidebar currentItem={currentDisplay} callback={changeDisplayedPage} />
         <div className="displayed-page">{pages[currentDisplay]}</div>

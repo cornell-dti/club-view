@@ -221,6 +221,7 @@ const ClubBoard = () => {
           </>
         }
       />
+
       <div className="dashboardContainer">
         <div className="cardsContainer">
           {clubArray.length === 0 ? (
