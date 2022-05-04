@@ -14,6 +14,7 @@ interface RequiredProps {
 // Optional props
 interface OptionalProps {
   callback: (text: string) => void;
+  color?: string;
 }
 
 // Combine required and optional props to build the full prop interface
@@ -54,12 +55,16 @@ const NavBar = (props: Props) => {
       )}
 
       <div className="right">
-        <Link to="/register" className="registerButton">
+        <Link
+          data-status={props.color}
+          to="/register"
+          className="registerButton"
+        >
           Register Club
         </Link>
 
         <div className="profileButton">
-          <ProfileButton />
+          <ProfileButton color={props.color} />
         </div>
       </div>
     </header>

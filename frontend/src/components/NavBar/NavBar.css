@@ -98,8 +98,18 @@
   border-radius: 0.95rem;
 }
 
+.registerButton[data-status='blue'] {
+  border-color: #35c1fd;
+  color: #35c1fd;
+}
+
 .profileButton {
   position: absolute;
   right: 18rem;
   top: 0rem;
+}
+
+.profileButton[data-status='blue'] {
+  border-color: #35c1fd;
+  color: #35c1fd;
 }
