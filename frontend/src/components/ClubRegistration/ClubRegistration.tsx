@@ -107,7 +107,7 @@ const ClubRegistration = () => {
 
   return (
     <>
-      <NavBar hasSearch={false} />
+      <NavBar hasSearch={false} color={'blue'} />
       <div className="page-container">
         <Sidebar currentItem={currentDisplay} callback={changeDisplayedPage} />
         <div className="displayed-page">{pages[currentDisplay]}</div>

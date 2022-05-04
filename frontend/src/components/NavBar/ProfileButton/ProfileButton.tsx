@@ -4,7 +4,21 @@ import { signIn, signOut } from '../../../util/firebase';
 import { Link } from 'react-router-dom';
 import { whiteArrow, whiteArrowRotated } from '../../../icons/navbar';
 
-const ProfileButton = () => {
+// Required props
+interface RequiredProps {}
+
+// Optional props
+interface OptionalProps {
+  color?: string;
+}
+
+// Combine required and optional props to build the full prop interface
+interface Props extends RequiredProps, OptionalProps {}
+
+// Use the optional prop interface to define the default props
+const defaultProps: OptionalProps = {};
+
+const ProfileButton = (props: Props) => {
   const [profDropdownExpanded, setProfDropdownExpanded] = useState(false);
 
   const [editDropdownExpanded, setEditDropdownExpanded] = useState(false);
@@ -19,9 +33,10 @@ const ProfileButton = () => {
   const faveClubs = ['Breakfree', 'Design and Tech Initiative', 'Appdev'];
 
   return (
-    <div className="profileDropdown">
+    <div data-status={props.color} className="profileDropdown">
       {profDropdownExpanded ? (
         <div
+          data-status={props.color}
           className="expandArea"
           onClick={() => {
             setProfDropdownExpanded(false);
@@ -47,6 +62,7 @@ const ProfileButton = () => {
         </div>
       ) : (
         <div
+          data-status={props.color}
           className="expandArea"
           onClick={() => setProfDropdownExpanded(true)}
         >
@@ -64,6 +80,7 @@ const ProfileButton = () => {
         <div className="dropdownContent">
           <div className="clubDropdown">
             <div
+              data-status={props.color}
               className={
                 'clubDropdownButton' + (editDropdownExpanded ? 'Expanded' : '')
               }
@@ -79,6 +96,7 @@ const ProfileButton = () => {
           </div>
           <div className="clubDropdown">
             <div
+              data-status={props.color}
               className={
                 'clubDropdownButton' +
                 (manageDropdownExpanded ? 'Expanded' : '')
@@ -95,6 +113,7 @@ const ProfileButton = () => {
           </div>
           <div className="clubDropdown">
             <div
+              data-status={props.color}
               className={
                 'clubDropdownButton' + (faveDropdownExpanded ? 'Expanded' : '')
               }

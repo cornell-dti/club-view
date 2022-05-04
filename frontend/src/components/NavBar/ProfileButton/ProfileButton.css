@@ -10,6 +10,10 @@
   z-index: 100;
 }
 
+.profileDropdown[data-status='blue'] {
+  background: #35c1fd;
+}
+
 .expandArea {
   background-color: #ff998d;
   padding: 20px;
@@ -21,6 +25,10 @@
   background-position: right 25px center;
   background-repeat: no-repeat;
   background-image: url('../../../icons/navbar/profileIcon.svg');
+}
+
+.expandArea[data-status='blue'] {
+  background-color: #35c1fd;
 }
 
 .clubDropdownButton {
@@ -36,9 +44,19 @@
   background-image: url('../../../icons/navbar/pinkArrow.svg');
 }
 
+.clubDropdownButton[data-status='blue'] {
+  background-image: none;
+}
+
 .clubDropdownButton:hover {
   background-color: white;
   color: #ff998d;
+}
+
+.clubDropdownButton[data-status='blue']:hover {
+  background-color: white;
+  color: #35c1fd;
+  /* background-image: url('../../../icons/navbar/whiteArrowRotated.svg'); */
 }
 
 .signoutButton {
@@ -56,20 +74,6 @@
 
 .signoutButton:hover {
   text-decoration: underline;
-}
-
-.clubDropdownButtonExpanded {
-  margin: 10px 20px 10px 20px;
-  border: 2px solid white;
-  border-radius: 20px;
-  padding: 10px;
-  background-color: white;
-  color: #ff998d;
-  cursor: pointer;
-
-  background-position: left 25px center;
-  background-repeat: no-repeat;
-  background-image: url('../../../icons/navbar/pinkArrowRotated.svg');
 }
 
 .signoutButton {
