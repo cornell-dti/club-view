@@ -8,6 +8,7 @@ interface Props {
   clubCard: boolean;
   //TODO
   // isFavorite: boolean;
+  //<Favorites clubCard={true} />
 }
 const Favorites = (props: Props) => {
   const [isFavorite, setFavorite] = useState(false);
