@@ -3,6 +3,7 @@ import './ClubRegistration.css';
 import Dropdown from './Dropdown/Dropdown';
 import NavBar from '../../components/NavBar/NavBar';
 import Sidebar, { sidebarItems } from './Sidebar/Sidebar';
+import FRSbutton from '../Button/FRSbutton';
 
 const ClubRegistration = () => {
   // Control the sidebar value to indicate which page we're on (indexed 0-3 in reference to sidebarItems)
@@ -96,7 +97,10 @@ const ClubRegistration = () => {
       </label>
 
       <button onClick={(e) => handleSubmit(e)}>Submit</button>
+      
+        
     </form>
+    
   );
   // 1: Recruitment page
   pages.push(<h1>Club Recruitment Page</h1>);
@@ -112,6 +116,8 @@ const ClubRegistration = () => {
         <Sidebar currentItem={currentDisplay} callback={changeDisplayedPage} />
         <div className="displayed-page">{pages[currentDisplay]}</div>
       </div>
+      <FRSbutton buttonType={'Finish'} text={'Finish'}></FRSbutton>
+      <FRSbutton buttonType={'Save'} text={'Save'}></FRSbutton>
     </>
   );
 };

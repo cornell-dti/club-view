@@ -1,4 +1,4 @@
-.homePage {
+.Register {
     position: absolute;
     right: 17rem;
     top: 9px;
@@ -25,7 +25,7 @@
     border-radius: 0.95rem;
 }
 
-.registerPage {
+.Save {
   
     display: flex;
     justify-content: center;
@@ -37,12 +37,21 @@
     color: #35C1FD;
     background-color: white;
     text-decoration: none;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+
+    color: #35C1FD;
   
     box-sizing: border-box;
 
     position: absolute;
     left: 55.14%;
-    right: 37.22%;
+    right: 37.20%;
     top: 67.11%;
     bottom: 25.67%;
 
@@ -51,3 +60,37 @@
     border-radius: 1.25rem;/*20px*/
 }
 
+.Finish {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: auto;
+    font-display: flex;
+  
+    border-color:#35C1FD;
+    color: #35C1FD;
+    background-color: white;
+    text-decoration: none;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+
+    color: #35C1FD;
+  
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 10.65%;
+    right: 81.71%;
+    top: 51.5%;
+    bottom: 41.5%;
+
+    border: 3px solid #35C1FD;
+
+    border-radius: 1.25rem;/*20px*/
+}
