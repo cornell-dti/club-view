@@ -14,6 +14,7 @@ import {
 } from 'react-icons/fa';
 import { isConstructorTypeNode } from 'typescript';
 import Favorites from '../Button/Favorites';
+import axios from 'axios';
 
 const InfoPage = () => {
   let params = useParams();
@@ -24,17 +25,19 @@ const InfoPage = () => {
     description: '',
     socials: '',
     events: [],
+    images: [],
   }); // useState hook stores club object from API calll in the club state
 
   // This useEffect is triggered only on component mount
   useEffect(() => {
     // NOTE: this just pulls the data from localhost
-    fetch('http://localhost:8000/clubs/' + params.id)
-      .then((res) => res.json())
+    axios
+      .get('http://localhost:8000/clubs/' + params.id)
+      .then((res) => console.log(res.data))
       //
       .then((res) => {
         console.log(res);
-        setClub(res);
+        //setClub(res);
         console.log("here's the data" + res); // ok so the club object is in res
       })
       .then((data) => {
@@ -46,6 +49,18 @@ const InfoPage = () => {
   // .then(data => { // just added
   //   //   setClub(data);
   //   // }) // attempt
+  //  <a href={club.socials[0]} target="_blank" rel="noreferrer"> </a> around socials button
+  //<img> class="img-club" src="" alt="club logo"</img>
+
+  /*
+  const checkImageLength = () => {
+    const clubImages:Array<String> = club.images; 
+    const length = clubImages.length; 
+    return length; 
+  }
+
+  use <img src={checkImageLength() === 0 ? "" : club.images[0]}></img>
+  */
   return (
     <>
       <NavBar hasSearch={false} />
@@ -53,6 +68,7 @@ const InfoPage = () => {
         <div className="clubOuterContainer">
           <div className="clubContainer">
             <div className="profile">
+              <img src="" alt="club logo"></img>
               <Favorites clubCard={false} />
             </div>
             <div className="name">
@@ -64,11 +80,9 @@ const InfoPage = () => {
               <button className="category">{club.category}</button>
             </div>
             <div className="socials">
-              <a href={club.socials[0]} target="_blank" rel="noreferrer">
-                <button className="socialsButton">
-                  <FaInstagram /> INSTAGRAM
-                </button>
-              </a>
+              <button className="socialsButton">
+                <FaInstagram /> INSTAGRAM
+              </button>
 
               <button className="socialsButton">
                 <FaGlobe /> WEBSITE
@@ -97,6 +111,7 @@ const InfoPage = () => {
           </div>
           <div className="eventsContainer">
             <div className="infoHeader">Events</div>
+            {club.events}
           </div>
         </div>
       </div>

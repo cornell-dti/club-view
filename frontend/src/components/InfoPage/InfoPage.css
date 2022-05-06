@@ -72,6 +72,10 @@
   margin-left: 7%;
   margin-right: 3%;
 }
+/* club logo image */
+.img-club {
+  width: 400px;
+}
 
 /* super category label (or whatever "The Arts" is) */
 .superCat {
@@ -82,6 +86,7 @@
   margin-left: 7%;
   margin-right: 3%;
 }
+
 /* club category labels */
 .category {
   background-color: mistyrose;
