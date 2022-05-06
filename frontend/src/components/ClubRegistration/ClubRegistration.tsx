@@ -97,10 +97,7 @@ const ClubRegistration = () => {
       </label>
 
       <button onClick={(e) => handleSubmit(e)}>Submit</button>
-      
-        
     </form>
-    
   );
   // 1: Recruitment page
   pages.push(<h1>Club Recruitment Page</h1>);

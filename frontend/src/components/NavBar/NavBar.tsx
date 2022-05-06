@@ -54,13 +54,10 @@ const NavBar = (props: Props) => {
         <></>
       )}
 
-      
       <div className="right">
         <Link to="/register" className="registerButton">
           Register Club
         </Link>
-        
-
 
         <div className="profileButton">
           <ProfileButton />
