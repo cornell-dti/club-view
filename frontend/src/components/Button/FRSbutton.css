@@ -1,27 +1,53 @@
 .homePage {
     position: absolute;
-  right: 17rem;
-  top: 9px;
+    right: 17rem;
+    top: 9px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: auto;
+    font-display: flex;
+  
+    border-color: salmon;
+    color: salmon;
+    background-color: white;
+    border-style: solid;
+    border-width: 3px;
+    text-decoration: none;
+  
+    width: 18%;
+    font-size: large;
+    width: 10.4rem;
+    height: 3.7rem;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 0.95rem;
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  vertical-align: auto;
-  font-display: flex;
+.registerPage {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: auto;
+    font-display: flex;
+  
+    border-color:#35C1FD;
+    color: #35C1FD;
+    background-color: white;
+    text-decoration: none;
+  
+    box-sizing: border-box;
 
-  border-color: salmon;
-  color: salmon;
-  background-color: white;
-  border-style: solid;
-  border-width: 3px;
-  text-decoration: none;
+    position: absolute;
+    left: 55.14%;
+    right: 37.22%;
+    top: 67.11%;
+    bottom: 25.67%;
 
-  width: 18%;
-  font-size: large;
-  width: 10.4rem;
-  height: 3.7rem;
-  margin-left: 3%;
-  margin-right: 3%;
-  border-radius: 0.95rem;
+    border: 3px solid #35C1FD;
+
+    border-radius: 1.25rem;/*20px*/
 }
 
