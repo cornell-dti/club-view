@@ -1,0 +1,94 @@
+.Register {
+  position: absolute;
+  right: 17rem;
+  top: 9px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: auto;
+  font-display: flex;
+
+  border-color: salmon;
+  color: salmon;
+  background-color: white;
+  border-style: solid;
+  border-width: 3px;
+  text-decoration: none;
+
+  width: 18%;
+  font-size: large;
+  width: 10.4rem;
+  height: 3.7rem;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-radius: 0.95rem;
+}
+
+.Save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: auto;
+  font-display: flex;
+
+  border-color: #35c1fd;
+  color: #35c1fd;
+  background-color: white;
+  text-decoration: none;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+
+  color: #35c1fd;
+
+  box-sizing: border-box;
+
+  position: absolute;
+  left: 55.14%;
+  right: 37.2%;
+  top: 67.11%;
+  bottom: 25.67%;
+
+  border: 3px solid #35c1fd;
+
+  border-radius: 1.25rem; /*20px*/
+}
+
+.Finish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: auto;
+  font-display: flex;
+
+  border-color: #35c1fd;
+  color: #35c1fd;
+  background-color: white;
+  text-decoration: none;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+
+  color: #35c1fd;
+
+  box-sizing: border-box;
+
+  position: absolute;
+  left: 10.65%;
+  right: 81.71%;
+  top: 51.5%;
+  bottom: 41.5%;
+
+  border: 3px solid #35c1fd;
+
+  border-radius: 1.25rem; /*20px*/
+}
