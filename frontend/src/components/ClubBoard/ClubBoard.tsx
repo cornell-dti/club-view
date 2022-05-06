@@ -18,7 +18,7 @@ const ClubBoard = () => {
     // we should load clubs on mount rather than on render.
 
     // NOTE: this just pulls the data from localhost
-    fetch('http://localhost:8000/clubs')
+    fetch('http://localhost:3000/clubs')
       .then((res) => res.json())
       .then((data) => {
         setOrigClubs(data);

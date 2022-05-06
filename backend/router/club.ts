@@ -3,10 +3,10 @@ import { ClubType, EventType, URLs } from '../types/types';
 import { db } from '../firebase-config/config';
 
 const router = express.Router();
+const clubsCollection = db.collection('clubs');
 
 //Gets all club infrormation
 router.get('/', async (req, res) => {
-  const clubsCollection = db.collection('clubs');
   const clubsSnapshot = await clubsCollection.get();
   const allClubs = clubsSnapshot.docs;
   const clubs: ClubType[] = [];
@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
 
 //Adds a club with req.body
 router.post('/', async (req, res) => {
-  const clubsCollection = await db.collection('clubs');
   const clubsDoc = clubsCollection.doc(req.body.id);
   const club: ClubType = req.body;
   await clubsDoc.set(club);
@@ -57,20 +56,18 @@ router.post('/:id/socials/', async (req, res) => {
 router.post('/edit/:id', async (req, res) => {
   const clubUpdated: ClubType = req.body;
   const clubID = req.body.id;
-  const clubsCollection = db.collection('clubs');
-  const clubDoc = clubsCollection.doc(clubID);
-  const doc = await clubDoc.get();
+  const ref = clubsCollection.doc(clubID);
+  const doc = await ref.get();
   if (!doc.exists) {
     throw new Error('Invalid ID');
   }
-  await clubDoc.set(clubUpdated);
+  await ref.set(clubUpdated);
   res.send(doc);
 });
 
 // Get club events
 router.get('/:id', async (req, res) => {
   const clubID = req.params.id;
-  const clubsCollection = db.collection('clubs');
   const ref = clubsCollection.doc(clubID);
   const doc = await ref.get();
   const events: EventType[] = await doc.get('events');
@@ -80,7 +77,6 @@ router.get('/:id', async (req, res) => {
 // Adds event to club
 router.post('/:id', async (req, res) => {
   const clubID = req.params.id;
-  const clubsCollection = db.collection('clubs');
   const ref = clubsCollection.doc(clubID);
   const doc = await ref.get();
   const events: EventType[] = await doc.get('events');
@@ -91,9 +87,26 @@ router.post('/:id', async (req, res) => {
   res.send(ref);
 });
 
+// Adds image to club
+router.post('/:id/addimage', async (req, res) => {
+  const clubID = req.params.id;
+  const ref = clubsCollection.doc(clubID);
+  const doc = await ref.get();
+  const imageURL = req.body.imageURL;
+  const imagesDoc = await doc.get('images');
+  if (!imagesDoc.exists) {
+    const updatedImages: string[] = [imageURL];
+    await ref.update({ images: updatedImages });
+  } else {
+    const images: string[] = imagesDoc;
+    const updatedImages = [...images, imageURL];
+    await ref.update({ images: updatedImages });
+  }
+  res.send(ref);
+});
+
 router.get('/:id', async (req, res) => {
   const clubId = req.params.id;
-  const clubsCollection = db.collection('clubs');
   const ref = clubsCollection.doc(clubId);
   const doc = await ref.get();
   if (!doc.exists) {

@@ -31,6 +31,7 @@ export type ClubType = {
   description: string;
   url: string;
   status: string;
+  images?: string[];
   openDate?: string;
   closeDate?: string;
   socials: SocialType[];
