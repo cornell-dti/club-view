@@ -3,6 +3,7 @@ import './ClubRegistration.css';
 import Dropdown from './Dropdown/Dropdown';
 import NavBar from '../../components/NavBar/NavBar';
 import Sidebar, { sidebarItems } from './Sidebar/Sidebar';
+import TextInput from './StyledInputs/TextInput/TextInput';
 
 const ClubRegistration = () => {
   // Control the sidebar value to indicate which page we're on (indexed 0-3 in reference to sidebarItems)
@@ -69,15 +70,7 @@ const ClubRegistration = () => {
         </span>
       </div>
       <div className="edit-inputs">
-        <label>
-          Club Name: <br />
-          <input
-            name="clubName"
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
+        <TextInput value={name} onChange={setName} />
 
         <Dropdown callback={setCategory} />
 

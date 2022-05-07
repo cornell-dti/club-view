@@ -15,14 +15,20 @@
   border-radius: 20px;
 }
 
+.edit-photo:hover .photo-click-zone {
+  cursor: pointer;
+  border: 2px dashed #35c1fd;
+}
+
+.edit-photo:hover .photo-caption {
+  color: #35c1fd;
+  cursor: pointer;
+}
+
 .photo-click-zone {
   border: 2px dashed #c7c7c7;
   border-radius: 20px;
   padding: 10px;
-}
-
-.photo-click-zone:hover {
-  cursor: pointer;
 }
 
 .edit-photo {
@@ -38,11 +44,7 @@
   line-height: 19px;
   text-align: center;
   color: #717171;
-}
-
-.photo-caption:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  margin-top: 10px;
 }
 
 .edit-inputs {
@@ -51,8 +53,50 @@
   flex-direction: column;
   gap: 1em;
   padding-left: 3em;
+  width: 100%;
 }
 
 .displayed-page {
   padding-left: 3em;
+  width: calc(100% - 400px);
+}
+
+fieldset.styled-text-input {
+  padding: 10px;
+  border: 1.5px solid #c7c7c7;
+  border-radius: 10px;
+  width: 100%;
+}
+fieldset.styled-text-input:focus-within {
+  padding: 10px;
+  border: 1.5px solid #35c1fd;
+  border-radius: 10px;
+}
+fieldset.styled-text-input:focus-within legend.styled-text-input {
+  color: #35c1fd;
+}
+legend.styled-text-input {
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #717171;
+
+  margin: 0 0px -10px 5px;
+}
+input.styled-text-input {
+  border: 0;
+  border-width: 0px;
+  background-color: transparent;
+  width: 100%;
+}
+input.styled-text-input:focus {
+  outline: none !important;
+  border: 0;
+  border-width: 0px;
 }
