@@ -4,6 +4,7 @@ import Dropdown from './Dropdown/Dropdown';
 import NavBar from '../../components/NavBar/NavBar';
 import Sidebar, { sidebarItems } from './Sidebar/Sidebar';
 import TextInput from './StyledInputs/TextInput/TextInput';
+import TextBox from './StyledInputs/TextBox/TextBox';
 
 const ClubRegistration = () => {
   // Control the sidebar value to indicate which page we're on (indexed 0-3 in reference to sidebarItems)
@@ -74,14 +75,7 @@ const ClubRegistration = () => {
 
         <Dropdown callback={setCategory} />
 
-        <label>
-          Enter a Description of your Club: <br />
-          <textarea
-            name="clubDescr"
-            value={descr}
-            onChange={(event) => setDescr(event.target.value)}
-          />
-        </label>
+        <TextBox value={descr} onChange={setDescr} />
 
         <label>
           Enter a link to your Club Website: <br />
