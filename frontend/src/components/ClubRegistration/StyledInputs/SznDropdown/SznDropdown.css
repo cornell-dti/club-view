@@ -1,13 +1,13 @@
 fieldset.styled-select-input {
   padding: 10px;
   border: 1.5px solid #c7c7c7;
-  border-radius: 10px;
+  border-radius: 20px;
   width: 100%;
 }
 fieldset.styled-select-input:focus-within {
   padding: 10px;
   border: 1.5px solid #35c1fd;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 fieldset.styled-select-input:focus-within legend.styled-select-input {
   color: #35c1fd;
@@ -20,7 +20,7 @@ legend.styled-select-input {
   line-height: 19px;
   /* identical to box height */
 
-  color: #717171;
+  color: #424242;
 
   margin: 0 0px -10px 5px;
 }

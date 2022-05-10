@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import './TextBox.css';
+import './DateSelector.css';
 
 // Required props
 interface RequiredProps {
-  value: string;
-  onChange: any;
+  callback: any;
   title: string;
 }
 
@@ -21,24 +20,32 @@ const defaultProps: OptionalProps = {
   placeholder: '',
 };
 
-const TextBox = (props: Props) => {
+const DateSelector = (props: Props) => {
+  const [value, setValue] = useState('');
+
+  // TODO: once the designers are ready, export the proper calendar icon from figma and put it on the right in the input
+
   return (
     <fieldset className="styled-text-input">
       <legend className="styled-text-input">
         &nbsp;{props.title}&nbsp;
         <br />
       </legend>
-      <textarea
+      <input
         name="clubName"
         className="styled-text-input"
-        value={props.value}
-        onChange={(event) => props.onChange(event.target.value)}
+        type="date"
+        value={value}
+        onChange={(event) => {
+          props.callback(event.target.value);
+          setValue(event.target.value);
+        }}
         placeholder={props.placeholder}
       />
     </fieldset>
   );
 };
 
-TextBox.defaultProps = defaultProps;
+DateSelector.defaultProps = defaultProps;
 
-export default TextBox;
+export default DateSelector;

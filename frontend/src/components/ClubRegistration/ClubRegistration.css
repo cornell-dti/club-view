@@ -66,3 +66,19 @@
 }
 .page-show {
 }
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: calc(100%+58px);
+  margin: 0;
+  gap: 58px;
+}

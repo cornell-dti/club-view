@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
-import './Dropdown.css';
-import { CategoryType } from './categories';
+import './SznDropdown.css';
 
-const Dropdown = ({ callback }: { callback: any }) => {
+// Required props
+interface RequiredProps {
+  options: any;
+  callback: any;
+  title: string;
+}
+
+// Optional props
+interface OptionalProps {}
+
+// Combine required and optional props to build the full prop interface
+interface Props extends RequiredProps, OptionalProps {}
+
+// Use the optional prop interface to define the default props
+const defaultProps: OptionalProps = {};
+
+const Dropdown = (props: Props) => {
   // Helper function to convert the strings in the imported enum to human-readable Title Case so no hard-coding is necessary
   function toTitleCase(str: string) {
     return str.replace(/\w\S*/g, function (txt) {
@@ -13,7 +28,7 @@ const Dropdown = ({ callback }: { callback: any }) => {
   // When a Category selection is made, we call the callback that was passed in to notify the parent component
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setValue(event.target.value);
-    callback(event.target.value);
+    props.callback(event.target.value);
   }
 
   const [value, setValue] = useState('');
@@ -21,7 +36,7 @@ const Dropdown = ({ callback }: { callback: any }) => {
   return (
     <fieldset className="styled-select-input">
       <legend className="styled-select-input">
-        &nbsp;Category&nbsp;
+        &nbsp;{props.title}&nbsp;
         <br />
       </legend>
 
@@ -30,7 +45,7 @@ const Dropdown = ({ callback }: { callback: any }) => {
         value={value}
         onChange={handleChange}
       >
-        {(Object.values(CategoryType) as Array<string>).map((value) => (
+        {(Object.values(props.options) as Array<string>).map((value) => (
           <option value={value}> {toTitleCase(value)} </option>
         ))}
       </select>

@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import './ClubRegistration.css';
-import Dropdown from './Dropdown/Dropdown';
 import NavBar from '../../components/NavBar/NavBar';
 import Sidebar, { sidebarItems } from './Sidebar/Sidebar';
 import TextInput from './StyledInputs/TextInput/TextInput';
 import TextBox from './StyledInputs/TextBox/TextBox';
 import TagSelector from './StyledInputs/TagSelector/TagSelector';
 import LinkSelector from './StyledInputs/LinkSelector/LinkSelector';
+import SznDropdown from './StyledInputs/SznDropdown/SznDropdown';
+
+import { Seasons } from './Dropdown/seasons';
+import { CategoryType } from './Dropdown/categories';
+import DateSelector from './StyledInputs/DateSelector/DateSelector';
 
 const ClubRegistration = () => {
   // Control the sidebar value to indicate which page we're on (indexed 0-3 in reference to sidebarItems)
@@ -22,6 +26,8 @@ const ClubRegistration = () => {
   const [closeDate, setCloseDate] = useState('');
   const [tags, setTags] = useState<string[]>([]);
   const [links, setLinks] = useState<string[]>([]);
+  const [message, setMessage] = useState('');
+  const [season, setSeason] = useState('');
 
   const [photoURL, setPhotoURL] = useState(
     'https://yt3.ggpht.com/bbfIGY1xoj_-qDTcA5mQKTCeSXwHHhxePgUidXFF150w9dqUoVTST58aQDEr-VwjNXsDCRaosQ=s900-c-k-c0x00ffffff-no-rj'
@@ -75,11 +81,15 @@ const ClubRegistration = () => {
         </span>
       </div>
       <div className="edit-inputs">
-        <TextInput value={name} onChange={setName} />
+        <TextInput title={'Club Name'} value={name} onChange={setName} />
 
-        <Dropdown callback={setCategory} />
+        <SznDropdown
+          title={'Category'}
+          callback={setCategory}
+          options={CategoryType}
+        />
 
-        <TextBox value={descr} onChange={setDescr} />
+        <TextBox title={'Club Description'} value={descr} onChange={setDescr} />
 
         <TagSelector callback={setTags} />
 
@@ -90,35 +100,28 @@ const ClubRegistration = () => {
   // 1: Recruitment page
   pages.push(
     <form className="registration">
-      <label>
-        Application Link: <br />
-        <input
-          name="clubURL"
-          type="text"
-          value={URL}
-          onChange={(event) => setURL(event.target.value)}
-        />
-      </label>
+      <SznDropdown
+        callback={setSeason}
+        options={Seasons}
+        title={'Recruitment Season'}
+      />
+      <div className="row">
+        <DateSelector title={'Recruitment Start Date'} callback={setOpenDate} />
+        <DateSelector title={'Recruitment End Date'} callback={setCloseDate} />
+      </div>
+      <TextInput
+        title={'Application Link'}
+        value={URL}
+        onChange={setURL}
+        placeholder={'Add a link so that people can easily apply!'}
+      />
 
-      <label>
-        Enter the Opening Date: <br />
-        <input
-          name="clubOpenDate"
-          type="date"
-          value={openDate}
-          onChange={(event) => setOpenDate(event.target.value)}
-        />
-      </label>
-
-      <label>
-        Enter the Closing Date: <br />
-        <input
-          name="clubCloseDate"
-          type="date"
-          value={closeDate}
-          onChange={(event) => setCloseDate(event.target.value)}
-        />
-      </label>
+      <TextBox
+        title={'Add a Message'}
+        value={message}
+        onChange={setMessage}
+        placeholder={'Begin writing out a personalized message here!'}
+      />
     </form>
   );
   // 2: Description page

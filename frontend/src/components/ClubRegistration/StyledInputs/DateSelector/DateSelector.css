@@ -52,3 +52,8 @@ input.styled-text-input::placeholder {
 
   color: #888888;
 }
+
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}

@@ -5,22 +5,27 @@ import './TextInput.css';
 interface RequiredProps {
   value: string;
   onChange: any;
+  title: string;
 }
 
 // Optional props
-interface OptionalProps {}
+interface OptionalProps {
+  placeholder: string;
+}
 
 // Combine required and optional props to build the full prop interface
 interface Props extends RequiredProps, OptionalProps {}
 
 // Use the optional prop interface to define the default props
-const defaultProps: OptionalProps = {};
+const defaultProps: OptionalProps = {
+  placeholder: '',
+};
 
 const TextInput = (props: Props) => {
   return (
     <fieldset className="styled-text-input">
       <legend className="styled-text-input">
-        &nbsp;Club Name&nbsp;
+        &nbsp;{props.title}&nbsp;
         <br />
       </legend>
       <input
@@ -29,6 +34,7 @@ const TextInput = (props: Props) => {
         type="text"
         value={props.value}
         onChange={(event) => props.onChange(event.target.value)}
+        placeholder={props.placeholder}
       />
     </fieldset>
   );
