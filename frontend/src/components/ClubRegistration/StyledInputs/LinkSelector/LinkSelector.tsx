@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import './TagSelector.css';
+import './LinkSelector.css';
 
 // TODO: once the designers have their designs finalized, we can add the final exported icons
 // for the search and "X" icons and stuff to this component as well
@@ -18,7 +18,7 @@ interface Props extends RequiredProps, OptionalProps {}
 // Use the optional prop interface to define the default props
 const defaultProps: OptionalProps = {};
 
-const TagSelector = (props: Props) => {
+const LinkSelector = (props: Props) => {
   const [currentTags, setCurrentTags] = useState<string[]>([]);
   const [searchPhrase, setSearchPhrase] = useState('');
 
@@ -54,33 +54,19 @@ const TagSelector = (props: Props) => {
   return (
     <fieldset className="styled-tag-input">
       <legend className="styled-tag-input">
-        &nbsp;Tags&nbsp;
+        &nbsp;Links&nbsp;
         <br />
       </legend>
-      <div className="tag-zone">
-        {currentTags.map((tagStr) => (
-          <button
-            className="tag-bubble"
-            onClick={(e) => {
-              e.preventDefault();
-              removeTag(tagStr);
-            }}
-          >
-            {tagStr}
-          </button>
-        ))}
-      </div>
-      <p className="tag-notice">Up to 5 Tags</p>
+
       <input
-        placeholder="Search Clubs"
+        placeholder="Paste a Link and Hit Enter"
         type="text"
         className="tag-search-bar"
         value={searchPhrase}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           console.log('testing change!');
           setSearchPhrase(event.target.value);
-          // TODO: display other tags they could select from a dropdown; arrow keys should indicate which one is selected; on click or on "enter key" the current top (or other) selected option should be entered; if no such options, the current custom string should be entered as a tag
-          // ideally, once this is implemented we can get rid of the current implementation of onKeyPress below, which will (for testing purposes) simply enter whatever the user typed and presses enter as the new tag
+          // TODO: this entire input should be replaced by...whatever the designers are thinking (apparently just a button, which will probably open a modal or something ?)
         }}
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
@@ -90,10 +76,42 @@ const TagSelector = (props: Props) => {
           }
         }}
       />
+
+      <div className="tag-zone">
+        {currentTags.map(
+          (
+            tagStr,
+            index // TODO: based on what the link is, we should also conditionally render an appropriate icon (insta, fb, etc)
+          ) => (
+            <div
+              className={
+                index !== currentTags.length - 1 ? 'link-row' : 'last-link-row'
+              }
+            >
+              <div className="link-space">{tagStr}</div>
+              <button
+                className="close-space"
+                onClick={(e) => {
+                  e.preventDefault();
+                  removeTag(tagStr);
+                }}
+              >
+                X
+              </button>
+            </div>
+          )
+        )}
+      </div>
+
+      <div className="center">
+        <button className="add-link-btn">Add Link</button>
+      </div>
+
+      <p className="tag-notice">Up to 6 Tags</p>
     </fieldset>
   );
 };
 
-TagSelector.defaultProps = defaultProps;
+LinkSelector.defaultProps = defaultProps;
 
-export default TagSelector;
+export default LinkSelector;

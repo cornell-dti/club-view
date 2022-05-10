@@ -83,16 +83,6 @@ const ClubRegistration = () => {
 
         <TagSelector callback={setTags} />
 
-        <label>
-          Enter a link to your Club Website: <br />
-          <input
-            name="clubURL"
-            type="text"
-            value={URL}
-            onChange={(event) => setURL(event.target.value)}
-          />
-        </label>
-
         <LinkSelector callback={setLinks} />
       </div>
     </form>
@@ -100,6 +90,16 @@ const ClubRegistration = () => {
   // 1: Recruitment page
   pages.push(
     <form className="registration">
+      <label>
+        Application Link: <br />
+        <input
+          name="clubURL"
+          type="text"
+          value={URL}
+          onChange={(event) => setURL(event.target.value)}
+        />
+      </label>
+
       <label>
         Enter the Opening Date: <br />
         <input
