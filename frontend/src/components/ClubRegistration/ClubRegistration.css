@@ -60,3 +60,9 @@
   padding-left: 3em;
   width: calc(100% - 400px);
 }
+
+.page-hide {
+  display: none;
+}
+.page-show {
+}

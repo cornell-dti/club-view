@@ -5,6 +5,8 @@ import NavBar from '../../components/NavBar/NavBar';
 import Sidebar, { sidebarItems } from './Sidebar/Sidebar';
 import TextInput from './StyledInputs/TextInput/TextInput';
 import TextBox from './StyledInputs/TextBox/TextBox';
+import TagSelector from './StyledInputs/TagSelector/TagSelector';
+import LinkSelector from './StyledInputs/LinkSelector/LinkSelector';
 
 const ClubRegistration = () => {
   // Control the sidebar value to indicate which page we're on (indexed 0-3 in reference to sidebarItems)
@@ -18,6 +20,8 @@ const ClubRegistration = () => {
   const [URL, setURL] = useState('');
   const [openDate, setOpenDate] = useState('');
   const [closeDate, setCloseDate] = useState('');
+  const [tags, setTags] = useState<string[]>([]);
+  const [links, setLinks] = useState<string[]>([]);
 
   const [photoURL, setPhotoURL] = useState(
     'https://yt3.ggpht.com/bbfIGY1xoj_-qDTcA5mQKTCeSXwHHhxePgUidXFF150w9dqUoVTST58aQDEr-VwjNXsDCRaosQ=s900-c-k-c0x00ffffff-no-rj'
@@ -77,6 +81,8 @@ const ClubRegistration = () => {
 
         <TextBox value={descr} onChange={setDescr} />
 
+        <TagSelector callback={setTags} />
+
         <label>
           Enter a link to your Club Website: <br />
           <input
@@ -86,6 +92,8 @@ const ClubRegistration = () => {
             onChange={(event) => setURL(event.target.value)}
           />
         </label>
+
+        <LinkSelector callback={setLinks} />
       </div>
     </form>
   );
@@ -123,7 +131,15 @@ const ClubRegistration = () => {
       <NavBar hasSearch={false} />
       <div className="page-container">
         <Sidebar currentItem={currentDisplay} callback={changeDisplayedPage} />
-        <div className="displayed-page">{pages[currentDisplay]}</div>
+        <div className="displayed-page">
+          {pages.map((element, index) => (
+            <div
+              className={currentDisplay === index ? 'page-show' : 'page-hide'}
+            >
+              {element}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
