@@ -1,0 +1,21 @@
+input {
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  border: 5px solid black;
+}
+
+label.checked {
+  color: #442244;
+}
+
+label.unchecked {
+  color: #c7c7c7;
+}
+
+span.check-title {
+  margin-left: 10px;
+}

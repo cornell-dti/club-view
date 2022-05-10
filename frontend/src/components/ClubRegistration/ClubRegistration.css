@@ -82,3 +82,19 @@ select:focus {
   margin: 0;
   gap: 58px;
 }
+
+.recruitPage-greyAll * {
+  color: #c7c7c7 !important;
+}
+
+.recruitPage {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.recruitPage-greyAll {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

@@ -9,13 +9,17 @@ interface RequiredProps {
 }
 
 // Optional props
-interface OptionalProps {}
+interface OptionalProps {
+  disabled: boolean;
+}
 
 // Combine required and optional props to build the full prop interface
 interface Props extends RequiredProps, OptionalProps {}
 
 // Use the optional prop interface to define the default props
-const defaultProps: OptionalProps = {};
+const defaultProps: OptionalProps = {
+  disabled: false,
+};
 
 const Dropdown = (props: Props) => {
   // Helper function to convert the strings in the imported enum to human-readable Title Case so no hard-coding is necessary
@@ -34,7 +38,7 @@ const Dropdown = (props: Props) => {
   const [value, setValue] = useState('');
 
   return (
-    <fieldset className="styled-select-input">
+    <fieldset className="styled-select-input" disabled={props.disabled}>
       <legend className="styled-select-input">
         &nbsp;{props.title}&nbsp;
         <br />
@@ -52,5 +56,7 @@ const Dropdown = (props: Props) => {
     </fieldset>
   );
 };
+
+Dropdown.defaultProps = defaultProps;
 
 export default Dropdown;

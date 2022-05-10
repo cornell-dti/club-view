@@ -11,6 +11,7 @@ import SznDropdown from './StyledInputs/SznDropdown/SznDropdown';
 import { Seasons } from './Dropdown/seasons';
 import { CategoryType } from './Dropdown/categories';
 import DateSelector from './StyledInputs/DateSelector/DateSelector';
+import Checkbox from './StyledInputs/Checkbox/Checkbox';
 
 const ClubRegistration = () => {
   // Control the sidebar value to indicate which page we're on (indexed 0-3 in reference to sidebarItems)
@@ -28,6 +29,7 @@ const ClubRegistration = () => {
   const [links, setLinks] = useState<string[]>([]);
   const [message, setMessage] = useState('');
   const [season, setSeason] = useState('');
+  const [recruitDisabled, setRecruitDisabled] = useState(false); //by default, not disabled
 
   const [photoURL, setPhotoURL] = useState(
     'https://yt3.ggpht.com/bbfIGY1xoj_-qDTcA5mQKTCeSXwHHhxePgUidXFF150w9dqUoVTST58aQDEr-VwjNXsDCRaosQ=s900-c-k-c0x00ffffff-no-rj'
@@ -100,28 +102,49 @@ const ClubRegistration = () => {
   // 1: Recruitment page
   pages.push(
     <form className="registration">
-      <SznDropdown
-        callback={setSeason}
-        options={Seasons}
-        title={'Recruitment Season'}
-      />
-      <div className="row">
-        <DateSelector title={'Recruitment Start Date'} callback={setOpenDate} />
-        <DateSelector title={'Recruitment End Date'} callback={setCloseDate} />
-      </div>
-      <TextInput
-        title={'Application Link'}
-        value={URL}
-        onChange={setURL}
-        placeholder={'Add a link so that people can easily apply!'}
+      <Checkbox
+        title={'Disable Recruitment Banner'}
+        value={recruitDisabled}
+        onChange={setRecruitDisabled}
       />
 
-      <TextBox
-        title={'Add a Message'}
-        value={message}
-        onChange={setMessage}
-        placeholder={'Begin writing out a personalized message here!'}
-      />
+      <div className={recruitDisabled ? 'recruitPage-greyAll' : 'recruitPage'}>
+        <SznDropdown
+          callback={setSeason}
+          options={Seasons}
+          title={'Recruitment Season'}
+          disabled={recruitDisabled}
+        />
+
+        <div className="row">
+          <DateSelector
+            title={'Recruitment Start Date'}
+            callback={setOpenDate}
+            disabled={recruitDisabled}
+          />
+          <DateSelector
+            title={'Recruitment End Date'}
+            callback={setCloseDate}
+            disabled={recruitDisabled}
+          />
+        </div>
+
+        <TextInput
+          title={'Application Link'}
+          value={URL}
+          onChange={setURL}
+          placeholder={'Add a link so that people can easily apply!'}
+          disabled={recruitDisabled}
+        />
+
+        <TextBox
+          title={'Add a Message'}
+          value={message}
+          onChange={setMessage}
+          placeholder={'Begin writing out a personalized message here!'}
+          disabled={recruitDisabled}
+        />
+      </div>
     </form>
   );
   // 2: Description page

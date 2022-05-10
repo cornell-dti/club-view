@@ -11,6 +11,7 @@ interface RequiredProps {
 // Optional props
 interface OptionalProps {
   placeholder: string;
+  disabled: boolean;
 }
 
 // Combine required and optional props to build the full prop interface
@@ -19,11 +20,12 @@ interface Props extends RequiredProps, OptionalProps {}
 // Use the optional prop interface to define the default props
 const defaultProps: OptionalProps = {
   placeholder: '',
+  disabled: false,
 };
 
 const TextBox = (props: Props) => {
   return (
-    <fieldset className="styled-text-input">
+    <fieldset className="styled-text-input" disabled={props.disabled}>
       <legend className="styled-text-input">
         &nbsp;{props.title}&nbsp;
         <br />

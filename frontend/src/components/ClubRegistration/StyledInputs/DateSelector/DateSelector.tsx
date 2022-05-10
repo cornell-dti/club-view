@@ -10,6 +10,7 @@ interface RequiredProps {
 // Optional props
 interface OptionalProps {
   placeholder: string;
+  disabled: boolean;
 }
 
 // Combine required and optional props to build the full prop interface
@@ -18,6 +19,7 @@ interface Props extends RequiredProps, OptionalProps {}
 // Use the optional prop interface to define the default props
 const defaultProps: OptionalProps = {
   placeholder: '',
+  disabled: false,
 };
 
 const DateSelector = (props: Props) => {
@@ -26,7 +28,7 @@ const DateSelector = (props: Props) => {
   // TODO: once the designers are ready, export the proper calendar icon from figma and put it on the right in the input
 
   return (
-    <fieldset className="styled-text-input">
+    <fieldset className="styled-text-input" disabled={props.disabled}>
       <legend className="styled-text-input">
         &nbsp;{props.title}&nbsp;
         <br />
