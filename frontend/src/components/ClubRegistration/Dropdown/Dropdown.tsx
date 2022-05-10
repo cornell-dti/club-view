@@ -19,14 +19,22 @@ const Dropdown = ({ callback }: { callback: any }) => {
   const [value, setValue] = useState('');
 
   return (
-    <label>
-      Select a Club Category <br />
-      <select value={value} onChange={handleChange}>
+    <fieldset className="styled-select-input">
+      <legend className="styled-select-input">
+        &nbsp;Category&nbsp;
+        <br />
+      </legend>
+
+      <select
+        className="styled-select-input"
+        value={value}
+        onChange={handleChange}
+      >
         {(Object.values(CategoryType) as Array<string>).map((value) => (
           <option value={value}> {toTitleCase(value)} </option>
         ))}
       </select>
-    </label>
+    </fieldset>
   );
 };
 
