@@ -29,7 +29,6 @@ const TagSelector = (props: Props) => {
     // we append the tag to the end of the array
     // and pass it to props.onChange to handle
 
-    console.log('adding tag: ' + tag);
     if (!currentTags.includes(tag) && currentTags.length < 5) {
       let newArr = currentTags.slice(0);
       newArr.push(tag);
@@ -43,7 +42,6 @@ const TagSelector = (props: Props) => {
     // TODO
     // remove the element in props.value matching tag from props.value
     // and pass it to props.onChange to handle
-    console.log('removing tag: ' + tag);
 
     let newArr = currentTags.filter((element) => element !== tag);
 
@@ -77,7 +75,6 @@ const TagSelector = (props: Props) => {
         className="tag-search-bar"
         value={searchPhrase}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          console.log('testing change!');
           setSearchPhrase(event.target.value);
           // TODO: display other tags they could select from a dropdown; arrow keys should indicate which one is selected; on click or on "enter key" the current top (or other) selected option should be entered; if no such options, the current custom string should be entered as a tag
           // ideally, once this is implemented we can get rid of the current implementation of onKeyPress below, which will (for testing purposes) simply enter whatever the user typed and presses enter as the new tag
@@ -85,7 +82,6 @@ const TagSelector = (props: Props) => {
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
-            console.log('entered test mode');
             addTag(searchPhrase);
           }
         }}

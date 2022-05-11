@@ -6,7 +6,7 @@ import TextInput from './StyledInputs/TextInput/TextInput';
 import TextBox from './StyledInputs/TextBox/TextBox';
 import TagSelector from './StyledInputs/TagSelector/TagSelector';
 import LinkSelector from './StyledInputs/LinkSelector/LinkSelector';
-import SznDropdown from './StyledInputs/SznDropdown/SznDropdown';
+import SznDropdown from './StyledInputs/SznDropdown/Dropdown';
 
 import { Seasons } from './Dropdown/seasons';
 import { CategoryType } from './Dropdown/categories';

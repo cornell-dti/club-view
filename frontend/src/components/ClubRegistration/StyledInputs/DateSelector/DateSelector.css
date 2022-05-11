@@ -1,18 +1,18 @@
-fieldset.styled-text-input {
+fieldset.styled-date-input {
   padding: 10px;
   border: 1.5px solid #c7c7c7;
   border-radius: 20px;
   width: 100%;
 }
-fieldset.styled-text-input:focus-within {
+fieldset.styled-date-input:focus-within {
   padding: 10px;
   border: 1.5px solid #35c1fd;
   border-radius: 20px;
 }
-fieldset.styled-text-input:focus-within legend.styled-text-input {
+fieldset.styled-date-input:focus-within legend.styled-date-input {
   color: #35c1fd;
 }
-legend.styled-text-input {
+legend.styled-date-input {
   font-family: 'SF Pro Rounded';
   font-style: normal;
   font-weight: 400;
@@ -24,7 +24,7 @@ legend.styled-text-input {
 
   margin: 0 0px -10px 5px;
 }
-input.styled-text-input {
+input.styled-date-input {
   border: 0;
   border-width: 0px;
   background-color: transparent;
@@ -36,13 +36,13 @@ input.styled-text-input {
   font-size: 24px;
   line-height: 29px;
 }
-input.styled-text-input:focus {
+input.styled-date-input:focus {
   outline: none !important;
   border: 0;
   border-width: 0px;
 }
 
-input.styled-text-input::placeholder {
+input.styled-date-input::placeholder {
   font-family: 'SF Pro Rounded';
   font-style: normal;
   font-weight: 400;

@@ -1,18 +1,18 @@
-fieldset.styled-tag-input {
+fieldset.styled-link-input {
   padding: 10px;
   border: 1.5px solid #c7c7c7;
   border-radius: 20px;
   width: 100%;
 }
-fieldset.styled-tag-input:focus-within {
+fieldset.styled-link-input:focus-within {
   padding: 10px;
   border: 1.5px solid #35c1fd;
   border-radius: 20px;
 }
-fieldset.styled-tag-input:focus-within legend.styled-tag-input {
+fieldset.styled-link-input:focus-within legend.styled-link-input {
   color: #35c1fd;
 }
-legend.styled-tag-input {
+legend.styled-link-input {
   font-family: 'SF Pro Rounded';
   font-style: normal;
   font-weight: 400;
@@ -24,7 +24,7 @@ legend.styled-tag-input {
 
   margin: 0 0px -10px 5px;
 }
-input.tag-search-bar {
+input.link-search-bar {
   border: 1px solid #c7c7c7;
   border-radius: 20px;
   height: 35px;
@@ -38,13 +38,13 @@ input.tag-search-bar {
   line-height: 21px;
   margin: 16px;
 }
-input.styled-tag-input:focus {
+input.styled-link-input:focus {
   outline: none !important;
   border: 0;
   border-width: 0px;
 }
 
-button.tag-bubble {
+button.link-bubble {
   display: inline-block;
   background-color: rgba(255, 112, 98, 0.1);
   justify-content: center;
@@ -63,11 +63,11 @@ button.tag-bubble {
   margin: 5px;
 }
 
-button.tag-bubble:hover {
+button.link-bubble:hover {
   background-color: rgba(255, 112, 98, 0.2);
 }
 
-p.tag-notice {
+p.link-notice {
   width: 100%;
   font-family: 'SF Pro Rounded';
   font-style: normal;

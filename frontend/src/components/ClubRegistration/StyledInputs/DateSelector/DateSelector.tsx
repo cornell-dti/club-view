@@ -28,14 +28,14 @@ const DateSelector = (props: Props) => {
   // TODO: once the designers are ready, export the proper calendar icon from figma and put it on the right in the input
 
   return (
-    <fieldset className="styled-text-input" disabled={props.disabled}>
-      <legend className="styled-text-input">
+    <fieldset className="styled-date-input" disabled={props.disabled}>
+      <legend className="styled-date-input">
         &nbsp;{props.title}&nbsp;
         <br />
       </legend>
       <input
         name="clubName"
-        className="styled-text-input"
+        className="styled-date-input"
         type="date"
         value={value}
         onChange={(event) => {

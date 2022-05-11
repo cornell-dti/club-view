@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SznDropdown.css';
+import './Dropdown.css';
 
 // Required props
 interface RequiredProps {
