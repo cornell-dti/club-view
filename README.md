@@ -1,10 +1,15 @@
 # Welcome to Club-View!
 
-## How to get started
+## To setup this repository:
 
 Clone this repository, preferably using [ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
 Then, cd into it and run `npm run init:setup`.
+
+## How to run the repository (after already setting it up):
+
+(Optionally) run `npm run install:all`,
+then run `npm run start:all`.
 
 ## Contributors:
 
