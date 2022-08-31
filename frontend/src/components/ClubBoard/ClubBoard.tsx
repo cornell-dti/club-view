@@ -226,15 +226,7 @@ const ClubBoard = () => {
           {clubArray.length === 0 ? (
             <></>
           ) : (
-            clubArray.map((club) => (
-              <>
-                <ClubCard
-                  clubName={club.name}
-                  clubCategory={club.category}
-                  clubID={club.id}
-                />
-              </>
-            ))
+            clubArray.map((club) => <ClubCard {...club} />)
           )}
         </div>
         <div className="filterContainer">

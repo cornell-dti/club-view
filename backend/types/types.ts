@@ -29,6 +29,7 @@ export type ClubType = {
   category: CategoryType;
   email: string;
   description: string;
+  url: string;
   status: string;
   openDate?: string;
   closeDate?: string;
@@ -53,13 +54,6 @@ export type EventType = {
   endTime: string;
   location: string;
 };
-
-export enum StatusType {
-  OPEN = 'open',
-  CLOSED = 'closed',
-  APPROACHING = 'approaching',
-  PUBLIC = 'public', //always open
-}
 
 export enum CategoryType {
   ACADEMIC = 'academic',
