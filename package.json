@@ -9,22 +9,16 @@
   ],
   "scripts": {
     "init:setup": "cd frontend && npm install -D eslint-config-react-app && cd .. && npm run install:all && npm run start:all",
-    
     "install:all": "npm run install:frontend && npm run install:backend",
     "start:all": "npm run start:frontend && npm run start:backend",
     "build:all": "npm run build:frontend && npm run build:backend",
-    
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "start:frontend": "npm run start --workspace=frontend",
     "start:backend": "npm run start --workspace=backend",
-
     "build:frontend": "npm run build --workspace=frontend",
     "build:backend": "npm run tsc --workspace=backend",
-
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
-
     "quiet-lint": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix --quiet",
     "lint": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
     "format": "prettier --write \"**/*.{ts,js,tsx,jsx,css}\"",
@@ -44,6 +38,9 @@
   },
   "homepage": "https://github.com/cornell-dti/club-view#readme",
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.10.2",
     "concurrently": "^6.4.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-promise": "^5.1.1",
