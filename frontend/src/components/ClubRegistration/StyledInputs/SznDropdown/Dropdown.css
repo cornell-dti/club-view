@@ -1,0 +1,49 @@
+fieldset.styled-select-input {
+  padding: 10px;
+  border: 1.5px solid #c7c7c7;
+  border-radius: 20px;
+  width: 100%;
+}
+fieldset.styled-select-input:focus-within {
+  padding: 10px;
+  border: 1.5px solid #35c1fd;
+  border-radius: 20px;
+}
+fieldset.styled-select-input:focus-within legend.styled-select-input {
+  color: #35c1fd;
+}
+legend.styled-select-input {
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  color: #424242;
+
+  margin: 0 0px -10px 5px;
+}
+input.styled-select-input {
+  border: 0;
+  border-width: 0px;
+  background-color: transparent;
+  width: 100%;
+}
+input.styled-select-input:focus {
+  outline: none !important;
+  border: 0;
+  border-width: 0px;
+}
+
+select.styled-select-input {
+  background-color: white;
+  border: none;
+  width: 100%;
+
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}

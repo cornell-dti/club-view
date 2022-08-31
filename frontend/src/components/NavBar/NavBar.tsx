@@ -58,7 +58,7 @@ const NavBar = (props: Props) => {
           Register Club
         </Link>
 
-        <div className="profileButton">
+        <div>
           <ProfileButton />
         </div>
       </div>

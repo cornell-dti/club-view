@@ -1,0 +1,84 @@
+fieldset.styled-tag-input {
+  padding: 10px;
+  border: 1.5px solid #c7c7c7;
+  border-radius: 20px;
+  width: 100%;
+}
+fieldset.styled-tag-input:focus-within {
+  padding: 10px;
+  border: 1.5px solid #35c1fd;
+  border-radius: 20px;
+}
+fieldset.styled-tag-input:focus-within legend.styled-tag-input {
+  color: #35c1fd;
+}
+legend.styled-tag-input {
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  color: #717171;
+
+  margin: 0 0px -10px 5px;
+}
+input.tag-search-bar {
+  border: 1px solid #c7c7c7;
+  border-radius: 20px;
+  height: 35px;
+
+  width: calc(100% - 44px);
+  padding-left: 15px;
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  margin: 16px;
+}
+input.styled-tag-input:focus {
+  outline: none !important;
+  border: 0;
+  border-width: 0px;
+}
+
+button.tag-bubble {
+  display: inline-block;
+  background-color: rgba(255, 112, 98, 0.1);
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.03em;
+
+  color: #424242;
+  padding: 6px 30px 6px 18px;
+  border-radius: 100px;
+  margin: 5px;
+}
+
+button.tag-bubble:hover {
+  background-color: rgba(255, 112, 98, 0.2);
+}
+
+p.tag-notice {
+  width: 100%;
+  font-family: 'SF Pro Rounded';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #717171;
+  text-align: right;
+
+  margin: 0;
+  padding: 0;
+}
