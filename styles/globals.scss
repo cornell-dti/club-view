@@ -1,0 +1,32 @@
+// TODO: implement in scss styling for entire app
+// https://nextjs.org/docs/basic-features/built-in-css-support#sass-support
+
+// Consider switchable themes
+// https://www.rapiddg.com/article/switchable-color-schemes-sass
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
