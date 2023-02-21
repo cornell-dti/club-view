@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+import React from 'react';
+import { useState } from 'react';
+import './InfoPage.css';
+import NavBar from '../../components/NavBar/NavBar';
+import LinkModal from '../Modals/LinkModal';
+
+const InfoPage = () => {
+  const [showLinkModal, setShowLinkModal] = useState(false);
+=======
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './InfoPage.css';
@@ -46,12 +56,26 @@ const InfoPage = () => {
   // .then(data => { // just added
   //   //   setClub(data);
   //   // }) // attempt
+>>>>>>> d4af5c9274b351eda07e727c51337816742ceedc
   return (
     <>
       <NavBar hasSearch={false} />
       <div className="container">
         <div className="clubOuterContainer">
           <div className="clubContainer">
+<<<<<<< HEAD
+            <div className="profile"></div>
+            <div className="name"></div>
+            <div className="categories"></div>
+            <div className="socials"></div>
+            <button onClick={() => setShowLinkModal(true)}>Add Link</button>
+
+            {/* Feel free to delete*/}
+            <LinkModal
+              show={showLinkModal}
+              onClose={() => setShowLinkModal(false)}
+            />
+=======
             <div className="profile">
               <Favorites clubCard={false} />
             </div>
@@ -82,6 +106,7 @@ const InfoPage = () => {
                 <FaEnvelope /> LISTSERV
               </button>
             </div>
+>>>>>>> d4af5c9274b351eda07e727c51337816742ceedc
           </div>
         </div>
         <div className="infoContainer">
